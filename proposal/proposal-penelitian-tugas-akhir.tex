@@ -1,4 +1,4 @@
-% Laporan Tugas Akhir
+% Proposal Skripsi
 % Muhammad Ghazali - 0606036
 \documentclass[a4paper, 12pt]{report}
 \usepackage{graphicx, times}
@@ -7,7 +7,7 @@
 
 \selectlanguage{bahasa}
 %Gummi|063|=)
-\title{\textbf{Web API CampusLife Berbasis REST untuk Menyediakan Layanan Permintaan Data}}
+\title{\textbf{Web API berbasis REST dengan menggunakan JSON sebagai format serialisasi data untuk meningkatkan efisiensi konsumsi data oleh aplikasi mobile CampusLife}}
 \author{
 Muhammad Ghazali\\
 Program Studi Teknik Informatika\\
@@ -40,7 +40,7 @@ Abstract lorem ipsum is simply dummy text of the printing and typesetting indust
 \section*{Latar Belakang dan Masalah}
 \addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-CampusLife adalah mobile information directory application yang dikembangkan oleh LayangLayang Mobile untuk menyediakan informasi yang relevan kepada civitas kampus. Untuk memenuhi kebutuhan penyediaan informasi kepada setiap penggunanya, maka LayangLayang Mobile perlu membuat Web API untuk membuka akses data agar setiap aplikasi CampusLife bisa menampilkan informasi yang dibutuhkan oleh penggunanya.
+CampusLife adalah mobile information directory application yang dikembangkan oleh LayangLayang Mobile untuk menyediakan informasi yang relevan kepada civitas kampus. Untuk memenuhi kebutuhan penyediaan informasi kepada setiap penggunanya, maka LayangLayang Mobile perlu membuat Web API untuk membuka akses data agar aplikasi CampusLife bisa menampilkan informasi yang dibutuhkan oleh penggunanya.
 
 % menjelaskan metode - metode yang ada
 Semenjak tahun 2005, ProgrammbleWeb\footnote{Public API directory http://www.programmableweb.com/} sudah melacak public web service yang berbasiskan REST dan SOAP dengan total persentase masing - masing untuk REST sebesar 69\% dan SOAP 22\%. Ini menunjukkan implementasi Web API berbasiskan REST jauh lebih populer dibandingkan SOAP.\cite{programmableweb-apis}
@@ -65,8 +65,9 @@ Masalah yang akan diangkat dalam penelitian ini adalah:
 \addcontentsline{toc}{subsection}{Batasan Masalah}
 \begin{flushleft}
 \begin{itemize}
-  \item Tidak membahas mengenai keamanan web service
-  \item Pengembangan perangkat lunak menggunakan sebagian Scrum practice
+  \item Tidak membahas mengenai keamanan web service.
+  \item Pengembangan perangkat lunak menggunakan sebagian praktek dari Scrum dan tidak akan membahas Scrum secara komprehensif.
+  \item Pengembangkan Web API hanya meliputi operasi CRUD (Create Read Update Delete) untuk resource Event.
 \end{itemize}
 \end{flushleft}
 

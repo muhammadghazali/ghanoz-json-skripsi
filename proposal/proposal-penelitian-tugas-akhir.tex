@@ -43,16 +43,15 @@ Universitas Widyatama
 \section*{Latar Belakang dan Masalah}
 \addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing CampusLife adalah mobile information directory application yang dikembangkan oleh LayangLayang Mobile untuk menyediakan informasi yang relevan kepada civitas kampus. Untuk memenuhi kebutuhan penyediaan informasi kepada setiap penggunanya, maka LayangLayang Mobile perlu membuat Web API untuk membuka akses data agar aplikasi CampusLife bisa menampilkan informasi yang dibutuhkan oleh penggunanya.
+\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{http://layanglayangmobile.com} untuk menyediakan informasi yang relevan kepada civitas kampus. Untuk memenuhi kebutuhan penyediaan informasi kepada setiap penggunanya, maka LayangLayang Mobile perlu membangun Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} untuk membuka akses data agar aplikasi CampusLife bisa menampilkan informasi relevan yang dibutuhkan oleh penggunanya.
 
 % menjelaskan metode - metode yang ada
-\onehalfspacing Semenjak tahun 2005, ProgrammbleWeb\footnote{Public API directory http://www.programmableweb.com/} sudah melacak public web service yang berbasiskan REST dan SOAP dengan total persentase masing - masing untuk REST sebesar 69\% dan SOAP 22\%. Ini menunjukkan implementasi Web API berbasiskan REST jauh lebih populer dibandingkan SOAP.\cite{programmableweb-apis}
+\onehalfspacing Semenjak tahun 2005, ProgrammbleWeb\footnote{Public API directory http://www.programmableweb.com} sudah melacak public web service yang berbasiskan REST dan SOAP dengan total persentase masing - masing untuk REST sebesar 69\% dan SOAP 22\%. Ini menunjukkan implementasi Web API berbasiskan REST jauh lebih populer dibandingkan SOAP.\cite{programmableweb-apis}
 
-% menjelaskan kelebihan REST dibandingkan dengan SOAP
-\onehalfspacing Salah satu alasan REST telah disukai di Web adalah aksesibilitas klien dan tantangan terbesar dalam implementasi web service berbasiskan REST adalah disertasi yang dibuat oleh Roy Fielding hanya menjelaskan kumpulan pembatas (constraint), dan tidak menentukan skema URL, versioning, autentikasi dan autorisasi atau bahkan cara yang tepat untuk memberikan parameter - parameter ke restful resource. Jadi sampai saat ini belum ada cara yang disetujui untuk melakukan REST.\cite{programmableweb-apis}. Dengan kondisi tersebut, penulis tertantang untuk mencari tahu bagaimana mengimplementasikan Web API berbasiskan REST dengan cara yang tepat.
+CampusLife akan didistribusikan kepada pengguna melalui salah satu \textit{mobile computing devices}, yaitu \textit{smartphone}. Mobile computing devices memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.\cite{challenging-issues-and-limitations-of-mobile-computing} Dengan kedua keterbatasan tersebut proses pertukaran data antara Web API dan CampusLife perlu dilakukan dengan efisien.
 
 % menjelaskan rangkuman penelitian
-\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan Web API berbasiskan REST untuk mendukung proses penyediaan informasi kepada pengguna CampusLife melalui mobile application. Hasil akhir yang diharapkan adalah Web API berbasiskan REST yang diimplementasikan berdasarkan batasan - batasan yang sudah dijelaskan oleh Roy Fielding.
+\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON untuk digunakan dalam proses pertukaran data antara Web API berbasiskan REST dan CampusLife mobile application. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu memberikan ukuran data yang lebih kecil dibandingkan format serialisasi data XML.
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section*{Rumusan Masalah}
@@ -129,6 +128,10 @@ TODO Jadwal Kerja
 
 % use the surname of the first author, followed by the last two digits of
 % the year (hence lamport94)
+
+\bibitem{challenging-issues-and-limitations-of-mobile-computing}
+Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile Computing." \emph{International Journal of Computer Technology and Applications} 3.1 (2012): Academic Journals Database. Web. 8 Jan. 2013.
+
 \bibitem{programmableweb-apis}
   \emph{API Dashboard}
   http://www.programmableweb.com/apis

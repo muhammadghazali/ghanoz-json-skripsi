@@ -1,9 +1,11 @@
 % Proposal Skripsi
 % Muhammad Ghazali - 0606036
 \documentclass[a4paper, 12pt]{report}
+\usepackage{setspace}
 \usepackage{graphicx, times}
 \usepackage[bahasa]{babel}
 \usepackage{tabularx}
+\usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
 
 \selectlanguage{bahasa}
 %Gummi|063|=)
@@ -32,7 +34,7 @@ Universitas Widyatama
 % should appear in its logical order, therefore, after the top matter, but
 % before the main sections of the body.
 \begin{abstract}
-Abstract lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+\onehalfspacing Abstract lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 \end{abstract}
 
 % isi latar belakang dan masalah dibuat dengan mengikuti panduan:
@@ -40,20 +42,21 @@ Abstract lorem ipsum is simply dummy text of the printing and typesetting indust
 \section*{Latar Belakang dan Masalah}
 \addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-CampusLife adalah mobile information directory application yang dikembangkan oleh LayangLayang Mobile untuk menyediakan informasi yang relevan kepada civitas kampus. Untuk memenuhi kebutuhan penyediaan informasi kepada setiap penggunanya, maka LayangLayang Mobile perlu membuat Web API untuk membuka akses data agar aplikasi CampusLife bisa menampilkan informasi yang dibutuhkan oleh penggunanya.
+\onehalfspacing CampusLife adalah mobile information directory application yang dikembangkan oleh LayangLayang Mobile untuk menyediakan informasi yang relevan kepada civitas kampus. Untuk memenuhi kebutuhan penyediaan informasi kepada setiap penggunanya, maka LayangLayang Mobile perlu membuat Web API untuk membuka akses data agar aplikasi CampusLife bisa menampilkan informasi yang dibutuhkan oleh penggunanya.
 
 % menjelaskan metode - metode yang ada
-Semenjak tahun 2005, ProgrammbleWeb\footnote{Public API directory http://www.programmableweb.com/} sudah melacak public web service yang berbasiskan REST dan SOAP dengan total persentase masing - masing untuk REST sebesar 69\% dan SOAP 22\%. Ini menunjukkan implementasi Web API berbasiskan REST jauh lebih populer dibandingkan SOAP.\cite{programmableweb-apis}
+\onehalfspacing Semenjak tahun 2005, ProgrammbleWeb\footnote{Public API directory http://www.programmableweb.com/} sudah melacak public web service yang berbasiskan REST dan SOAP dengan total persentase masing - masing untuk REST sebesar 69\% dan SOAP 22\%. Ini menunjukkan implementasi Web API berbasiskan REST jauh lebih populer dibandingkan SOAP.\cite{programmableweb-apis}
 
 % menjelaskan kelebihan REST dibandingkan dengan SOAP
-Salah satu alasan REST telah disukai di Web adalah aksesibilitas klien dan tantangan terbesar dalam implementasi web service berbasiskan REST adalah disertasi yang dibuat oleh Roy Fielding hanya menjelaskan kumpulan pembatas (constraint), dan tidak menentukan skema URL, versioning, autentikasi dan autorisasi atau bahkan cara yang tepat untuk memberikan parameter - parameter ke restful resource. Jadi sampai saat ini belum ada cara yang disetujui untuk melakukan REST.\cite{programmableweb-apis}. Dengan kondisi tersebut, penulis tertantang untuk mencari tahu bagaimana mengimplementasikan Web API berbasiskan REST dengan cara yang tepat.
+\onehalfspacing Salah satu alasan REST telah disukai di Web adalah aksesibilitas klien dan tantangan terbesar dalam implementasi web service berbasiskan REST adalah disertasi yang dibuat oleh Roy Fielding hanya menjelaskan kumpulan pembatas (constraint), dan tidak menentukan skema URL, versioning, autentikasi dan autorisasi atau bahkan cara yang tepat untuk memberikan parameter - parameter ke restful resource. Jadi sampai saat ini belum ada cara yang disetujui untuk melakukan REST.\cite{programmableweb-apis}. Dengan kondisi tersebut, penulis tertantang untuk mencari tahu bagaimana mengimplementasikan Web API berbasiskan REST dengan cara yang tepat.
 
 % menjelaskan rangkuman penelitian
-Dalam penelitian ini penulis akan mengkaji penerapan Web API berbasiskan REST untuk mendukung proses penyediaan informasi kepada pengguna CampusLife melalui mobile application. Hasil akhir yang diharapkan adalah Web API berbasiskan REST yang diimplementasikan berdasarkan batasan - batasan yang sudah dijelaskan oleh Roy Fielding.
+\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan Web API berbasiskan REST untuk mendukung proses penyediaan informasi kepada pengguna CampusLife melalui mobile application. Hasil akhir yang diharapkan adalah Web API berbasiskan REST yang diimplementasikan berdasarkan batasan - batasan yang sudah dijelaskan oleh Roy Fielding.
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section*{Rumusan Masalah}
 \addcontentsline{toc}{subsection}{Rumusan Masalah}
+\onehalfspacing 
 \begin{flushleft}
 Masalah yang akan diangkat dalam penelitian ini adalah:
 \begin{enumerate}
@@ -63,6 +66,7 @@ Masalah yang akan diangkat dalam penelitian ini adalah:
 
 \section*{Batasan Masalah}
 \addcontentsline{toc}{subsection}{Batasan Masalah}
+\onehalfspacing
 \begin{flushleft}
 \begin{itemize}
   \item Tidak membahas mengenai keamanan web service.
@@ -74,6 +78,7 @@ Masalah yang akan diangkat dalam penelitian ini adalah:
 % Pada bagian tujuan, jelaskan tujuan pembangunan web service. Bagian ini berkaitan dengan rumusan masalah.
 \section*{Tujuan}
 \addcontentsline{toc}{subsection}{Tujuan}
+\onehalfspacing 
 \begin{flushleft}
 Jelaskan tujuan penelitian
 \end{flushleft}
@@ -83,6 +88,7 @@ Jelaskan tujuan penelitian
 % mengutip dari beberapa referensi.
 \section*{Landasan Teori}
 \addcontentsline{toc}{subsection}{Landasan Teori}
+\onehalfspacing
 \subsection*{RestFulrest}
 \begin{flushleft}
 TODO Jelaskan teori-teori yang mendasari penelitian ini.
@@ -105,18 +111,20 @@ Lorem ipsum.
 % Buat tabel gant-chart untuk jadwal pengerjaan penelitian
 \section*{Jadwal Kerja}
 \addcontentsline{toc}{subsection}{Jadwal Kerja}
+\onehalfspacing 
 \begin{flushleft}
 TODO Jadwal Kerja
 \end{flushleft}
 
 \section*{Usulan Pembimbing}
 \addcontentsline{toc}{subsection}{Usulan Pembimbing}
-Saya mengharapkan pembimbing yang benar-benar paham di bidang rekayasa perangkat lunak dan saya mengusulkan ibu Sriyani Violina untuk menjadi pembimbing pengerjaan tugas akhir saya.
+\onehalfspacing Saya mengharapkan pembimbing yang benar-benar paham di bidang rekayasa perangkat lunak dan saya mengusulkan ibu Sriyani Violina untuk menjadi pembimbing pengerjaan tugas akhir saya.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
 % Jumlah maksimal daftar pustaka dan referensi yang bisa dimasukkan adalah 100 item
 \begin{thebibliography}{99}
+\singlespacing 
 
 % use the surname of the first author, followed by the last two digits of
 % the year (hence lamport94)
@@ -127,12 +135,12 @@ Saya mengharapkan pembimbing yang benar-benar paham di bidang rekayasa perangkat
 
 \bibitem{rest-on-wikipedia}
   \emph{Representational state transfer}
-  http://en.wikipedia.org/wiki/Representational\_state\_transfer
+  http://en.wikipedia.org/\\wiki/Representational\_state\_transfer
   diakses pada 14 September 2012 
 
 \bibitem{ws-restful}
   \emph{RESTful Web services: The basics}
-  http://www.ibm.com/developerworks/webservices/library/ws-restful/
+  http://www.ibm.com/\\developerworks/webservices/library/ws-restful/
   diakses pada 14 September 2012
   
 \bibitem{rest-soap}

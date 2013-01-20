@@ -43,14 +43,14 @@ Universitas Widyatama
 \section*{Latar Belakang dan Masalah}
 \addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{http://layanglayangmobile.com} untuk menyediakan informasi yang relevan kepada civitas kampus. Setiap informasi yang ada di CampusLife akan didistribusikan melalui Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} ke seluruh pengguna \textit{smartphone} yang sudah memasang aplikasi CampusLife.
+\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{yang selanjutnya dalam proposal ini LayangLayang Mobile disebut sebagai LLM} untuk menyediakan informasi yang relevan kepada civitas kampus. Setiap informasi yang ada di CampusLife akan didistribusikan melalui Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} ke seluruh pengguna \textit{smartphone} yang sudah memasang aplikasi CampusLife. Web API yang dibangun akan membuka akses ke \textit{resource}\footnote{http://en.wikipedia.org/wiki/Representational\_state\_transfer\#Guiding\_principles\_of\_the\_interface} yang disediakan oleh CampusLife, salah satunya Event. \textit{Resource} event diolah berdasarkan data yang diambil dari \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. \textit{Resource} event yang sudah diolah tersebut akan dikonsumsi oleh Web API \textit{consumer} seperti perambah web atau \textit{mobile application} dalam format serialisasi data tertentu.
 
 \onehalfspacing \textit{Smartphone} merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.\cite{challenging-issues-and-limitations-of-mobile-computing} Dengan kedua keterbatasan tersebut proses pertukaran data antara Web API dan \textit{mobile application} perlu dilakukan dengan efisien dalam hal ukuran data yang dikirimkan antara Web API dan \textit{mobile application}.
 
-\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{Comparison of data serialization formats}. Pemilihan format serialisasi data harus dilakukan dengan tepat agar ukuran data yang dikirimkan antara Web API dan mobile application bisa memiliki ukuran data yang kecil. Dalam penelitian ini penulis hanya akan mengambil 2 format serialisasi data untuk dibandingkan, yaitu JSON dan XML. Penulis memilih kedua format serialisasi data tersebut karena tertarik untuk mengetahui langsung apakah JSON merupakan alternatif yang tepat dibandingkan XML.
+\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}. Pemilihan format serialisasi data harus dilakukan dengan tepat agar ukuran data yang dikirimkan antara Web API dan \textit{mobile application} bisa memiliki ukuran data yang kecil. Dalam penelitian ini penulis hanya akan mengambil 2 format serialisasi data untuk dibandingkan, yaitu JSON\footnote{http://json.org/} dan XML\footnote{http://www.w3.org/TR/REC-xml/}. Penulis memilih kedua format serialisasi data tersebut karena tertarik untuk mengetahui langsung apakah JSON merupakan alternatif yang tepat dibandingkan XML. Selain itu penulis tertarik untuk mempelajari lebih lanjut kedua format serialisasi data tersebut karena banyak perdebatan yang membandingkan antara JSON dan XML. \cite{json-vs-xml-debate}
 
 % menjelaskan rangkuman penelitian
-\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON untuk digunakan dalam proses pertukaran data antara Web API berbasiskan REST dan CampusLife mobile application. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu memberikan ukuran data yang lebih kecil dibandingkan format serialisasi data XML.\cite{json-fat-free}
+\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON untuk digunakan dalam proses pertukaran data antara Web API dan CampusLife \textit{mobile application}. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu memberikan ukuran \textit{resource}\footnote{http://en.wikipedia.org/wiki/Resource\_(Web)} yang lebih kecil dibandingkan format serialisasi data XML.\cite{json-fat-free}
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section*{Rumusan Masalah}
@@ -134,10 +134,15 @@ Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile C
   http://www.programmableweb.com/apis
   diakses pada 27 Nopember 2012
   
+\bibitem{json-vs-xml-debate}
+  \emph{Debate: JSON vs. XML as a data interchange format}
+  http://www.infoq.com/news/2006/12/json-vs-xml-debate
+  diakses pada 20 Januari 2012
+  
 \bibitem{json-fat-free}
   \emph{JSON: The Fat-Free Alternative to XML}
-  http://www.programmableweb.com/apis
-  diakses pada 27 Nopember 2012
+  http://www.json.org/xml.html
+  diakses pada 20 Januari 2012
 
 \bibitem{rest-on-wikipedia}
   \emph{Representational state transfer}

@@ -4,6 +4,8 @@
 \usepackage{setspace}
 \usepackage{graphicx, times}
 \usepackage[bahasa]{babel}
+\usepackage{tikz}
+\usepackage{gantt}
 \usepackage{tabularx}
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
 
@@ -101,17 +103,17 @@ Menerapkan format serialisasi data yang optimal pada pengiriman data antara Web 
 
 \subsection*{Tahapan Penelitian}
 
-\begin{itemize}
+\begin{enumerate}
   \item Identifikasi masalah
   \item Perumusan hipotesis
   \item Pengujian hipotesis
   \item Kesimpulan
-\end{itemize}
+\end{enumerate}
 
 \subsection*{Lingkungan Pengembangan}
-Penelitian akan dibantu dengan menggunakan beberapa kakas dan teknologi berikut:
+\onehalfspacing Penelitian akan dibantu dengan menggunakan beberapa kakas dan teknologi berikut:
 \begin{itemize}
-  \item NodeJS\footnote{}, akan digunakan untuk membangun Web API.
+  \item NodeJS\footnote{http://nodejs.org/}, akan digunakan untuk membangun Web API.
   \item MongoDB\footnote{http://www.mongodb.org/}, akan digunakan sebagai basis data.
   \item Git\footnote{http://git-scm.com/} dan Github\footnote{http://github.com/}, akan digunakan untuk mengelola riwayat \textit{source code} dan dokumen laporan serta dokumen teknis.
   \item AppFog\footnote{http://www.appfog.com/}, akan digunakan sebagai infrastruktur untuk pengujian Web API.
@@ -122,15 +124,40 @@ Penelitian akan dibantu dengan menggunakan beberapa kakas dan teknologi berikut:
 
 % Buat tabel gant-chart untuk jadwal pengerjaan penelitian
 \section*{Jadwal Kerja}
-\addcontentsline{toc}{subsection}{Jadwal Kerja}
-\onehalfspacing 
+\addcontentsline{toc}{subsection}{Jadwal Kerja} 
 \begin{flushleft}
-TODO Jadwal Kerja
+  \begin{gantt}{10}{8}
+    \begin{ganttitle}
+    \numtitle{1}{1}{8}{1}
+    \end{ganttitle}
+    \ganttbar{Survey perusahaan}{0}{1}
+    \ganttbar{SDLC iterasi ke-0}{1}{1}
+    \ganttbar{SDLC iterasi ke-1}{2}{1}
+    \ganttbar{SDLC iterasi ke-2}{3}{1}
+    \ganttbar{SDLC iterasi ke-3}{4}{1}
+    \ganttbar{SDLC iterasi ke-4}{5}{1}
+    \ganttbar{SDLC iterasi ke-5}{6}{1}
+    \ganttbar{SDLC iterasi ke-6}{7}{1}
+    \ganttbar{Penulisan laporan}{1}{7}
+  \end{gantt}
+\end{flushleft}
+
+\begin{flushleft}
+SDLC (Software Development Life Cycle) terdiri dari tahap berikut:
+\begin{enumerate}
+  \item Analisis Kebutuhan
+  \item Design
+  \item Implementasi
+  \item Pengujian
+\end{enumerate}
+
+Penulis menggunakan metodologi pengembangan perangkat lunak \textit{Agile}\footnote{http://en.wikipedia.org/wiki/Agile\_software\_development} dengan \textit{timebox} selama 1 minggu di setiap iterasi.
+
 \end{flushleft}
 
 \section*{Usulan Pembimbing}
 \addcontentsline{toc}{subsection}{Usulan Pembimbing}
-\onehalfspacing Saya mengharapkan pembimbing yang benar-benar paham di bidang rekayasa perangkat lunak dan saya mengusulkan ibu Sriyani Violina untuk menjadi pembimbing pengerjaan tugas akhir saya.
+\onehalfspacing Penulis mengharapkan proses penelitian ini dibimbing oleh ibu Sriyani Violina, S.T., M.T..
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka

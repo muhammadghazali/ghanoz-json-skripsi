@@ -9,13 +9,13 @@
 
 \selectlanguage{bahasa}
 %Gummi|063|=)
-\title{\textbf{Web API berbasis REST dengan menggunakan JSON sebagai format serialisasi data untuk meningkatkan efisiensi konsumsi data oleh aplikasi mobile CampusLife}}
+\title{\textbf{Membangun Web API dengan menggunakan JSON sebagai format serialisasi data untuk menghasilkan ukuran data yang efisien}}
 \author{
 Muhammad Ghazali\\
 Program Studi Teknik Informatika\\
 Fakultas Teknik\\
 Universitas Widyatama
-\\ \texttt{<muhammadghazali2480@gmail.com>}
+\\ \texttt{<muhammad.ghazali@widyatama.ac.id>}
 }
 \date{\today}
 
@@ -26,9 +26,6 @@ Universitas Widyatama
 \onehalfspacing
 \tableofcontents
 \setcounter{tocdepth}{3}
-
-\listoffigures
-\listoftables
 
 % most research papers have an abstract, then there is a predefined commands
 % for telling LaTeX which part of the content makes up the abstract. This
@@ -85,11 +82,19 @@ Menerapkan format serialisasi data yang optimal pada pengiriman data antara Web 
 % mengutip dari beberapa referensi.
 \section*{Landasan Teori}
 \addcontentsline{toc}{subsection}{Landasan Teori}
-\onehalfspacing
-\subsection*{RestFulrest}
-\begin{flushleft}
-TODO Jelaskan teori-teori yang mendasari penelitian ini.
-\end{flushleft}
+\subsection*{Web API}
+\onehalfspacing Web API (\textit{Application Programming Interface}) merupakan seperangkat \textit{HTTP request message}\footnote{http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html} yang telah ditetapkan beserta definisi dari struktur \textit{HTTP response message}\footnote{http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html}. Sementara Web API kadang - kadang dianggap sinonim untuk layanan web (\textit{web service}), Web 2.0 aplikasi biasanya sudah pindah dari layanan web berbasis SOAP ke arah layanan web berbasis REST\cite{web-api}\cite{rest-soap}.
+
+\subsection*{Layanan Web Berbasiskan REST}
+\onehalfspacing \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model layanan Web desain dominan. Bahkan, REST memiliki dampak besar di Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan\cite{ws-restful}.
+
+\subsection*{JSON}
+\onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan. Sangat mudah bagi manusia untuk membaca dan menulis JSON. Sangat mudah untuk mesin (komputer) untuk mengurai dan menghasilkan JSON. JSON berbasiskan pada subset dari Bahasa Pemrograman JavaScript, Standar ECMA-262 Edisi 3 - Desember 1999. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
+
+\subsection*{XML}
+\onehalfspacing \textit{Extensible Markup Language} (XML) adalah bahasa markup yang mendefinisikan separangkat aturan untuk pengkodean dokumen dalam format yang dapat dibaca oleh manusia dan mesin. XML didefinisikan dalam \textit{XML 1.0 Specification}\footnote{http://www.w3.org/TR/REC-xml/} yang dibuat oleh W3C\footnote{http://www.w3.org/}\cite{xml-on-wikipedia}.
+
+\onehalfspacing Tujuan desain dari XML menekankan pada kesederhanaan, keumuman, dan kegunaan melalui Internet. Meskipun desain XML berfokus pada dokumen, namoun XML secara luas digunakan untuk representasi dari struktur data yang berubah - ubah, misalnya dalam layanan web\cite{xml-on-wikipedia}.
 
 \section*{Metodologi Penelitian}
 \addcontentsline{toc}{subsection}{Metodologi Penelitian}
@@ -143,16 +148,24 @@ Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile C
   \emph{JSON: The Fat-Free Alternative to XML}
   http://www.json.org/xml.html
   diakses pada 20 Januari 2012
-
-\bibitem{rest-on-wikipedia}
-  \emph{Representational state transfer}
-  http://en.wikipedia.org/\\wiki/Representational\_state\_transfer
-  diakses pada 14 September 2012 
+  
+\bibitem{web-api}
+  \emph{Web API}
+  http://en.wikipedia.org/wiki/Web\_API
+  diakses pada 20 Januari 2012 
 
 \bibitem{ws-restful}
   \emph{RESTful Web services: The basics}
-  http://www.ibm.com/\\developerworks/webservices/library/ws-restful/
+  \\http://www.ibm.com/developerworks/webservices/library/ws-restful/
   diakses pada 14 September 2012
+
+\bibitem{introducing-json}
+  \emph{Introducing JSON} http://www.json.org/
+  diakses pada 20 Januari 2012
+  
+\bibitem{xml-on-wikipedia}
+  \emph{XML From Wikipedia} http://en.wikipedia.org/wiki/XML
+  diakses pada 20 Januari 2012
   
 \bibitem{rest-soap}
   \emph{How REST replaced SOAP on the Web: What it means to you}

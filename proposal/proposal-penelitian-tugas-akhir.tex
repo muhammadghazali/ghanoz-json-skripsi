@@ -37,10 +37,10 @@ Universitas Widyatama
 \begin{abstract}
 \onehalfspacing LayangLayang Mobile merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan \textit{mobile application} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
 
-\onehalfspacing Saat ini CampusLife membutuhkan Web API yang digunakan untuk mendistribusikan data - data yang tersimpan di data store untuk selanjutnya diolah oleh mobile application. Aplikasi CampusLife akan didistribusikan ke pengguna yang menggunakan Android Smartphone. {Smartphone} merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.Dengan kedua keterbatasan tersebut proses pertukaran data antara Web API dan \textit{mobile application} perlu dilakukan dengan efisien dalam hal ukuran data yang dikirimkan antara Web API dan \textit{mobile application}.
+\onehalfspacing Saat ini CampusLife membutuhkan Web API yang digunakan untuk mendistribusikan data - data yang tersimpan di data store untuk selanjutnya diolah oleh mobile application. Aplikasi CampusLife akan didistribusikan ke pengguna yang menggunakan Android Smartphone. {Smartphone} merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas. Dengan kedua keterbatasan tersebut proses pertukaran data antara Web API dan \textit{mobile application} perlu dilakukan dengan efisien dalam hal ukuran data yang dikirimkan antara Web API dan \textit{mobile application}.
 
 \begin{flushleft}
-\onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data, XML
+\onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data
 \end{flushleft}
 
 \end{abstract}
@@ -54,18 +54,17 @@ Universitas Widyatama
 
 \onehalfspacing \textit{Smartphone} merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.\cite{challenging-issues-and-limitations-of-mobile-computing} Dengan kedua keterbatasan tersebut proses pertukaran data antara Web API dan \textit{mobile application} perlu dilakukan dengan efisien dalam hal ukuran data yang dikirimkan antara Web API dan \textit{mobile application}.
 
-\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}. Pemilihan format serialisasi data harus dilakukan dengan tepat agar ukuran data yang dikirimkan antara Web API dan \textit{mobile application} bisa memiliki ukuran data yang kecil. Dalam penelitian ini penulis hanya akan mengambil 2 format serialisasi data untuk dibandingkan, yaitu JSON\footnote{http://json.org/} dan XML\footnote{http://www.w3.org/TR/REC-xml/}. Penulis memilih kedua format serialisasi data tersebut karena tertarik untuk mengetahui langsung apakah JSON merupakan alternatif yang tepat dibandingkan XML. Selain itu penulis tertarik untuk mempelajari lebih lanjut kedua format serialisasi data tersebut karena banyak perdebatan yang membandingkan antara JSON dan XML. \cite{json-vs-xml-debate}
+\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}. Pemilihan format serialisasi data harus dilakukan dengan tepat agar ukuran data yang dikirimkan antara Web API dan \textit{mobile application} bisa memiliki ukuran data yang kecil dan efisien. Dalam penelitian ini penulis akan memilih format serialisasi data JSON\footnote{http://json.org/} untuk digunakan dalam pengiriman data antara Web API dan mobile application CampusLife. Penulis memilih format serialisasi data tersebut karena tertarik untuk mengetahui langsung apakah JSON merupakan pilihan yang tepat. \cite{json-vs-xml-debate}
 
 % menjelaskan rangkuman penelitian
-\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON untuk digunakan dalam proses pertukaran data antara Web API dan CampusLife \textit{mobile application}. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu memberikan ukuran \textit{resource}\footnote{http://en.wikipedia.org/wiki/Resource\_(Web)} yang lebih kecil dibandingkan format serialisasi data XML.\cite{json-fat-free}
+\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON untuk digunakan dalam proses pertukaran data antara Web API dan CampusLife \textit{mobile application}. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu memberikan ukuran \textit{resource}\footnote{http://en.wikipedia.org/wiki/Resource\_(Web)} yang kecil dan efisien dalam hal.\cite{json-fat-free}
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section*{Rumusan Masalah}
 \addcontentsline{toc}{subsection}{Rumusan Masalah}
 \onehalfspacing Berdasarkan latar belakang masalah yang telah dipaparkan, maka masalah yang akan diteliti dalam penelitian ini dapat dirumuskan sebagai berikut:
 \begin{enumerate}
-  \item Seberapa kecil ukuran data yang dapat dikirimkan apabila format serialisasi data yang digunakan adalah JSON?
-  \item Seberapa kecil ukuran data yang dapat dikirimkan apabila format serialisasi data yang digunakan adalah XML?
+  \item Seberapa efisien ukuran data yang dapat dikirimkan apabila format serialisasi data yang digunakan adalah JSON?
 \end{enumerate}
 
 \section*{Batasan Masalah}
@@ -100,11 +99,6 @@ Menerapkan format serialisasi data yang optimal pada pengiriman data antara Web 
 
 \subsection*{JSON}
 \onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan. Sangat mudah bagi manusia untuk membaca dan menulis JSON. Sangat mudah untuk mesin (komputer) untuk mengurai dan menghasilkan JSON. JSON berbasiskan pada subset dari Bahasa Pemrograman JavaScript, Standar ECMA-262 Edisi 3 - Desember 1999. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
-
-\subsection*{XML}
-\onehalfspacing \textit{Extensible Markup Language} (XML) adalah bahasa markup yang mendefinisikan separangkat aturan untuk pengkodean dokumen dalam format yang dapat dibaca oleh manusia dan mesin. XML didefinisikan dalam \textit{XML 1.0 Specification}\footnote{http://www.w3.org/TR/REC-xml/} yang dibuat oleh W3C\footnote{http://www.w3.org/}\cite{xml-on-wikipedia}.
-
-\onehalfspacing Tujuan desain dari XML menekankan pada kesederhanaan, keumuman, dan kegunaan melalui Internet. Meskipun desain XML berfokus pada dokumen, namoun XML secara luas digunakan untuk representasi dari struktur data yang berubah - ubah, misalnya dalam layanan web\cite{xml-on-wikipedia}.
 
 \section*{Prosedur Penelitian}
 \addcontentsline{toc}{subsection}{Prosedur Penelitian}
@@ -207,10 +201,6 @@ Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile C
 
 \bibitem{introducing-json}
   \emph{Introducing JSON} http://www.json.org/
-  diakses pada 20 Januari 2012.
-  
-\bibitem{xml-on-wikipedia}
-  \emph{XML From Wikipedia} http://en.wikipedia.org/wiki/XML
   diakses pada 20 Januari 2012.
   
 \bibitem{rest-soap}

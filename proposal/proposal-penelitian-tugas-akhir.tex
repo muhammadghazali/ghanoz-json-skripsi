@@ -35,9 +35,9 @@ Universitas Widyatama
 % should appear in its logical order, therefore, after the top matter, but
 % before the main sections of the body.
 \begin{abstract}
-\onehalfspacing LayangLayang Mobile merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan \textit{mobile application} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
+\onehalfspacing LayangLayang Mobile merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan aplikasi \textit{mobile} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
 
-\onehalfspacing Saat ini CampusLife membutuhkan Web API yang digunakan untuk mendistribusikan data - data yang tersimpan di data store untuk selanjutnya diolah oleh mobile application. Aplikasi CampusLife akan didistribusikan ke pengguna yang menggunakan Android Smartphone. {Smartphone} merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas. Dengan kedua keterbatasan tersebut proses pertukaran data antara Web API dan \textit{mobile application} perlu dilakukan dengan efisien dalam hal ukuran data yang dikirimkan antara Web API dan \textit{mobile application}.
+\onehalfspacing Saat ini CampusLife membutuhkan Web API yang digunakan untuk mendistribusikan data - data yang tersimpan di \textit{data store} untuk selanjutnya dikonsumsi oleh aplikasi \textit{mobile}. Aplikasi \textit{mobile} CampusLife akan didistribusikan ke pengguna yang menggunakan Android \textit{smartphone}. {Smartphone} merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas. Dengan kedua keterbatasan tersebut data yang dikirimkan harus diformat secara efektif untuk menghasilkan ukuran data yang optimal untuk dikirimkan dari Web API ke aplikasi \textit{mobile}.
 
 \begin{flushleft}
 \onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data
@@ -52,12 +52,12 @@ Universitas Widyatama
 % menjelaskan obyek penelitian
 \onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{yang selanjutnya dalam proposal ini LayangLayang Mobile disebut sebagai LLM} untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi mengenai \textit{event}-\textit{event} terbaru kepada civitas kampus. 
 
-\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi ke \textit{mobile} CampusLife.
+\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi ke \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
 \onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON\footnote{http://json.org/} untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data tersebut karena tertarik untuk mengetahui langsung apakah JSON merupakan pilihan yang tepat\cite{json-vs-xml-debate}.
 
 % menjelaskan rangkuman penelitian
-\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile CampusLife}. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section*{Rumusan Masalah}
@@ -83,7 +83,7 @@ Universitas Widyatama
 
 % Pada bagian tujuan, jelaskan tujuan pembangunan web service. Bagian ini berkaitan dengan rumusan masalah.
 \section*{Hipotesa}
-\addcontentsline{toc}{subsection}{Tujuan}
+\addcontentsline{toc}{subsection}{Hipotesa}
 \onehalfspacing
 Diharapkan penerapan format serialisasi data JSON secara efektif dapat menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi mobile CampusLife.
 
@@ -97,6 +97,9 @@ Diharapkan penerapan format serialisasi data JSON secara efektif dapat menghasil
 
 \subsection*{Layanan Web Berbasiskan REST}
 \onehalfspacing \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model layanan Web desain dominan. Bahkan, REST memiliki dampak besar di Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan\cite{ws-restful}.
+
+\subsection*{Serialisasi data}
+\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur database atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam database (misalnya, dalam sebuah file atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi komputer lain.\cite{serialization-wikipedia}
 
 \subsection*{JSON}
 \onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan. Sangat mudah bagi manusia untuk membaca dan menulis JSON. Sangat mudah untuk mesin (komputer) untuk mengurai dan menghasilkan JSON. JSON berbasiskan pada subset dari Bahasa Pemrograman JavaScript, Standar ECMA-262 Edisi 3 - Desember 1999. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
@@ -188,6 +191,11 @@ Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile C
   http://www.infoq.com/news/2006/12/json-vs-xml-debate
   diakses pada 20 Januari 2012.
   
+\bibitem{serialization-wikipedia}
+\emph{Serialization}
+  http://en.wikipedia.org/wiki/Serialization
+  diakses pada 24 Januari 2012.
+  
 \bibitem{json-fat-free}
   \emph{JSON: The Fat-Free Alternative to XML}
   http://www.json.org/xml.html
@@ -206,18 +214,10 @@ Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile C
 \bibitem{introducing-json}
   \emph{Introducing JSON} http://www.json.org/
   diakses pada 20 Januari 2012.
-
-\bibitem{serialization-wikipedia}
-  \emph{Serialization} http://en.wikipedia.org/wiki/Serialization
-  
+    
 \bibitem{rest-soap}
   \emph{How REST replaced SOAP on the Web: What it means to you}
   http://www.infoq.com/articles/rest-soap
-  diakses pada 14 September 2012.
-  
-\bibitem{rest-and-now}
-  \emph{REST, And Now for Something Completely Different}
-  http://www.infoq.com/presentations/REST-And-Now-for-Something-Completely-Different
   diakses pada 14 September 2012.
  
 \end{thebibliography}

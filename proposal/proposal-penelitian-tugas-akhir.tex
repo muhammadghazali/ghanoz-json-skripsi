@@ -50,14 +50,38 @@ Universitas Widyatama
 \section*{Latar Belakang dan Masalah}
 \addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{yang selanjutnya dalam proposal ini LayangLayang Mobile disebut sebagai LLM} untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi mengenai \textit{event}-\textit{event} terbaru kepada civitas kampus. 
+\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{yang selanjutnya dalam proposal ini LayangLayang Mobile disebut sebagai LLM} untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus. 
 
-\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi ke \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
-\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON\footnote{http://json.org/} untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data tersebut karena tertarik untuk mengetahui langsung apakah JSON merupakan pilihan yang tepat\cite{json-vs-xml-debate}.
+\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}:
+\begin{enumerate}
+  \item ASN.1
+  \item Bencode
+  \item \textit{Candle Markup}
+  \item \textit{Comma-separated values} (CSV)
+  \item BSON
+  \item \textit{D-Bus Message Protocol}
+  \item JSON
+  \item MessagePack
+  \item Netstrings
+  \item OGDL
+  \item \textit{Property list}
+  \item \textit{Protocol Buffers}
+  \item S-expressions
+  \item Sereal
+  \item \textit{Structured Data eXchange Formats}
+  \item Thrift
+  \item \textit{eXternal Data Representation}
+  \item XML
+  \item XML-RPC
+  \item YAML
+\end{enumerate}
+
+\onehalfspacing Di antara format serialisasi data yang sudah disebutkan di atas, XML\footnote{http://www.w3.org/XML/} dan JSON\footnote{http://json.org/} merupakan format serialisasi data yang paling terkenal saat ini\cite{comparison-of-data-serialization-formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
 
 % menjelaskan rangkuman penelitian
-\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON yang digunakan mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+\onehalfspacing Dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section*{Rumusan Masalah}
@@ -84,8 +108,7 @@ Universitas Widyatama
 % Pada bagian tujuan, jelaskan tujuan pembangunan web service. Bagian ini berkaitan dengan rumusan masalah.
 \section*{Hipotesa}
 \addcontentsline{toc}{subsection}{Hipotesa}
-\onehalfspacing
-Diharapkan penerapan format serialisasi data JSON secara efektif dapat menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi mobile CampusLife.
+\onehalfspacing Diharapkan penerapan format serialisasi data JSON secara efektif dapat menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi mobile CampusLife.
 
 % Pada bagian landasan teori, sertakan teori-teori yang berkaitan dangen 
 % topik skripsi yang akan dikerjakan. Penyertaan teori dilakukan dengan
@@ -183,11 +206,9 @@ SDLC (\textit{Software Development Life Cycle}\footnote{Analisis, Desain, Implem
 \bibitem{challenging-issues-and-limitations-of-mobile-computing}
 Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile Computing."
   \emph{International Journal of Computer Technology and Applications} 3.1 (2012): Academic Journals Database. Web. 8 Jan. 2013.
-
-\bibitem{programmableweb-apis}
-  \emph{API Dashboard}
-  http://www.programmableweb.com/apis
-  diakses pada 27 Nopember 2012.
+  
+  \bibitem {comparison-of-data-serialization-formats}
+Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for optimal efficiency on a mobile platform". \emph{6th International Conference on Ubiquitous Information Management and Communication} (2012): Artikel No. 48. ACM Digital Library. Web. 24 Jan 2013.
   
 \bibitem{json-vs-xml-debate}
   \emph{Debate: JSON vs. XML as a data interchange format}
@@ -195,12 +216,12 @@ Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile C
   diakses pada 20 Januari 2012.
   
 \bibitem{serialization-wikipedia}
-\emph{Serialization}
+  \emph{Serialization}
   http://en.wikipedia.org/wiki/Serialization
   diakses pada 24 Januari 2012.
   
 \bibitem{agile-wikipedia}
-\emph{Agile software development}
+  \emph{Agile software development}
   http://en.wikipedia.org/wiki/Agile\_software\_development
   diakses pada 24 Januari 2012.
   

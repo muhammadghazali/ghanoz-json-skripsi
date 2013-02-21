@@ -1,0 +1,218 @@
+% Proposal Skripsi
+% Muhammad Ghazali - 0606036
+\documentclass[a4paper, 12pt]{report}
+\usepackage{setspace}
+\usepackage{graphicx, times}
+\usepackage[bahasa]{babel}
+\usepackage{tikz}
+\usepackage{gantt}
+\usepackage{tabularx}
+\usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
+
+\selectlanguage{bahasa}
+%Gummi|063|=)
+\title{\textbf{Membangun Web API dengan menggunakan JSON sebagai format serialisasi data}}
+\author{
+Muhammad Ghazali\\
+Program Studi Teknik Informatika\\
+Fakultas Teknik\\
+Universitas Widyatama
+\\\texttt{<muhammad.ghazali@widyatama.ac.id>}
+}
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+
+\onehalfspacing
+\tableofcontents
+\setcounter{tocdepth}{3}
+
+% most research papers have an abstract, then there is a predefined commands
+% for telling LaTeX which part of the content makes up the abstract. This
+% should appear in its logical order, therefore, after the top matter, but
+% before the main sections of the body.
+\begin{abstract}
+\onehalfspacing LayangLayang Mobile merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan aplikasi \textit{mobile} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
+
+\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+
+\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
+
+\begin{flushleft}
+\onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data
+\end{flushleft}
+
+\end{abstract}
+
+% isi latar belakang dan masalah dibuat dengan mengikuti panduan:
+% http://romisatriawahono.net/2012/06/18/kiat-menyusun-alur-latar-belakang-masalah-penelitian/
+\section*{Latar Belakang dan Masalah}
+\addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
+% menjelaskan obyek penelitian
+\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{yang selanjutnya dalam proposal ini LayangLayang Mobile disebut sebagai LLM} untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus. 
+
+\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+
+\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}:
+\begin{enumerate}
+  \item ASN.1
+  \item Bencode
+  \item \textit{Candle Markup}
+  \item \textit{Comma-separated values} (CSV)
+  \item BSON
+  \item \textit{D-Bus Message Protocol}
+  \item JSON
+  \item MessagePack
+  \item Netstrings
+  \item OGDL
+  \item \textit{Property list}
+  \item \textit{Protocol Buffers}
+  \item S-expressions
+  \item Sereal
+  \item \textit{Structured Data eXchange Formats}
+  \item Thrift
+  \item \textit{eXternal Data Representation}
+  \item XML
+  \item XML-RPC
+  \item YAML
+\end{enumerate}
+
+\onehalfspacing Di antara format serialisasi data yang sudah disebutkan di atas, XML\footnote{http://www.w3.org/XML/} dan JSON\footnote{http://json.org/} merupakan format serialisasi data yang paling terkenal saat ini\cite{comparison-of-data-serialization-formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
+
+% menjelaskan rangkuman penelitian
+\onehalfspacing \textit{Smartphone} sebagai perangkat tempat aplikasi \textit{mobile} CampusLife berjalan, merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.\cite{challenging-issues-and-limitations-of-mobile-computing}. Dengan kedua keterbatasan tersebut, dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+
+% Pada bagian ini jelaskan rumusan masalah yang akan diteliti
+\newpage
+\section*{Rumusan Masalah}
+\addcontentsline{toc}{subsection}{Rumusan Masalah}
+\onehalfspacing Berdasarkan latar belakang masalah yang telah dipaparkan, maka masalah yang akan diteliti dalam penelitian ini dapat dirumuskan sebagai berikut:
+\begin{enumerate}
+  \item Bagaimana JSON dapat diterapkan secara efektif agar data yang dihasilkan dapat memiliki ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife?
+\end{enumerate}
+
+\section*{Batasan Masalah}
+\addcontentsline{toc}{subsection}{Batasan Masalah}
+\onehalfspacing Untuk memperjelas ruang lingkup pelaksanaan penelitian, penulis memiliki batasan masalah meliputi:
+\onehalfspacing
+\begin{itemize}
+  \item Pembangunan Web API hanya akan sampai pada tahap purwa-rupa.
+  \item Pembangunan Web API hanya akan meliputi API untuk mengambil data-data \textit{event}.
+  \item JSON hanya mampu merepresentasikan data dalam bentuk teks, oleh karena itu data yang akan digunakan hanya terbatas pada data yang berbasis teks.
+  \item Skema data \textit{event} akan disediakan oleh pihak LLM.
+  \item Penulis akan melakukan demo untuk mengakses Web API melalui Android\footnote{http://www.android.com/} \textit{smartphone} yang sudah terpasang aplikasi mobile CampusLife. Aktivitas demo akan difokuskan pada pengambilan  data-data \textit{event} dari purwa-rupa Web API yang dibuat oleh penulis.
+  \item Tidak membahas mengenai keamanan perangkat lunak, data dan jaringan.
+  \item Pengembangan perangkat lunak menggunakan sebagian praktek dari \textit{Agile} dan tidak akan membahas \textit{Agile} secara komprehensif.
+\end{itemize}
+
+% Pada bagian tujuan, jelaskan tujuan pembangunan web service. Bagian ini berkaitan dengan rumusan masalah.
+\section*{Hipotesa}
+\addcontentsline{toc}{subsection}{Hipotesa}
+\onehalfspacing Diharapkan penerapan format serialisasi data JSON secara efektif dapat menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi mobile CampusLife.
+
+% Pada bagian landasan teori, sertakan teori-teori yang berkaitan dangen 
+% topik skripsi yang akan dikerjakan. Penyertaan teori dilakukan dengan
+% mengutip dari beberapa referensi.
+\section*{Landasan Teori}
+\addcontentsline{toc}{subsection}{Landasan Teori}
+\subsection*{Web API}
+\onehalfspacing Web API (\textit{Application Programming Interface}) merupakan seperangkat \textit{HTTP request message}\footnote{http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html} yang telah ditetapkan beserta definisi dari struktur \textit{HTTP response message}\footnote{http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html}. Sementara Web API kadang - kadang dianggap sinonim untuk layanan web (\textit{web service}), Web 2.0 aplikasi biasanya sudah pindah dari layanan web berbasis SOAP ke arah layanan web berbasis REST\cite{web-api}\cite{rest-soap}.
+
+\subsection*{Layanan Web Berbasiskan REST}
+\onehalfspacing \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan\cite{ws-restful}.
+
+\subsection*{Serialisasi data}
+\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi komputer lain\cite{serialization-wikipedia}.
+
+\subsection*{JSON}
+\onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan. Sangat mudah bagi manusia untuk membaca dan menulis JSON. Sangat mudah untuk mesin (komputer) untuk mengurai dan menghasilkan JSON. JSON berbasiskan pada subset dari Bahasa Pemrograman JavaScript, Standar ECMA-262 Edisi 3 - Desember 1999. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
+
+\subsection*{Metodologi Pengembangan Perangkat Lunak \textit{Agile}}
+\onehalfspacing Pengembangan perangkat lunak \textit{Agile} adalah sekelompok metode pengembangan perangkat lunak berdasarkan metode pengembangan iteratif dan incremental\footnote{http://en.wikipedia.org/wiki/Iterative\_and\_incremental\_development}, di mana persyaratan dan solusi berkembang melalui kolaborasi. Ini mempromosikan perencanaan adaptif, perkembangan dan pengiriman yang evolusioner, pendekatan time-boxed\footnote{http://en.wikipedia.org/wiki/Timeboxing} berulang, dan mendorong respon cepat dan fleksibel terhadap perubahan. Ini adalah kerangka kerja konseptual yang mempromosikan interaksi diramalkan sepanjang siklus pengembangan perangkat lunak\cite{agile-wikipedia}.
+
+\section*{Prosedur Penelitian}
+\addcontentsline{toc}{subsection}{Prosedur Penelitian}
+
+\subsection*{Tahapan Penelitian}
+
+\begin{enumerate}
+  \item Identifikasi masalah
+  \item Perumusan hipotesis
+  \item Pengujian hipotesis
+  \item Kesimpulan
+\end{enumerate}
+
+\subsection*{Lingkungan Pengembangan}
+\onehalfspacing Penelitian akan dibantu dengan menggunakan beberapa kakas dan teknologi berikut:
+\begin{itemize}
+  \item NodeJS\footnote{http://nodejs.org/}, akan digunakan untuk membangun Web API.
+  \item MongoDB\footnote{http://www.mongodb.org/}, akan digunakan sebagai basis data.
+  \item Git\footnote{http://git-scm.com/} dan Github\footnote{http://github.com/}, akan digunakan untuk mengelola riwayat \textit{source code} dan dokumen laporan serta dokumen teknis.
+  \item AppFog\footnote{http://www.appfog.com/}, akan digunakan sebagai infrastruktur untuk pengujian Web API.
+  \item NetBeans IDE\footnote{http://netbeans.org/}, akan digunakan untuk penyuntingan \textit{source code}.
+  \item LaTeX\footnote{http://www.latex-project.org/}, akan digunakan untuk penyuntingan dokumen laporan dan dokumen teknis.
+  \item Laptop Asus Zenbook UX 32VD\footnote{http://www.asus.com/Notebooks\_Ultrabooks/ASUS\_ZENBOOK\_UX32VD/} untuk pembangunan web API dan pembuatan dokumen laporan penelitian serta dokumen teknis.
+\end{itemize}
+
+% Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
+% tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
+% Jumlah maksimal daftar pustaka dan referensi yang bisa dimasukkan adalah 100 item
+\begin{thebibliography}{99}
+\singlespacing 
+
+% use the surname of the first author, followed by the last two digits of
+% the year (hence lamport94)
+
+\bibitem{challenging-issues-and-limitations-of-mobile-computing}
+Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile Computing."
+  \emph{International Journal of Computer Technology and Applications} 3.1 (2012): Academic Journals Database. Web. 8 Jan. 2013.
+  
+  \bibitem {comparison-of-data-serialization-formats}
+Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for optimal efficiency on a mobile platform". \emph{6th International Conference on Ubiquitous Information Management and Communication} (2012): Artikel No. 48. ACM Digital Library. Web. 24 Jan 2013.
+  
+\bibitem{json-vs-xml-debate}
+  \emph{Debate: JSON vs. XML as a data interchange format}
+  http://www.infoq.com/news/2006/12/json-vs-xml-debate
+  diakses pada 20 Januari 2012.
+  
+\bibitem{serialization-wikipedia}
+  \emph{Serialization}
+  http://en.wikipedia.org/wiki/Serialization
+  diakses pada 24 Januari 2012.
+  
+\bibitem{agile-wikipedia}
+  \emph{Agile software development}
+  http://en.wikipedia.org/wiki/Agile\_software\_development
+  diakses pada 24 Januari 2012.
+  
+\bibitem{json-fat-free}
+  \emph{JSON: The Fat-Free Alternative to XML}
+  http://www.json.org/xml.html
+  diakses pada 20 Januari 2012.
+  
+\bibitem{web-api}
+  \emph{Web API}
+  http://en.wikipedia.org/wiki/Web\_API
+  diakses pada 20 Januari 2012.
+
+\bibitem{ws-restful}
+  \emph{RESTful Web services: The basics}
+  \\http://www.ibm.com/developerworks/webservices/library/ws-restful/
+  diakses pada 14 September 2012.
+
+\bibitem{introducing-json}
+  \emph{Introducing JSON} http://www.json.org/
+  diakses pada 20 Januari 2012.
+    
+\bibitem{rest-soap}
+  \emph{How REST replaced SOAP on the Web: What it means to you}
+  http://www.infoq.com/articles/rest-soap
+  diakses pada 14 September 2012.
+ 
+\end{thebibliography}
+
+\end{document}
+

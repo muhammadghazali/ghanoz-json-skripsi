@@ -56,30 +56,6 @@ Universitas Widyatama
 
 \onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
-\onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}:
-\begin{enumerate}
-  \item ASN.1
-  \item Bencode
-  \item \textit{Candle Markup}
-  \item \textit{Comma-separated values} (CSV)
-  \item BSON
-  \item \textit{D-Bus Message Protocol}
-  \item JSON
-  \item MessagePack
-  \item Netstrings
-  \item OGDL
-  \item \textit{Property list}
-  \item \textit{Protocol Buffers}
-  \item S-expressions
-  \item Sereal
-  \item \textit{Structured Data eXchange Formats}
-  \item Thrift
-  \item \textit{eXternal Data Representation}
-  \item XML
-  \item XML-RPC
-  \item YAML
-\end{enumerate}
-
 \onehalfspacing Di antara format serialisasi data yang sudah disebutkan di atas, XML\footnote{http://www.w3.org/XML/} dan JSON\footnote{http://json.org/} merupakan format serialisasi data yang paling terkenal saat ini\cite{comparison-of-data-serialization-formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
 
 % menjelaskan rangkuman penelitian

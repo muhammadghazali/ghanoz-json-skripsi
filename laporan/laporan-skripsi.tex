@@ -35,7 +35,7 @@ Universitas Widyatama
 % should appear in its logical order, therefore, after the top matter, but
 % before the main sections of the body.
 \begin{abstract}
-\onehalfspacing LayangLayang Mobile merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan aplikasi \textit{mobile} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
+\onehalfspacing LayangLayang Mobile (LLM) merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan aplikasi \textit{mobile} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
 
 \onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
@@ -52,9 +52,9 @@ Universitas Widyatama
 \section*{Latar Belakang dan Masalah}
 \addcontentsline{toc}{subsection}{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile\footnote{yang selanjutnya dalam proposal ini LayangLayang Mobile disebut sebagai LLM} untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus. 
+\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus. 
 
-\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
 \onehalfspacing Sampai awal tahun 2013 ini, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}:
 \begin{enumerate}
@@ -94,6 +94,14 @@ Universitas Widyatama
   \item Bagaimana JSON dapat diterapkan secara efektif agar data yang dihasilkan dapat memiliki ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife?
 \end{enumerate}
 
+% Tujuan dan manfaat penelitian
+\section*{Tujuan dan Manfaat Penelitian}
+\addcontentsline{toc}{subsection}{Rumusan Masalah}
+\onehalfspacing Tujuan dari pelaksanaan penelitian tugas akhir yang dilakukan penulis adalah membantu LLM untuk membangun purwa-rupa Web API yang mampu mengirimkan data dengan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife.
+
+% TODO sempurnakan
+\onehalfspacing Penulis mengharapkan hasil peneletian ini akan membawa manfaat positif bagi kepentingan dunia akademik dan praktis dalam hal penerapan format serialisasi data JSON untuk menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+
 \section*{Batasan Masalah}
 \addcontentsline{toc}{subsection}{Batasan Masalah}
 \onehalfspacing Untuk memperjelas ruang lingkup pelaksanaan penelitian, penulis memiliki batasan masalah meliputi:
@@ -108,31 +116,7 @@ Universitas Widyatama
   \item Pengembangan perangkat lunak menggunakan sebagian praktek dari \textit{Agile} dan tidak akan membahas \textit{Agile} secara komprehensif.
 \end{itemize}
 
-% Pada bagian tujuan, jelaskan tujuan pembangunan web service. Bagian ini berkaitan dengan rumusan masalah.
-\section*{Hipotesa}
-\addcontentsline{toc}{subsection}{Hipotesa}
-\onehalfspacing Diharapkan penerapan format serialisasi data JSON secara efektif dapat menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi mobile CampusLife.
-
-% Pada bagian landasan teori, sertakan teori-teori yang berkaitan dangen 
-% topik skripsi yang akan dikerjakan. Penyertaan teori dilakukan dengan
-% mengutip dari beberapa referensi.
-\section*{Landasan Teori}
-\addcontentsline{toc}{subsection}{Landasan Teori}
-\subsection*{Web API}
-\onehalfspacing Web API (\textit{Application Programming Interface}) merupakan seperangkat \textit{HTTP request message}\footnote{http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html} yang telah ditetapkan beserta definisi dari struktur \textit{HTTP response message}\footnote{http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html}. Sementara Web API kadang - kadang dianggap sinonim untuk layanan web (\textit{web service}), Web 2.0 aplikasi biasanya sudah pindah dari layanan web berbasis SOAP ke arah layanan web berbasis REST\cite{web-api}\cite{rest-soap}.
-
-\subsection*{Layanan Web Berbasiskan REST}
-\onehalfspacing \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan\cite{ws-restful}.
-
-\subsection*{Serialisasi data}
-\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi komputer lain\cite{serialization-wikipedia}.
-
-\subsection*{JSON}
-\onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan. Sangat mudah bagi manusia untuk membaca dan menulis JSON. Sangat mudah untuk mesin (komputer) untuk mengurai dan menghasilkan JSON. JSON berbasiskan pada subset dari Bahasa Pemrograman JavaScript, Standar ECMA-262 Edisi 3 - Desember 1999. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
-
-\subsection*{Metodologi Pengembangan Perangkat Lunak \textit{Agile}}
-\onehalfspacing Pengembangan perangkat lunak \textit{Agile} adalah sekelompok metode pengembangan perangkat lunak berdasarkan metode pengembangan iteratif dan incremental\footnote{http://en.wikipedia.org/wiki/Iterative\_and\_incremental\_development}, di mana persyaratan dan solusi berkembang melalui kolaborasi. Ini mempromosikan perencanaan adaptif, perkembangan dan pengiriman yang evolusioner, pendekatan time-boxed\footnote{http://en.wikipedia.org/wiki/Timeboxing} berulang, dan mendorong respon cepat dan fleksibel terhadap perubahan. Ini adalah kerangka kerja konseptual yang mempromosikan interaksi diramalkan sepanjang siklus pengembangan perangkat lunak\cite{agile-wikipedia}.
-
+% TODO verifikasi
 \section*{Prosedur Penelitian}
 \addcontentsline{toc}{subsection}{Prosedur Penelitian}
 
@@ -145,17 +129,24 @@ Universitas Widyatama
   \item Kesimpulan
 \end{enumerate}
 
-\subsection*{Lingkungan Pengembangan}
-\onehalfspacing Penelitian akan dibantu dengan menggunakan beberapa kakas dan teknologi berikut:
-\begin{itemize}
-  \item NodeJS\footnote{http://nodejs.org/}, akan digunakan untuk membangun Web API.
-  \item MongoDB\footnote{http://www.mongodb.org/}, akan digunakan sebagai basis data.
-  \item Git\footnote{http://git-scm.com/} dan Github\footnote{http://github.com/}, akan digunakan untuk mengelola riwayat \textit{source code} dan dokumen laporan serta dokumen teknis.
-  \item AppFog\footnote{http://www.appfog.com/}, akan digunakan sebagai infrastruktur untuk pengujian Web API.
-  \item NetBeans IDE\footnote{http://netbeans.org/}, akan digunakan untuk penyuntingan \textit{source code}.
-  \item LaTeX\footnote{http://www.latex-project.org/}, akan digunakan untuk penyuntingan dokumen laporan dan dokumen teknis.
-  \item Laptop Asus Zenbook UX 32VD\footnote{http://www.asus.com/Notebooks\_Ultrabooks/ASUS\_ZENBOOK\_UX32VD/} untuk pembangunan web API dan pembuatan dokumen laporan penelitian serta dokumen teknis.
-\end{itemize}
+% TODO sempurnakan
+\onehalfspacing Adapun cara untuk menunjang prosedur penelitian dilakukan dengan:
+\begin{enumerate}
+  \item Studi kepustakaan, yaitu pengumpulan data dari artikel-artikel, jurnal dan buku-buku yang berhubungan dengan topik pembahasan di penelitian.
+\end{enumerate}
+
+% sistematika penulisan
+\section*{Sistematika Penulisan}
+\addcontentsline{toc}{subsection}{Prosedur Penelitian}
+Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
+\begin{description}
+  \item[Bab I Pendahuhuluan] Pada bagian ini berisikan pendahuluan laporan yang berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metode penelitian dan sistematika penulisan laporan.
+  \item[Bab II Landasan Teori] Pada bagian ini akan dibahas landasan teori yang berkaitan dan digunakan selama masa penelitian.
+  \item[Bab III Analisis dan Desain] Pada bagian ini akan dibahas hasil analisa terhadap masalah dan rancangan solusi yang diterapkan.
+  \item[Bab IV Konstruksi Perangkat Lunak] Pada bagian ini akan dibahas hasil konstruksi perangkat lunak sesuai dengan rancangan yang sudah ditentukan.
+  \item[Bab V Pengujian] Pada bagian ini akan dibahas hasil pengujian terhadap perangkat lunak berdasarkan kriteria pengujian yang sudah ditentukan.
+  \item[Bab VI Penutup] Pada bagian ini berisikan kesimpulan dan saran yang didapatkan dari hasil penelitian.
+\end{description}
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka

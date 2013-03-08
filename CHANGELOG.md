@@ -1,5 +1,13 @@
 
-bab1-2013.03.08 
+bab.1-2013.03.09 
+==================
+
+  * Menyempurnakan penjelasan tahap penelitian. Asana task #4412565594743
+  * Fixed #10. Perbaiki poin sistematika penulisan. Asana task #4412565594724
+  * Fixed #9 Asana task #4412565594722 Poin-poin batasan masalah seharusnya menggunakan penomoran
+  * Fixed #8. Memperbaiki typo.
+
+bab.1-2013.03.08 
 ================
 
   * Membuat template daftar checklist untuk memahami paper ilmiah

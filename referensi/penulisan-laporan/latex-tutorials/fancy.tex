@@ -1,0 +1,41 @@
+% fancy.tex - example of how to use the fancyhdr package to customise
+%             the page headers/footers.
+
+% Andrew Roberts - Octobert 2003
+
+\documentclass[english,a4paper,twoside]{article}
+
+\usepackage{babel}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+% clear any old style settings
+\fancyhead{}
+\fancyfoot{}
+
+% define new headers/footers
+\lhead{Andrew Roberts}
+\rhead{\today}
+\rfoot{\thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\title{Latex Tutorial 8 (Examples) - Page Layout}
+\author{Andrew Roberts}
+\maketitle
+
+%Because the maketitle command has just been used, it automatically
+%issues \thispagestyle{plain} which overrides the fancy headings for
+%this page.  Must now tell Latex to override this!
+\thispagestyle{fancy}
+
+Using the \textsf{fancyhdr} package, I have redefined the header to
+display my name and the date, whilst the page number appears at the
+bottom-right of every page.
+
+Also, using the \textsf{lastpage} package, I can easily create a 'n of
+m' style numbering at the bottom (not that I normally would, it's just
+for show!)
+
+\end{document}

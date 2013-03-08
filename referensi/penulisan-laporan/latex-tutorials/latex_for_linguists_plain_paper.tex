@@ -1,0 +1,144 @@
+\documentclass[landscape]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{verbatim,multicol}
+
+\title{Latex for Linguists: Plain Paper}
+\author{Paul M.~Heider\\pmheider@buffalo.edu}
+\date{} %% 24 January 2011
+
+\begin{document}
+\begin{multicols}{2}
+\maketitle
+\section{The content vs. formatting distinction}
+
+\subsection*{Content:}
+\begin{verbatim}
+       Latex for Linguists Outline 
+        Paul M. Heider  pmheider@buffalo.edu 
+\end{verbatim}
+
+\subsection*{Formatting:}
+\begin{verbatim}
+\title{                           }
+\author{      .~      \\                    }
+\end{verbatim}
+
+\subsection*{Content:}
+\begin{verbatim}
+      Things you will         not  learn
+
+          How to install LaTeX
+\end{verbatim}
+
+\subsection*{Formatting:}
+\begin{verbatim}
+\item                 \textbf{   }      
+  \begin{itemize}
+    \item 
+  \end{itemize}
+\end{verbatim}
+
+\columnbreak
+
+\verbatiminput{latex_for_linguists_plain_paper_pg1.tex}
+
+\pagebreak
+
+\section{Sections of a document}
+\subsection{Front matter}
+This is where you put all your document-general declarations (e.g., packages, commands, variables).
+
+\begin{verbatim}
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+
+\title{Latex for Linguists: Plain Paper}
+\author{Paul M.~Heider\\pmheider@buffalo.edu}
+\date{} %% 24 January 2011
+
+\begin{document}
+\end{verbatim}
+\subsection{Back matter}
+Nothing after the end of the document is parsed.  
+I use that space to store old notes, reminders, etc.
+
+\begin{verbatim}
+\end{document}
+...
+\end{verbatim}
+\subsection{And everything in between}
+\begin{itemize}
+  \item section, subsection, subsubsection
+  \item section*, subsection*, subsubsection*
+  \item paragraph, subparagraph
+  \item appendix %% (does what you might expect)
+  \item chapter, part %% (used by other document classes)
+\end{itemize}
+
+\paragraph{Summary} I only recently started using \verb=\paragraph= to match JML journal styling.
+\subparagraph{Dirty Secret} I've never used \verb=\subparagraph=.
+I didn't even know about it until Saturday.
+
+\columnbreak
+
+\verbatiminput{latex_for_linguists_plain_paper_pg2.tex}
+
+\pagebreak
+
+\section{Basic formatting options}
+\subsection{Typefacing}
+\begin{description}
+  \item[textbf] All the item description are \textbf{bolded} by \textbf{default}.
+  \item[textsl] Sometimes, you need \textsl{italics}.
+  \item[textsc] Semanticists like to put concepts (e.g., \textsc{Truth} and \textsc{Bank}) in \textsc{SmallCaps}
+  \item[texttt] Computational linguists sometimes need to show their underlying \texttt{000110} ('\texttt{code}').
+\end{description}
+
+\subsection{Font size}
+Mostly, you shouldn't mess with font size (cf., a combination of Mantras 1 and 3).
+If you \textsl{need} to:
+\begin{center}
+  \tiny{tiny}, \scriptsize{scriptsize}, \footnotesize{footnotesize}, \normalsize{normalsize}, \large{large}, \Large{Large}, \huge{huge}
+\end{center}
+
+%% And don't forget to reset it later
+\normalsize 
+\subsection{Margins}
+Remember the \texttt{geometry} package that keeps showing up in the header?
+\begin{verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage[left=2in,top=0.75in,right=4in]{geometry}
+... %% (RTFM)
+\end{verbatim}
+
+It's not the only way, of course.  
+If you don't like \texttt{geometry}, \texttt{fullpage} is probably the next easiest.
+
+\subsection{Spacing} %% Maybe mention periods, ~, and :?
+By default, {\LaTeX} keeps linespacing at 1.  
+Now, if you want to see what happens when there are larger spaces between lines, then you'll want to use the \verb=\linespread{X}= command.
+
+\linespread{1.67} %% linespread changes the spacing
+\selectfont %% selectfont puts it into effect
+
+When you look at the code on the right, you'll notice that I didn't use ``2'' as my measure.
+Also, \verb=\linespread{1.3}= gets you 1.5-spacing.
+
+\linespread{1}\selectfont
+
+\columnbreak
+
+\small
+\verbatiminput{latex_for_linguists_plain_paper_pg3.tex}
+\normalsize
+
+\end{multicols}
+\end{document}
+
+\section{Common mistakes}
+\begin{itemize}
+  \item single and double quotes
+  \item ampersands
+  \item not closing a table or gb4e example
+\end{itemize}

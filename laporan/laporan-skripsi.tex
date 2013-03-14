@@ -22,6 +22,7 @@ Universitas Widyatama
 \date{\today}
 
 
+\usepackage{graphicx}
 \begin{document}
 
 \maketitle
@@ -115,6 +116,18 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
   \item[Bab V Implementasi dan Pengujian Sistem] Pada bagian ini akan dibahas proses implementasi dan pengujian sistem berdasarkan kriteria pengujian yang sudah ditentukan.
   \item[Bab VI Penutup] Pada bagian ini berisikan kesimpulan dan saran yang didapatkan dari hasil penelitian.
 \end{description}
+
+\chapter{Landasan Teori}
+\section{High-level architecture CampusLife}
+\onehalfspacing Secara umum CampusLife dibangun dengan menggunakan \textit{multitier architecture} yang terdiri dari 3 tingkat, yaitu \textit{presentation}, \textit{logic} dan \textit{data}. CampusLife dibangun dengan menggunakan \textit{multitier architecture} dengan tujuan agar pengembang aplikasi bisa melakukan perubahan dengan relatif mudah. Berikut adalah gambaran visual dari arsitektur CampusLife:
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.50]{images/test.png}
+\caption{High-level architecture CampusLife}
+\label{High-level architecture CampusLife}
+\end{figure}
+
+% http://en.wikipedia.org/wiki/Multitier_architecture
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka

@@ -136,6 +136,14 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \subsection{Data Tier}
 \onehalfspacing \textit{Data tier} adalah \textit{tier} yang terdiri dari satu atau lebih \textit{server} basis data. Disini setiap informasi disimpan dan diambil. \textit{Tier} ini akan menjaga data tetap netral dan indenpenden dari \textit{application server} atau \textit{business logic}. Selain itu dengan memberikan data di \textit{tier} sendiri akan meningkatkan \textit{scalability} dan \textit{performance}. Dalam konteks pengerjaan penelitian tugas akhir ini, penulis menggunakan MongoDB sebagai basis data di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
 
+\subsection{Keuntungan dari Arsitektur Three-tier}
+\onehalfspacing CampusLife dibangun dengan menggunakan arsitektur three-tier untuk mendapatkan beberapa keuntungan berikut:
+
+\begin{enumerate}
+  \item Lebih mudah untuk memodifikasi atau mengganti \textit{tier} apapun tanpa mempengaruhi \textit{tier} lainnya.
+  \item Memisahkan aplikasi dan fungsi database berarti \textit{load balancing} yang lebih baik.
+\end{enumerate}
+
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
 % Jumlah maksimal daftar pustaka dan referensi yang bisa dimasukkan adalah 100 item
@@ -176,6 +184,11 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   \emph{Wikipedia: Multitier architecture}
   http://en.wikipedia.org/wiki/Multitier\_architecture
   diakses pada 15 Maret 2013.
+  
+\bibitem{three-tier-architecture}
+  \emph{Three-Tier Architecture}
+  http://www.linuxjournal.com/article/3508
+  diakses pada 18 Maret 2013.
   
 \bibitem{web-api}
   \emph{Web API}

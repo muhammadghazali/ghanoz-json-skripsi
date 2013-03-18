@@ -128,15 +128,13 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \end{figure}
 
 \subsection{Presentation Tier}
-\onehalfspacing Ini adalah tier paling atas dari aplikasi CampusLife. Tier ini menampilkan informasi terkait dengan layanan seperti menampilkan daftar event dan menampilkan daftar pengunjung event kepada pengguna melalui mobile application. Layanan informasi seperti ini akan disediakan melalui Web API yang berada di logic tier dan dapat diakses melalui client seperti mobile application dan browser. Secara sederhana presentation tier adalah tingkat dimana pengguna dapat mengakses aplikasi secara langsung.
+\onehalfspacing Ini adalah \textit{tier} paling atas dari aplikasi CampusLife. Tier ini menampilkan informasi terkait dengan layanan seperti menampilkan daftar event dan menampilkan daftar pengunjung event kepada pengguna melalui \textit{mobile application}. Layanan informasi seperti ini akan disediakan melalui Web API yang berada di \textit{logic tier} dan dapat diakses melalui \textit{client} seperti \textit{mobile application} dan \textit{browser}. Secara sederhana \textit{presentation tier} adalah tingkat dimana pengguna dapat mengakses aplikasi secara langsung. Dalam konteks pengerjaan penelitian tugas akhir ini, \textit{mobile application} CampusLife akan berada di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
 
 \subsection{Logic Tier}
-% \onehalfspacing The logical tier is pulled out from the presentation tier and, as its own layer, it controls an application’s functionality by performing detailed processing.
+\onehalfspacing Ini adalah \textit{tier} yang berfungsi untuk mengontrol fungsionalitas aplikasi dengan melakukan pengolahan rinci. Contoh pengolahan rinci yang bisa dilakukan di \textit{tier} ini adalah mengambil daftar event. Dalam konteks pengerjaan penelitian tugas akhir ini, Web API akan berada di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
 
 \subsection{Data Tier}
-% \onehalfspacing This tier consists of database servers. Here information is stored and retrieved. This tier keeps data neutral and independent from application servers or business logic. Giving data its own tier also improves scalability and performance.
-
-% http://en.wikipedia.org/wiki/Multitier_architecture
+\onehalfspacing Ini adalah \textit{tier} yang terdiri dari satu atau lebih \textit{server} basis data. Disini setiap informasi disimpan dan diambil. \textit{Tier} ini akan menjaga data tetap netral dan indenpenden dari \textit{application server} atau \textit{business logic}. Selain itu dengan memberikan data di \textit{tier} sendiri akan meningkatkan \textit{scalability} dan \textit{performance}. Dalam konteks pengerjaan penelitian tugas akhir ini, penulis menggunakan MongoDB sebagai server basis data di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
@@ -173,6 +171,11 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   \emph{JSON: The Fat-Free Alternative to XML}
   http://www.json.org/xml.html
   diakses pada 20 Januari 2012.
+  
+\bibitem{multitier-architecture-wikipedia}
+  \emph{Wikipedia: Multitier architecture}
+  http://en.wikipedia.org/wiki/Multitier\_architecture
+  diakses pada 15 Maret 2013.
   
 \bibitem{web-api}
   \emph{Web API}

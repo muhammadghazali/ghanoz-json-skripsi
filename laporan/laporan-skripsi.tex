@@ -124,7 +124,31 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \end{description}
 
 \chapter{Landasan Teori}
-% TODO Penjelasan tentang high-level architecture CampusLife dipindahkan ke bab 3
+
+\section{Web API}
+\onehalfspacing
+\subsection{Apa itu Web API}
+
+\onehalfspacing \textit{Application programming interface} (API) adalah sebuah protokol yang dimaksudkan untuk digunakan sebagai antarmuka oleh komponen perangkat lunak untuk berkomunikasi satu sama lain. Ketika digunakan dalam konteks pengembangan \textit{web}, API biasanya didefinsikan sebagai satu set \textit{Hypertext Transfer Protocol} (HTTP) \textit{request message}, dan disertai dengan \textit{response message} dalam \textit{Extensible Markup Language} atau \textit{JavaScript Object Notation}.
+
+\onehalfspacing Praktek penerbitan Web API telah memungkinkan masyarakat \textit{web} seperti pengembang aplikasi berbasis \textit{web} untuk membuat arsitektur terbuka untuk berbagi konten dan data antara masyarakat dan aplikasi. Dengan cara ini, konten yang dibuat dalam satu tempat dapat dikirimkan secara dinamis dan diperbaharui di beberapa lokasi di \textit{web} \cite{api-wikipedia}.
+
+\subsection{Kenapa Web API}
+Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin menyediakan Web API. Berikut adalah berapa alasan yang umum kenapa perlu menyediakan Web API \cite{apis-linux-journal}:
+
+\begin{enumerate}
+  \item Untuk memungkinkan pengguna Anda mengakses data mereka melalui aplikasi pihak ketiga. Pertimbangkan berapa banyak pihak ketiga Twitter klien yang ada\footnote{http://en.wikipedia.org/wiki/List\_of\_Twitter\_services\_and\_applications}, semua menggunakan API Twitter, daripada mengakses langsung ke situs \textit{web}. Hal yang sama berlaku untuk Amazon\footnote{http://www.amazon.com/} dan eBay\footnote{http://www.ebay.com/}, antara lain, yang memungkinkan pengguna untuk mengakses data katalog mereka dan bahkan mengeksekusi penjualan, semua melalui API.
+  \item Untuk memungkinkan pengembang aplikasi mobile untuk mengakses situs Anda dengan mengirim dan mengambil data menggunakan HTTP.
+  \item Untuk memungkinkan aplikasi Anda sendiri untuk mengakses data sendiri melalui panggilan Ajax\footnote{https://developer.mozilla.org/en/docs/AJAX}. Bila Anda membuat panggilan JavaScript di latar belakang menggunakan Ajax, kemungkinan besar Anda akan ingin menggunakan panggilan API, menerima XML atau JSON, bukan HTML yang membutuhkan \textit{parsing} lebih lanjut.
+\end{enumerate}
+
+\subsection{RESTful Web API}
+\onehalfspacing \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}.
+
+\onehalfspacing RESTful Web API (juga disebut \textit{RESTful web service}) adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{Architectural Styles and
+the Design of Network-based Software Architectures http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}.
+
+\chapter{Analisis Sistem}
 \section{High-level Architecture CampusLife}
 \onehalfspacing Secara umum CampusLife dibangun dengan menggunakan \textit{three-tier architecture} yang terdiri dari 3 tingkat, yaitu \textit{presentation}, \textit{logic} dan \textit{data}. CampusLife dibangun dengan menggunakan \textit{three-tier architecture} dengan tujuan agar pengembang aplikasi bisa melakukan perubahan dengan relatif mudah. Berikut adalah gambaran visual dari arsitektur CampusLife:
 \begin{figure}[htp]
@@ -150,29 +174,6 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
   \item Lebih mudah untuk memodifikasi atau mengganti \textit{tier} apapun tanpa mempengaruhi \textit{tier} lainnya.
   \item Memisahkan aplikasi dan fungsi database berarti \textit{load balancing} yang lebih baik.
 \end{enumerate}
-
-\section{Web API}
-\onehalfspacing
-\subsection{Apa itu Web API}
-
-\onehalfspacing \textit{Application programming interface} (API) adalah sebuah protokol yang dimaksudkan untuk digunakan sebagai antarmuka oleh komponen perangkat lunak untuk berkomunikasi satu sama lain. Ketika digunakan dalam konteks pengembangan \textit{web}, API biasanya didefinsikan sebagai satu set \textit{Hypertext Transfer Protocol} (HTTP) \textit{request message}, dan disertai dengan \textit{response message} dalam \textit{Extensible Markup Language} atau \textit{JavaScript Object Notation}.
-
-\onehalfspacing Praktek penerbitan Web API telah memungkinkan masyarakat \textit{web} seperti pengembang aplikasi berbasis \textit{web} untuk membuat arsitektur terbuka untuk berbagi konten dan data antara masyarakat dan aplikasi. Dengan cara ini, konten yang dibuat dalam satu tempat dapat dikirimkan secara dinamis dan diperbaharui di beberapa lokasi di \textit{web} \cite{api-wikipedia}.
-
-\subsection{Kenapa Web API}
-Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin menyediakan Web API. Berikut adalah berapa alasan yang umum kenapa perlu menyediakan Web API \cite{apis-linux-journal}:
-
-\begin{enumerate}
-  \item Untuk memungkinkan pengguna Anda mengakses data mereka melalui aplikasi pihak ketiga. Pertimbangkan berapa banyak pihak ketiga Twitter klien yang ada\footnote{http://en.wikipedia.org/wiki/List\_of\_Twitter\_services\_and\_applications}, semua menggunakan API Twitter, daripada mengakses langsung ke situs \textit{web}. Hal yang sama berlaku untuk Amazon\footnote{http://www.amazon.com/} dan eBay\footnote{http://www.ebay.com/}, antara lain, yang memungkinkan pengguna untuk mengakses data katalog mereka dan bahkan mengeksekusi penjualan, semua melalui API.
-  \item Untuk memungkinkan pengembang aplikasi mobile untuk mengakses situs Anda dengan mengirim dan mengambil data menggunakan HTTP.
-  \item Untuk memungkinkan aplikasi Anda sendiri untuk mengakses data sendiri melalui panggilan Ajax\footnote{https://developer.mozilla.org/en/docs/AJAX}. Bila Anda membuat panggilan JavaScript di latar belakang menggunakan Ajax, kemungkinan besar Anda akan ingin menggunakan panggilan API, menerima XML atau JSON, bukan HTML yang membutuhkan \textit{parsing} lebih lanjut.
-\end{enumerate}
-
-\subsection{RESTful Web API}
-\onehalfspacing \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}.
-
-\onehalfspacing RESTful Web API (juga disebut \textit{RESTful web service}) adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{Architectural Styles and
-the Design of Network-based Software Architectures http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka

@@ -63,6 +63,7 @@ Universitas Widyatama
 
 \onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
+% FIXME Penjelasan tidak runut
 \onehalfspacing Di antara format serialisasi data yang sudah disebutkan di atas, XML\footnote{http://www.w3.org/XML/} dan JSON\footnote{http://json.org/} merupakan format serialisasi data yang paling terkenal saat ini\cite{comparison-of-data-serialization-formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
 
 % menjelaskan rangkuman penelitian
@@ -152,7 +153,17 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di dunia Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}. Berdasarkan informasi yang penulis dapatkan, pada saat laporan ini ditulis sudah lebih dari 5000 REST Web API yang diimplementasikan di dunia nyata\footnote{Web Services Directory http://www.programmableweb.com/apis/directory/1?protocol=REST}.
 
 \section{Serialisasi data}
-\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi komputer lain \cite{serialization-wikipedia}.
+
+\onehalfspacing
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{images/serialization-process.png}
+\caption{Proses Serialisasi}
+\label{Proses Serialisasi}
+\end{figure}
+
+\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi kembali di komputer lain \cite{serialization-wikipedia}.
 
 \chapter{Analisis Sistem}
 \section{High-level Architecture CampusLife}

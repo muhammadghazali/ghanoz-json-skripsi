@@ -150,6 +150,7 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \caption{RESTful Web API}
 \label{RESTful Web API}
 \end{figure}
+
 \onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di dunia Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}. Berdasarkan informasi yang penulis dapatkan, pada saat laporan ini ditulis sudah lebih dari 5000 REST Web API yang diimplementasikan di dunia nyata\footnote{Web Services Directory http://www.programmableweb.com/apis/directory/1?protocol=REST}.
 
 \section{Serialisasi data}
@@ -198,15 +199,6 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 
 \onehalfspacing JSON berbasiskan pada bagian dari Bahasa Pemrograman JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
 
-\subsection{daftar tipe data yang didukung JSON}
-\onehalfspacing JSON dapat mewakili empat tipe primtif (\textit{string}, \textit{number}, \textit{boolean}, and \textit{null}) dan dua tipe terstruktur (\textit{object} and \textit{array})\cite{rfc-4627}.
-
-\onehalfspacing String adalah rangkaian yang terdiri dari nol atau lebih karakter Unicode\footnote{http://www.unicode.org/versions/Unicode6.2.0/}. 
-
-\onehalfspacing Sebuah objek adalah sebuah \textit{unordered collection} yang terdiri dari nol atau lebih pasangan nama/nilai, dimana sebuah nama adalah string dan sebuah nilai adalah \textit{string}, \textit{number}, \textit{boolean}, \textit{null}, \textit{object}, atau \textit{array}.
-
-\onehalfspacing Array adalah rangkaian terurut yang terdiri dari nol atau lebih nilai.
-
 \subsection{Struktur}
 \onehalfspacing JSON dibangun di atas dua struktur\cite{introducing-json}:
 \begin{enumerate}
@@ -216,9 +208,49 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 
 \onehalfspacing Kedua struktur tersebut adalah struktur data universal. Hampir semua bahasa pemrograman modern mendukung struktur tersebut dalam satu bentuk atau lain.
 
-\subsection{Bentuk}
-\onehalfspacing 
+\subsection{Tipe Data yang Didukung JSON}
+\onehalfspacing JSON dapat mewakili empat tipe primtif (\textit{string}, \textit{number}, \textit{boolean}, and \textit{null}) dan dua tipe terstruktur (\textit{object} and \textit{array})\cite{rfc-4627}.
 
+\onehalfspacing Sebuah \textit{object} adalah sebuah \textit{unordered collection} yang terdiri dari nol atau lebih pasangan nama/nilai, dimana sebuah nama adalah \textit{string} dan sebuah nilai adalah \textit{string}, \textit{number}, \textit{boolean}, \textit{null}, \textit{object}, atau \textit{array}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.55]{images/object-json.png}
+\caption{Diagram Sintaks untuk Tipe Object}
+\label{Diagram Sintaks untuk Tipe Object}
+\end{figure}
+
+\onehalfspacing \textit{Array} adalah rangkaian terurut yang terdiri dari nol atau lebih nilai.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.55]{images/array-json.png}
+\caption{Diagram Sintaks untuk Tipe Array}
+\label{Diagram Sintaks untuk Tipe Array}
+\end{figure}
+
+\onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat diulang.
+
+\newpage
+\onehalfspacing \textit{String} adalah rangkaian yang terdiri dari nol atau lebih karakter \textit{Unicode}\footnote{http://www.unicode.org/versions/Unicode6.2.0/}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.55]{images/string-json.png}
+\caption{Diagram Sintaks untuk Tipe String}
+\label{Diagram Sintaks untuk Tipe String}
+\end{figure}
+
+\onehalfspacing \textit{Number} di JSON sama seperti tipe data \textit{number} di C atau Java, kecuali format oktal dan heksadesimal tidak digunakan.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.55]{images/number-json.png}
+\caption{Diagram Sintaks untuk Tipe Number}
+\label{Diagram Sintaks untuk Tipe Number}
+\end{figure}
+
+\newpage
 \section{XML}
 
 \chapter{Analisis Sistem}

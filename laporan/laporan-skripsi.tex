@@ -194,7 +194,18 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \section{JSON}
 
 \subsection{Pengantar}
-\onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan berbasis teks yang bersifat \textit{language-independent}\footnote{Dengan sifat seperti ini JSON bisa digunakan di banyak bahasa pemrograman, selama ada dukungan \textit{library} untuk bahasa pemrograman yang akan digunakan}. Relatif sangat mudah bagi manusia untuk membaca dan menulis JSON. Relatif sangat mudah pula bagi mesin (komputer) untuk mengurai dan menghasilkan JSON. JSON berbasiskan pada bagian dari Bahasa Pemrograman JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}. Informasi lengkap tentang JSON dapat dibaca lebih lanjut di RFC 4627\footnote{http://tools.ietf.org/html/rfc4627}.
+\onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan berbasis teks yang bersifat \textit{language-independent}\footnote{Dengan sifat seperti ini JSON bisa digunakan di banyak bahasa pemrograman, selama ada dukungan \textit{library} untuk bahasa pemrograman yang akan digunakan}. Relatif sangat mudah bagi manusia untuk membaca dan menulis JSON. Relatif sangat mudah pula bagi mesin (komputer) untuk mengurai dan menghasilkan JSON.
+
+\onehalfspacing JSON berbasiskan pada bagian dari Bahasa Pemrograman JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
+
+\subsection{daftar tipe data yang didukung JSON}
+\onehalfspacing JSON dapat mewakili empat tipe primtif (\textit{string}, \textit{number}, \textit{boolean}, and \textit{null}) dan dua tipe terstruktur (\textit{object} and \textit{array})\cite{rfc-4627}.
+
+\onehalfspacing String adalah rangkaian yang terdiri dari nol atau lebih karakter Unicode\footnote{http://www.unicode.org/versions/Unicode6.2.0/}. 
+
+\onehalfspacing Sebuah objek adalah sebuah \textit{unordered collection} yang terdiri dari nol atau lebih pasangan nama/nilai, dimana sebuah nama adalah string dan sebuah nilai adalah \textit{string}, \textit{number}, \textit{boolean}, \textit{null}, \textit{object}, atau \textit{array}.
+
+\onehalfspacing Array adalah rangkaian terurut yang terdiri dari nol atau lebih nilai.
 
 \subsection{Struktur}
 \onehalfspacing JSON dibangun di atas dua struktur\cite{introducing-json}:
@@ -307,6 +318,10 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
 \bibitem{introducing-json}
   \emph{Introducing JSON} http://www.json.org/
   diakses pada 20 Januari 2013.
+  
+\bibitem{rfc-4627}
+  \emph{The application/json Media Type for JavaScript Object Notation (JSON)} http://tools.ietf.org/html/rfc4627
+  diakses pada 5 April 2013.
     
 \bibitem{rest-soap}
   \emph{How REST replaced SOAP on the Web: What it means to you}

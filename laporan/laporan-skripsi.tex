@@ -336,6 +336,22 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 
 \onehalfspacing Walaupun XML bisa digunakan untuk \textit{data interchange}, namun, XML tidak cocok untuk \textit{data interchange}. Ini membawa banyak bagasi (baca: pengeluaran tambahan), dan tidak cocok dengan model data dari kebanyakan bahasa pemrograman. Ketika kebanyakan \textit{programmer} melihat XML untuk pertama kalinya, mereka terkejut melihat betapa jelek dan tidak efisiennya XML\cite{json-fat-free}.
 
+\section{Menggunakan JSON daripada XML}
+
+\onehalfspacing Pada dasarnya setiap hal selalu memiliki kelebihannya dan kekurangannya serta \textit{use case} masing-masing. Seperti yang sudah dijelaskan sebelumnya tentang kritik terhadap XML, pada bagian ini dijelaskan beberapa poin kenapa lebih memilih untuk menggunakan JSON daripada XML. Berikut adalah beberapa alasan tersebut:
+
+\begin{enumerate}
+  \item JSON lebih sederhana
+  \begin{enumerate}
+    \item JSON lebih sederhana dibandingkan XML. JSON memiliki tata bahasa yang jauh lebih kecil dan lebih mudah dipetakan langsung ke struktur data yang digunakan dalam bahasa pemrograman modern.
+    \item JSON jauh lebih mudah bagi manusia untuk dibaca daripada XML. JSON juga lebih mudah untuk ditulis dan dibaca oleh mesin.
+  \end{enumerate}
+  \item JSON dapat dipetakan dengan lebih mudah untuk sistem berorientasi objek.
+  \item JSON sudah diadopsi secara luas oleh banyak pihak di industri perangkat lunak\cite{json-continue-to-winning}\cite{json-continue-to-push}.
+\end{enumerate}
+
+\onehalfspacing
+
 \chapter{Analisis Sistem}
 \section{High-level Architecture CampusLife}
 \onehalfspacing Secara umum CampusLife dibangun dengan menggunakan \textit{three-tier architecture} yang terdiri dari 3 tingkat, yaitu \textit{presentation}, \textit{logic} dan \textit{data}. CampusLife dibangun dengan menggunakan \textit{three-tier architecture} dengan tujuan agar pengembang aplikasi bisa melakukan perubahan dengan relatif mudah. Berikut adalah gambaran visual dari arsitektur CampusLife:
@@ -443,12 +459,20 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   http://www.infoq.com/articles/rest-soap
   diakses pada 14 September 2012.
   
-  \bibitem{xml-wikipedia}
+\bibitem{xml-wikipedia}
   \emph{XML}
   http://en.wikipedia.org/wiki/XML
   diakses pada 7 April 2013.
   
+\bibitem{json-continue-to-winning}
+  \emph{JSON Continues its Winning Streak Over XML}
+  http://blog.programmableweb.com/2010/12/03/json-continues-its-winning-streak-over-xml/
+  diakses pada 8 April 2013.
   
+\bibitem{json-continue-to-push}
+  \emph{Why JSON will continue to push XML out of the picture}
+  http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
+  diakses pada 8 April 2013.  
  
 \end{thebibliography}
 

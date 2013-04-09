@@ -1,4 +1,57 @@
 
+bab.2-2013.04.09/ 2013-04-09 
+============================
+
+  * Merge branch 'bab-2' into development
+  * Formatting content di Bab 1
+  * Memperbaiki typo.
+  * Formatting content
+  * Menyempurnakan penjelasan tentang Manifesto Agile #4864710953266
+  * Prinsip-prinsip Agile #4864710953274
+  * Menjelaskan Agile secara singkat dan menyertakan Agile manifesto #4864710953264 #4864710953266
+  * Menjelaskan tentang pertimbangan menggunakan JSON dibandingkan XML #4513837290028
+  * Kritik terhadap XML #4864710953250
+  * Menyertakan contoh XML #4827600598569
+  * Menambahkan kalimat penutup sub bab #4827600598565
+  * Menyertakan pengantar tentang XML #4827600598565
+  * Menyertakan contoh JSON #4827600598563
+  * Menyertakan tipe-tipe JSON dalam bentuk syntax diagram #4845171147170
+  * Menjelaskan tipe data yang didukung oleh JSON #4827600598561
+  * Menjelaskan apa itu JSON dan struktur JSON #4827600598559
+  * Merubah skala gambar
+  * Rebuild document
+  * Menambahkan TODO dan subsection
+  * Daftar format serialisasi data #4827600598546
+  * Menyertakan Ilustrasi proses serialisasi #4827600598549
+  * Menyempurnakan penjelasan REST Web API #4763718015240
+  * Menyertakan diagram RESTful Web API. #4633038594037
+  * Restructure the content.
+  * Rebuild document
+  * Rebuild document
+  * Memindahkan penjelasan tentang arsitektur CL ke bab 3 Analasis Sistem.
+  * Formatting content.
+  * Formatting content
+  * Menambahkan footnote disertasi Roy Fielding. Asana task #4763718015240
+  * Menyertakan penjelasan tentang RESTful Web API. Asana task #4763718015240
+  * Menambahkan halaman daftar gambar dan tabel
+  * Menambahkan referensi untuk landasan teori.
+  * Menjelaskan alasan yang tepat untuk membangun Web API. Asana task #4632929678990
+  * Menjelaskan apa itu Web API. Asana task #4632929678988
+  * Menambahkan catatan referensi yang bisa digunakan untuk penjelasan Web API
+  * Mengganti dengan istilah yang lebih tepat.
+  * Menambahkan penjelasan keuntungan menggunakan three-tier architecture. Asana task #4544856346935
+  * Menyempurnakan kalimat pembuka
+  * Rebuild document
+  * Formatting.
+  * Mengganti gambar dummy dengan gambar asli dari arsitektur CL. Asana task #4544856346937
+  * Menambahkan penjelasan tentang logic dan data tier. Asana task #4544856346933
+  * Menambahkan penjelasan tentang presentation tier. Asana task #4544856346933
+  * Menjelaskan high-level architecture CL untuk pertama kalinya. Asana task #4544856346931
+  * Rebuild dokumen laporan
+  * Menyempurnakan penomoroan chapter dan section untuk Bab 1
+  * Menambahkan sedikit penjelasan tentang penggunaan metodologi pengembangan perangkat lunak.
+  * Merge branch 'bab.1-2013.03.09' into development
+
 bab.1-2013.03.09 
 ==================
 

@@ -142,6 +142,10 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \end{enumerate}
 
 \subsection{RESTful Web API}
+
+\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Berikut adalah diagram yang mengilustrasikan proses saat klien mengirimkan \textit{request} dan RESTful Web API mengirimkan \textit{response} kepada klien:
+
+\onehalfspacing
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=1.00]{images/RESTful-web-api.png}
@@ -149,20 +153,19 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \label{RESTful Web API}
 \end{figure}
 
-\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di dunia Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}. Berdasarkan informasi yang penulis dapatkan, pada saat laporan ini ditulis sudah lebih dari 5000 REST Web API yang diimplementasikan di dunia nyata\footnote{Web Services Directory http://www.programmableweb.com/apis/directory/1?protocol=REST}.
+\onehalfspacing Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di dunia Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}. Berdasarkan informasi yang penulis dapatkan, pada saat laporan ini ditulis sudah lebih dari 5000 REST Web API yang diimplementasikan di dunia nyata\footnote{Web Services Directory http://www.programmableweb.com/apis/directory/1?protocol=REST}.
 
 \section{Serialisasi data}
 
-\onehalfspacing
+\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi (alias \textit{deflating}) adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi (alias \textit{inflating}) kembali di komputer lain \cite{serialization-wikipedia}. Proses serialisasi dan deserialisasi diilustrasikan dalam Gambar \ref{Proses Serialisasi}.
 
+\onehalfspacing 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.65]{images/serialization-process.png}
 \caption{Proses Serialisasi}
 \label{Proses Serialisasi}
 \end{figure}
-
-\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi kembali di komputer lain \cite{serialization-wikipedia}.
 
 \onehalfspacing Pada saat penulis membuat laporan, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}:
 \begin{enumerate}

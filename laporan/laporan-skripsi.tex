@@ -4,8 +4,8 @@
 \usepackage{setspace}
 \usepackage{graphicx, times}
 \usepackage[bahasa]{babel}
+\usepackage{listings}
 \usepackage{tikz}
-\usepackage{gantt}
 \usepackage{tabularx}
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
 
@@ -252,48 +252,48 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \subsection{Contoh-contoh}
 \onehalfspacing Ini adalah contoh \textit{object} dalam format JSON:
 
-\begin{verbatim}
+\begin{lstlisting}[frame=single]
 {
   "Image": {
-    "Width":  800,
+    "Width": 800,
     "Height": 600,
-    "Title":  "View from 15th Floor",
+    "Title": "View from 15th Floor",
     "Thumbnail": {
-      "Url":    "http://www.example.com/image/481989943",
+      "Url": "http://www.example.com/image/481989943",
       "Height": 125,
-      "Width":  "100"
+      "Width": "100"
     },
     "IDs": [116, 943, 234, 38793]
   }
 }
-\end{verbatim}
+\end{lstlisting}
 
 \onehalfspacing Ini adalah contoh sebuah \textit{array} dalam format JSON yang berisi 2 \textit{object}:
 
-\begin{verbatim}
+\begin{lstlisting}[frame=single]
 [
   {
     "precision": "zip",
-    "Latitude":  37.7668,
+    "Latitude": 37.7668,
     "Longitude": -122.3959,
-    "Address":   "",
-    "City":      "SAN FRANCISCO",
-    "State":     "CA",
-    "Zip":       "94107",
-    "Country":   "US"
+    "Address": "",
+    "City": "SAN FRANCISCO",
+    "State": "CA",
+    "Zip": "94107",
+    "Country": "US"
   },
   {
     "precision": "zip",
-    "Latitude":  37.371991,
+    "Latitude": 37.371991,
     "Longitude": -122.026020,
-    "Address":   "",
-    "City":      "SUNNYVALE",
-    "State":     "CA",
-    "Zip":       "94085",
-    "Country":   "US"
+    "Address": "",
+    "City": "SUNNYVALE",
+    "State": "CA",
+    "Zip": "94085",
+    "Country": "US"
   }
 ]
-\end{verbatim}
+\end{lstlisting}
 
 \section{XML}
 
@@ -307,7 +307,8 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 
 \subsection{Contoh Dokumen XML}
 \onehalfspacing Berikut adalah contoh dokumen XML dari tutorial W3Schools\footnote{http://www.w3schools.com/xml/cd\_catalog.xml}:
-\begin{verbatim}
+
+\begin{lstlisting}[frame=single]
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <CATALOG>
 	<CD>
@@ -327,7 +328,7 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 		<YEAR>1988</YEAR>
 	</CD>
 </CATALOG>
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Kritik Terhadap XML}
 

@@ -4,8 +4,8 @@
 \usepackage{setspace}
 \usepackage{graphicx, times}
 \usepackage[bahasa]{babel}
+\usepackage{listings}
 \usepackage{tikz}
-\usepackage{gantt}
 \usepackage{tabularx}
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
 
@@ -62,8 +62,7 @@ Universitas Widyatama
 
 \onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
-% FIXME Penjelasan tidak runut
-\onehalfspacing Di antara format serialisasi data yang sudah disebutkan di atas, XML\footnote{http://www.w3.org/XML/} dan JSON\footnote{http://json.org/} merupakan format serialisasi data yang paling terkenal saat ini\cite{comparison-of-data-serialization-formats}. Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
+\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
 
 % menjelaskan rangkuman penelitian
 \onehalfspacing \textit{Smartphone} sebagai perangkat tempat aplikasi \textit{mobile} CampusLife berjalan, merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.\cite{challenging-issues-and-limitations-of-mobile-computing}. Dengan kedua keterbatasan tersebut, dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
@@ -128,7 +127,7 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \onehalfspacing
 \subsection{Apa itu Web API}
 
-\onehalfspacing \textit{Application programming interface} (API) adalah sebuah protokol yang dimaksudkan untuk digunakan sebagai antarmuka oleh komponen perangkat lunak untuk berkoandmunikasi satu sama lain. Ketika digunakan dalam konteks pengembangan \textit{web}, API biasanya didefinsikan sebagai satu set \textit{Hypertext Transfer Protocol} (HTTP) \textit{request message}, dan disertai dengan \textit{response message} dalam \textit{Extensible Markup Language} atau \textit{JavaScript Object Notation}.
+\onehalfspacing \textit{Application programming interface} (API) adalah sebuah protokol yang dimaksudkan untuk digunakan sebagai antarmuka oleh komponen perangkat lunak untuk berkomunikasi satu sama lain. Ketika digunakan dalam konteks pengembangan \textit{web}, API biasanya didefinisikan sebagai satu set \textit{Hypertext Transfer Protocol} (HTTP) \textit{request message}, dan disertai dengan \textit{response message} dalam \textit{Extensible Markup Language} atau \textit{JavaScript Object Notation}.
 
 \onehalfspacing Praktek penerbitan Web API telah memungkinkan masyarakat \textit{web} seperti pengembang aplikasi berbasis \textit{web} untuk membuat arsitektur terbuka untuk berbagi konten dan data antara masyarakat dan aplikasi. Dengan cara ini, konten yang dibuat dalam satu tempat dapat dikirimkan secara dinamis dan diperbaharui di beberapa lokasi di \textit{web} \cite{api-wikipedia}.
 
@@ -136,12 +135,16 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin menyediakan Web API. Berikut adalah berapa alasan yang umum kenapa perlu menyediakan Web API \cite{apis-linux-journal}:
 
 \begin{enumerate}
-  \item Untuk memungkinkan pengguna Anda mengakses data mereka melalui aplikasi pihak ketiga. Pertimbangkan berapa banyak pihak ketiga Twitter klien yang ada\footnote{http://en.wikipedia.org/wiki/List\_of\_Twitter\_services\_and\_applications}, semua menggunakan API Twitter, daripada mengakses langsung ke situs \textit{web}. Hal yang sama berlaku untuk Amazon\footnote{http://www.amazon.com/} dan eBay\footnote{http://www.ebay.com/}, antara lain, yang memungkinkan pengguna untuk mengakses data katalog mereka dan bahkan mengeksekusi penjualan, semua melalui API.
+  \item Untuk memungkinkan pengguna Anda mengakses data mereka melalui aplikasi pihak ketiga. Pertimbangkan berapa banyak pihak ketiga Twitter klien yang ada\footnote{http://en.wikipedia.org/wiki/List\_of\_Twitter\_services\_and\_applications}, semua menggunakan API Twitter\footnote{https://dev.twitter.com/}, daripada mengakses langsung ke situs \textit{web}\footnote{https://twitter.com/}. Hal yang sama berlaku untuk Amazon\footnote{http://www.amazon.com/} dan eBay\footnote{http://www.ebay.com/}, antara lain, yang memungkinkan pengguna untuk mengakses data katalog mereka dan bahkan mengeksekusi penjualan, semua melalui API.
   \item Untuk memungkinkan pengembang aplikasi mobile untuk mengakses situs Anda dengan mengirim dan mengambil data menggunakan HTTP.
   \item Untuk memungkinkan aplikasi Anda sendiri untuk mengakses data sendiri melalui panggilan Ajax\footnote{https://developer.mozilla.org/en/docs/AJAX}. Bila Anda membuat panggilan JavaScript di latar belakang menggunakan Ajax, kemungkinan besar Anda akan ingin menggunakan panggilan API, menerima XML atau JSON, bukan HTML yang membutuhkan \textit{parsing} lebih lanjut.
 \end{enumerate}
 
 \subsection{RESTful Web API}
+
+\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Berikut adalah diagram yang mengilustrasikan proses saat klien mengirimkan \textit{request} dan RESTful Web API mengirimkan \textit{response} kepada klien:
+
+\onehalfspacing
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=1.00]{images/RESTful-web-api.png}
@@ -149,20 +152,19 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \label{RESTful Web API}
 \end{figure}
 
-\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di dunia Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}. Berdasarkan informasi yang penulis dapatkan, pada saat laporan ini ditulis sudah lebih dari 5000 REST Web API yang diimplementasikan di dunia nyata\footnote{Web Services Directory http://www.programmableweb.com/apis/directory/1?protocol=REST}.
+\onehalfspacing Jika diukur dengan jumlah layanan Web yang menggunakannya, REST telah muncul dalam beberapa tahun terakhir sebagai model desain layanan Web yang dominan. Bahkan, REST memiliki dampak besar di dunia Web yang telah sebagian besar menggantikan desain antarmuka berbasis SOAP-WSDL dan karena REST memiliki gaya yang jauh lebih sederhana untuk digunakan \cite{ws-restful}. Berdasarkan informasi yang penulis dapatkan, pada saat laporan ini ditulis sudah lebih dari 5000 REST Web API yang diimplementasikan di dunia nyata\footnote{Web Services Directory http://www.programmableweb.com/apis/directory/1?protocol=REST}.
 
 \section{Serialisasi data}
 
-\onehalfspacing
+\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi (alias \textit{deflating}) adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi (alias \textit{inflating}) kembali di komputer lain \cite{serialization-wikipedia}. Proses serialisasi dan deserialisasi diilustrasikan dalam Gambar \ref{Proses Serialisasi}.
 
+\onehalfspacing 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.65]{images/serialization-process.png}
 \caption{Proses Serialisasi}
 \label{Proses Serialisasi}
 \end{figure}
-
-\onehalfspacing Dalam ilmu komputer, dalam konteks penyimpanan data dan transmisi, serialisasi adalah proses menerjemahkan struktur basis data atau kondisi objek ke dalam format yang dapat disimpan lebih lanjut dalam basis data (misalnya, dalam sebuah berkas atau \textit{buffer} memori, atau ditransmisikan melalui koneksi jaringan) dan dilakukan proses deserialisasi kembali di komputer lain \cite{serialization-wikipedia}.
 
 \onehalfspacing Pada saat penulis membuat laporan, sudah ada lebih dari 10 format serialisasi data\footnote{http://en.wikipedia.org/wiki/Comparison\_of\_data\_serialization\_formats}:
 \begin{enumerate}
@@ -188,33 +190,31 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
   \item YAML
 \end{enumerate}
 
-% TODO Buat kalimat penutup sebelum melanjutkan pembahasan ke JSON dan XML
-
 \section{JSON}
 
 \subsection{Pengantar}
 \onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan berbasis teks yang bersifat \textit{language-independent}\footnote{Dengan sifat seperti ini JSON bisa digunakan di banyak bahasa pemrograman, selama ada dukungan \textit{library} untuk bahasa pemrograman yang akan digunakan}. Relatif sangat mudah bagi manusia untuk membaca dan menulis JSON. Relatif sangat mudah pula bagi mesin (komputer) untuk mengurai dan menghasilkan JSON.
 
-\onehalfspacing JSON berbasiskan pada bagian dari Bahasa Pemrograman JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
+\onehalfspacing JSON dibuat dengan berbasiskan JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
 
 \subsection{Struktur}
-\onehalfspacing JSON dibangun di atas dua struktur\cite{introducing-json}:
+\onehalfspacing JSON dibangun di atas dua struktur:
 \begin{enumerate}
   \item \textit{Collection of name/value pairs}. Dalam berbagai bahasa, struktur ini direalisasikan sebagai \textit{object}, \textit{record}, \textit{struct}, \textit{dictionary}, \textit{hash table}, \textit{keyed list}, atau \textit{associative array}.
   \item \textit{Ordered List}. Dalam kebanyakan bahasa, struktur ini direalisasikan sebagai \textit{array}, \textit{vector}, \textit{list}, atau \textit{sequence}.
 \end{enumerate}
 
-\onehalfspacing Kedua struktur tersebut adalah struktur data universal. Hampir semua bahasa pemrograman modern mendukung struktur tersebut dalam satu bentuk atau lain.
+\onehalfspacing Kedua struktur tersebut adalah struktur data universal. Hampir semua bahasa pemrograman modern mendukung struktur tersebut dalam satu bentuk atau lain \cite{introducing-json}.
 
 \subsection{Tipe Data yang Didukung JSON}
-\onehalfspacing JSON dapat mewakili empat tipe primtif (\textit{string}, \textit{number}, \textit{boolean}, and \textit{null}) dan dua tipe terstruktur (\textit{object} and \textit{array})\cite{rfc-4627}.
+\onehalfspacing JSON dapat mewakili empat tipe primtif (\textit{string}, \textit{number}, \textit{boolean}, and \textit{null}) dan dua tipe terstruktur (\textit{object} and \textit{array}) \cite{rfc-4627}.
 
 \onehalfspacing Sebuah \textit{object} adalah sebuah \textit{unordered collection} yang terdiri dari nol atau lebih pasangan nama/nilai, dimana sebuah nama adalah \textit{string} dan sebuah nilai adalah \textit{string}, \textit{number}, \textit{boolean}, \textit{null}, \textit{object}, atau \textit{array}.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/object-json.png}
-\caption{Diagram Sintaks untuk Tipe Object}
+\caption{Diagram Sintaks untuk Tipe Object \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Object}
 \end{figure}
 
@@ -223,28 +223,27 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/array-json.png}
-\caption{Diagram Sintaks untuk Tipe Array}
+\caption{Diagram Sintaks untuk Tipe Array \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Array}
 \end{figure}
 
 \onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat diulang.
 
-\newpage
 \onehalfspacing \textit{String} adalah rangkaian yang terdiri dari nol atau lebih karakter \textit{Unicode}\footnote{http://www.unicode.org/versions/Unicode6.2.0/}.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/string-json.png}
-\caption{Diagram Sintaks untuk Tipe String}
+\caption{Diagram Sintaks untuk Tipe String \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe String}
 \end{figure}
 
-\onehalfspacing \textit{Number} di JSON sama seperti tipe data \textit{number} di C atau Java, kecuali format oktal dan heksadesimal tidak digunakan.
+\onehalfspacing \textit{Number} di JSON sama seperti tipe data \textit{number} di C atau Java, kecuali format oktal\footnote{Contoh angka dalam bentuk oktal 061 062 063} dan heksadesimal\footnote{Contoh angka dalam bentuk 9B0} tidak digunakan.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/number-json.png}
-\caption{Diagram Sintaks untuk Tipe Number}
+\caption{Diagram Sintaks untuk Tipe Number \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Number}
 \end{figure}
 
@@ -252,62 +251,63 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \subsection{Contoh-contoh}
 \onehalfspacing Ini adalah contoh \textit{object} dalam format JSON:
 
-\begin{verbatim}
+\begin{lstlisting}[frame=single]
 {
   "Image": {
-    "Width":  800,
+    "Width": 800,
     "Height": 600,
-    "Title":  "View from 15th Floor",
+    "Title": "View from 15th Floor",
     "Thumbnail": {
-      "Url":    "http://www.example.com/image/481989943",
+      "Url": "http://www.example.com/image/481989943",
       "Height": 125,
-      "Width":  "100"
+      "Width": "100"
     },
     "IDs": [116, 943, 234, 38793]
   }
 }
-\end{verbatim}
+\end{lstlisting}
 
 \onehalfspacing Ini adalah contoh sebuah \textit{array} dalam format JSON yang berisi 2 \textit{object}:
 
-\begin{verbatim}
+\begin{lstlisting}[frame=single]
 [
   {
     "precision": "zip",
-    "Latitude":  37.7668,
+    "Latitude": 37.7668,
     "Longitude": -122.3959,
-    "Address":   "",
-    "City":      "SAN FRANCISCO",
-    "State":     "CA",
-    "Zip":       "94107",
-    "Country":   "US"
+    "Address": "",
+    "City": "SAN FRANCISCO",
+    "State": "CA",
+    "Zip": "94107",
+    "Country": "US"
   },
   {
     "precision": "zip",
-    "Latitude":  37.371991,
+    "Latitude": 37.371991,
     "Longitude": -122.026020,
-    "Address":   "",
-    "City":      "SUNNYVALE",
-    "State":     "CA",
-    "Zip":       "94085",
-    "Country":   "US"
+    "Address": "",
+    "City": "SUNNYVALE",
+    "State": "CA",
+    "Zip": "94085",
+    "Country": "US"
   }
 ]
-\end{verbatim}
+\end{lstlisting}
 
 \section{XML}
 
 \subsection{Pengantar}
 
-\onehalfspacing \textit{Extensible Markup Language} (XML) adalah bahasa \textit{markup} yang mendefinisikan seperangkat aturan untuk \textit{document encoding} dalam format yang dapat terbaca oleh manusia dan mesin. Ini didefinisikan dalam spesifikasi XML 1.0\footnote{http://www.w3.org/TR/REC-xml/} yang dihasilkan oleh W3C\cite{xml-wikipedia}.
+\onehalfspacing \textit{Extensible Markup Language} (XML) adalah bahasa \textit{markup} yang mendefinisikan seperangkat aturan untuk \textit{document encoding} dalam format yang dapat terbaca oleh manusia dan mesin. Ini didefinisikan dalam spesifikasi XML 1.0\footnote{http://www.w3.org/TR/REC-xml/} yang dihasilkan oleh W3C.
 
-\onehalfspacing Tujuan desain XML menekankan kesederhanaan, keumuman, dan kegunaan melalui Internet. XML adalah format data tekstual dengan dukungan kuat melalui Unicode. Meskipun desain XML berfokus pada dokumen, namun secara luas digunakan untuk menrepresentasikan struktur data yang berubah-ubah, misalnya dalam layanan web\cite{xml-wikipedia}.
+\onehalfspacing Tujuan desain XML menekankan kesederhanaan, keumuman, dan kegunaan melalui Internet. XML adalah format data tekstual dengan dukungan kuat melalui Unicode. Meskipun desain XML berfokus pada dokumen, namun secara luas digunakan untuk menrepresentasikan struktur data yang berubah-ubah, misalnya dalam layanan web \cite{xml-wikipedia}.
 
 \onehalfspacing Dikarenakan topik penelitian ini tidak membandingkan antara JSON versus XML dan tidak fokus ke XML, maka penulis hanya menjelaskan XML secara singkat.
 
 \subsection{Contoh Dokumen XML}
 \onehalfspacing Berikut adalah contoh dokumen XML dari tutorial W3Schools\footnote{http://www.w3schools.com/xml/cd\_catalog.xml}:
-\begin{verbatim}
+
+\begin{lstlisting}[frame=single]
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <CATALOG>
 	<CD>
@@ -327,13 +327,13 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 		<YEAR>1988</YEAR>
 	</CD>
 </CATALOG>
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Kritik Terhadap XML}
 
-\onehalfspacing XML telah sering dikritik karena bertele-tele dan kerumitan yang dimiliki. Pemetaan model pohon dasar XML untuk tipe sistem bahasa pemrograman atau database bisa menjadi sulit, terutama ketika XML digunakan untuk pertukaran data yang sangat terstruktur antara aplikasi, yang dimana bukan tujuan desain utama XML.\cite{xml-wikipedia}
+\onehalfspacing XML telah sering dikritik karena bertele-tele dan kerumitan yang dimiliki. Pemetaan model pohon dasar XML untuk tipe sistem bahasa pemrograman atau database bisa menjadi sulit, terutama ketika XML digunakan untuk pertukaran data yang sangat terstruktur antara aplikasi, yang dimana bukan tujuan desain utama XML \cite{xml-wikipedia}.
 
-\onehalfspacing Walaupun XML bisa digunakan untuk \textit{data interchange}, namun, XML tidak cocok untuk \textit{data interchange}. Ini membawa banyak bagasi (baca: pengeluaran tambahan), dan tidak cocok dengan model data dari kebanyakan bahasa pemrograman. Ketika kebanyakan \textit{programmer} melihat XML untuk pertama kalinya, mereka terkejut melihat betapa jelek dan tidak efisiennya XML\cite{json-fat-free}.
+\onehalfspacing Walaupun XML bisa digunakan untuk \textit{data interchange}, namun, XML tidak cocok untuk \textit{data interchange}. Ini membawa banyak bagasi (baca: pengeluaran tambahan), dan tidak cocok dengan model data dari kebanyakan bahasa pemrograman. Ketika kebanyakan \textit{programmer} melihat XML untuk pertama kalinya, mereka terkejut melihat betapa jelek dan tidak efisiennya XML \cite{json-fat-free}.
 
 \section{Menggunakan JSON daripada XML}
 
@@ -346,18 +346,18 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
     \item JSON jauh lebih mudah bagi manusia untuk dibaca daripada XML. JSON juga lebih mudah untuk ditulis dan dibaca oleh mesin.
   \end{enumerate}
   \item JSON dapat dipetakan dengan lebih mudah untuk sistem berorientasi objek.
-  \item JSON sudah diadopsi secara luas oleh banyak pihak di industri perangkat lunak\cite{json-continue-to-winning}\cite{json-continue-to-push}.
+  \item JSON sudah diadopsi secara luas oleh banyak pihak di industri perangkat lunak \cite{json-continue-to-winning}\cite{json-continue-to-push}.
 \end{enumerate}
 
 \section{Agile Software Development}
 \subsection{Pengantar}
-\onehalfspacing Pengembangan perangkat lunak \textit{Agile} adalah sekelompok metode pengembangan perangkat lunak berdasarkan metode pengembangan \textit{iterative and incremental}\footnote{http://en.wikipedia.org/wiki/Iterative\_and\_incremental\_development}, di mana persyaratan dan solusi berkembang melalui kolaborasi. Ini mempromosikan perencanaan adaptif, perkembangan dan pengiriman yang evolusioner, pendekatan \textit{time-boxed}\footnote{http://en.wikipedia.org/wiki/Timeboxing} berulang, dan mendorong respon cepat dan fleksibel terhadap perubahan\cite{agile-wikipedia}.
+\onehalfspacing Pengembangan perangkat lunak \textit{Agile} adalah sekelompok metode pengembangan perangkat lunak berdasarkan metode pengembangan \textit{iterative and incremental}\footnote{http://en.wikipedia.org/wiki/Iterative\_and\_incremental\_development}, di mana persyaratan dan solusi berkembang melalui kolaborasi. Ini mempromosikan perencanaan adaptif, perkembangan dan pengiriman yang evolusioner, pendekatan \textit{time-boxed}\footnote{http://en.wikipedia.org/wiki/Timeboxing} berulang, dan mendorong respon cepat dan fleksibel terhadap perubahan \cite{agile-wikipedia}.
 
 \subsection{Manifesto Pengembangan Perangkat Lunak Agile}
 
-\onehalfspacing Pada Februari 2001, 17 pengembang perangkat lunak\footnote{Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick, Robert C. Martin, Stephen J. Mellor, Ken Schwaber, Jeff Sutherland, and Dave Thomas} bertemu di Snowbird, Utah, untuk membahas metode pengembangan ringan. Mereka menerbitkan manifesto untuk \textit{Agile Software Development} untuk menentukan pendekatan yang sekarang dikenal sebagai pengembangan perangkat lunak Agile\cite{agile-wikipedia}.
+\onehalfspacing Pada Februari 2001, 17 pengembang perangkat lunak\footnote{Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick, Robert C. Martin, Stephen J. Mellor, Ken Schwaber, Jeff Sutherland, and Dave Thomas} bertemu di Snowbird, Utah, untuk membahas metode pengembangan ringan. Mereka menerbitkan manifesto untuk \textit{Agile Software Development} untuk menentukan pendekatan yang sekarang dikenal sebagai pengembangan perangkat lunak \textit{Agile} \cite{agile-wikipedia}.
 
-\onehalfspacing Melalui manifesto tersebut mereka menghargai\cite{agile-manifesto}:
+\onehalfspacing Melalui manifesto tersebut mereka menghargai \cite{agile-manifesto}:
 \begin{enumerate}
   \item Individu dan interaksi lebih dari proses dan sarana perangkat lunak
   \item Perangkat lunak yang bekerja lebih dari dokumentasi yang menyeluruh
@@ -375,7 +375,7 @@ Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin men
 \end{enumerate}
 
 \subsection{Prinsip-prinsip di balik Manifesto Agile}
-Manifesto pengembangan perangkat lunak Agile didasarkan pada dua belas prinsip:
+Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas prinsip:
 \begin{enumerate}
   \item Prioritas utama kami adalah memuaskan klien dengan menghasilkan perangkat lunak yang bernilai secara dini dan rutin.
   \item Menyambut perubahan kebutuhan, walaupun terlambat dalam pengembangan perangkat lunak. Proses \textit{Agile} memanfaatkan perubahan untuk keuntungan kompetitif klien.
@@ -389,6 +389,31 @@ Manifesto pengembangan perangkat lunak Agile didasarkan pada dua belas prinsip:
   \item Kesederhanaan--seni memaksimalkan jumlah pekerjaan yang belum dilakukan--adalah hal yang amat penting.
   \item Arsitektur, kebutuhan, dan rancangan perangkat lunak terbaik muncul dari tim yang yang dapat mengorganisir diri sendiri.
   \item Secara berkala, tim pengembang berefleksi tentang bagaimana untuk menjadi lebih efektif, kemudian menyesuaikan dan menyelaraskan kebiasaan bekerja mereka.
+\end{enumerate}
+
+\subsection{Bagaimana Agile Berbeda}
+\onehalfspacing Sebenarnya, satu bab laporan ini tidak akan cukup untuk membahas bagaimana \textit{Agile} berbeda dengan metodologi pengembangan perangkat lunak lainnya dikarenakan cakupan bahasannya yang luas, tetapi ada beberapa hal umum yang perlu diketahui tentang proyek-proyek pengembangan perangkat lunak yang menggunakan \textit{Agile}.
+
+\onehalfspacing Pertama, peran-peran yang diterapkan di proyek-proyek \textit{Agile} lebih fleksibel. Ketika diterapkan dengan tepat, bergabung dengan tim \textit{Agile} seperti di dalam sebuah \textit{mini-startup} (alias \textit{startup company}). Orang-orang di dalam tim bekerja dengan penuh semangat dan mengerjakan apa yang bisa dilakukan untuk membuat proyek menjadi sukses tanpa memperhatikan jabatan atau peran yang diemban.
+
+\newpage
+\onehalfspacing Kedua, yang membuat \textit{Agile} berbeda dengan yang lain adalah proses analisis, desain, \textit{coding}, dan pengujian merupakan aktivitas yang kontinu. Itu berarti kegiatan ini tidak bisa berlangsung dalam sifat yang terisolasi lagi. Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada gambar \ref{agile-process}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.60]{images/agile-process.png}
+\caption{Ilustrasi aktivitas kontinu di \textit{Agile} \cite{agile-samurai}}
+\label{agile-process}
+\end{figure}
+
+\subsection{Beberapa Praktek Agile yang Diterapkan}
+
+\onehalfspacing Mengingat pengetahuan penulis tentang Agile masih jauh dari cukup, cakupan pengerjaan dari prototype cukup kecil dan tim pengerjaan teknis yang hanya terdiri dari satu orang, yaitu penulis sendiri. Maka hanya sebagian kecil praktek \textit{Agile} yang diterapkan oleh penulis, yaitu:
+
+\begin{enumerate}
+  \item Mencatat daftar fitur dalam bentuk \textit{user story}
+  \item Menerapkan jangka waktu 1 minggu untuk setiap iterasi
+  \item Melakukan \textit{sprint planning} untuk merencanakan daftar tugas yang perlu dikerjakan selama iterasi berlangsung
 \end{enumerate}
 
 \chapter{Analisis Sistem}
@@ -517,8 +542,11 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   \emph{Manifesto Pengembangan Perangkat Lunak Agile}
   http://agilemanifesto.org/iso/id/
   diakses pada 8 April 2013.
+  
+\bibitem{agile-samurai}
+  \emph{The Agile Samuari}
+  buku teks
  
 \end{thebibliography}
 
 \end{document}
-

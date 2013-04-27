@@ -1,4 +1,21 @@
 
+bab.2-2013.04.27 / 2013-04-27 
+=============================
+
+  * Menyempurnakan styling istilah asing
+  * Menambahkan footnote
+  * Menyempurnakan penempatan nomor referensi
+  * Memperbaiki kalimat pembuka
+  * Menghilangkan TODO
+  * Menambahkan footnote
+  * Praktek Agile yang diterapkan penulis #4864710953268
+  * Bagaimana Agile berbeda #5192005067557
+  * Menambahkan nomor kutipan ke beberapa gambar
+  * Menghilangkan kalimat yang mati.
+  * Awal bab sebaiknya tidak diawali dengan gambar #4896453093080 #4896453093082
+  * Beri border untuk listing contoh JSON dan XML #4896453093084
+  * Memperbaiki typo #4896453093076 #4896453093078
+
 bab.2-2013.04.09/ 2013-04-09 
 ============================
 

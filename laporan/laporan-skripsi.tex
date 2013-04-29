@@ -417,6 +417,23 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \end{enumerate}
 
 \chapter{Analisis Sistem}
+\section{Roadmap Pengerjaan Purwa-rupa Web API}
+\onehalfspacing Sebelum penulis memulai \textit{software development life cycle}, penulis terlebih dahulu menentukkan \textit{roadmap} dari pengembangan Web API yang terdiri dari 3 \textit{milestone} yang harus dipenuhi. Berikut daftar \textit{milestone} tersebut:
+\begin{enumerate}
+  \item M 1: \textit{Application Skeleton}. Pada \textit{milestone} ini penulis mempersiapkan struktur aplikasi\footnote{http://en.wikipedia.org/wiki/Skeleton\_(computer\_programming)}
+  \item M 2: \textit{Make it works and right}. Pada \textit{milestone} ini penulis mengimplementasikan Web API sesuai dengan kebutuhan dan rancangan yang sudah ditentukan.
+  \begin{enumerate}
+    \item API untuk merespon permintaan konten event dalam format JSON
+    \item API untuk merespon permintaan konten event dalam format XML
+  \end{enumerate}
+  \item M 3: \textit{Measuring}
+    \begin{enumerate}
+      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten event dalam format XML
+      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten event dalam format JSON
+      \item Membuktikan bahwa data yang dihasilkan dalam format JSON lebih kecil ukurannya dibandingkan data yang dihasilkan dalam format XMl
+    \end{enumerate}
+\end{enumerate}
+
 \section{High-level Architecture CampusLife}
 \onehalfspacing Secara umum CampusLife dibangun dengan menggunakan \textit{three-tier architecture} yang terdiri dari 3 tingkat, yaitu \textit{presentation}, \textit{logic} dan \textit{data}. CampusLife dibangun dengan menggunakan \textit{three-tier architecture} dengan tujuan agar pengembang aplikasi bisa melakukan perubahan dengan relatif mudah. Gambaran visual dari arsitektur CampusLife dapat dilihat pada Gambar \ref{high-level-architecture-cl}:
 

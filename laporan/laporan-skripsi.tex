@@ -8,6 +8,7 @@
 \usepackage{tikz}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{pifont}
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
 
 \selectlanguage{bahasa}
@@ -28,7 +29,8 @@ Universitas Widyatama
 
 \onehalfspacing
 \tableofcontents
-\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{7}
 
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
@@ -478,7 +480,57 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
     \item Data yang dihasilkan Web API harus memiliki ukuran yang optimal sehingga aplikasi mobile dapat mengambil data dengan waktu yang relatif singkat
 \end{enumerate}
 
-\onehalfspacing Dari kelima daftar kebutuhan di atas, daftar kebutuhan ke-5 merupakan kebutuhan non-fungsional dan sisanya merupakan daftar kebutuhan fungsional. Mengingat penulis mempraktekkan \textit{Agile} untuk membangun Web API ini, maka perlu diketahui dalam sehari-harinya setiap daftar kebutuhan fungsional dan non-fungsional tersebut biasa disebut dengan \textit{User Story}\footnote{Lebih detail tentang User Story silahkan baca di Bab 2 Landasan Teori}.
+\onehalfspacing Dari kelima daftar kebutuhan di atas, daftar kebutuhan ke-5 merupakan kebutuhan non-fungsional dan sisanya merupakan daftar kebutuhan fungsional.
+
+Mengingat penulis mempraktekkan \textit{Agile} untuk membangun Web API ini, maka perlu diketahui dalam sehari-harinya setiap daftar kebutuhan fungsional dan non-fungsional tersebut biasa disebut dengan \textit{User Story}\footnote{Lebih detail tentang \textit{user story} silahkan baca di Bab 2 Landasan Teori} dan semua daftar \textit{user story} tersebut ditempatkan ke dalam \textit{Product Backlog}.
+
+\subsection{Pola Alur Kerja Ketika Mengumpulkan Daftar Kebutuhan}
+
+\onehalfspacing Ketika melakukan pengumpulan daftar kebutuhan penulis menemukan pola alur kerja sebagai berikut:
+
+\begin{enumerate}
+  \item Membuat \textit{user story} format singkat
+  \item Membuat \textit{user story} format lengkap
+\end{enumerate}
+
+\newpage
+
+\subsubsection{Membuat User Story format singkat}
+
+\onehalfspacing Pada prakteknya jika penulis sedang dalam keadaan yang terburu-buru, penulis biasanya mencatat fitur-fitur baru yang akan dikembangkan dengan format singkat. Berikut adalah contoh daftar fitur yang dibuat dengan \textit{user story} format singkat:
+
+\begin{enumerate}
+  \item \textit{List upcoming events}
+  \item \textit{Display upcoming competitions}
+  \item \textit{Display event details}
+\end{enumerate}
+
+\onehalfspacing Poin penting yang perlu diingat ketika membuat \textit{user story} format singkat adalah:
+
+\begin{enumerate}
+  \item Mencatat \textbf{apa yang harus dilakukan oleh perangkat lunak}
+  \item Mendeskripsikan fitur dengan \textbf{sesingkat dan sejelas mungkin}
+\end{enumerate}
+
+\onehalfspacing Tidak ada yang tahu hari esok seperti apa, \textbf{jangan tergoda untuk mendeskripsikan sedetail mungkin} ketika membuat \textit{user story} format singkat.
+
+\subsubsection{Membuat User Story format panjang}
+
+\onehalfspacing Pada prakteknya, penulis membuat \textit{user story} format panjang setelah mendefinisikan fitur dalam \textit{user story} format panjang. Berikut adalah format \textit{user story} format panjang:
+
+\begin{lstlisting}[frame=single]
+As a <type of user>
+I want <some goal>
+so that <some reason>
+\end{lstlisting}
+
+Berikut adalah format panjang yang diberi anotasi:
+
+\begin{lstlisting}[frame=single]
+As a <type of user> => Who is this story for
+I want <some goal> => What they want to do
+so that <some reason> => Why they want to do it
+\end{lstlisting}
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka

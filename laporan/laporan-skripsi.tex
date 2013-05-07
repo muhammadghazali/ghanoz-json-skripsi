@@ -561,11 +561,32 @@ so that <some reason> => Why they want to do it
 
 \section{URI Structure}
 
-\section{Resource Representation Schema}
+\section{Rancangan Skema Representasi Resource}
 
-\subsection{Resource Representation Schema in JSON}
+\subsection{Pertimbangan Rancangan Skema Representasi Resource dalam format JSON}
 
-\subsection{Resource Representation Schema in XML}
+\subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
+
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail event:
+
+\begin{enumerate}
+  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang diakses
+  \item Data aktual detail event akan dibungkus dalam elemen data
+\end{enumerate}
+
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
+
+\subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format JSON}
+
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar event:
+
+\begin{enumerate}
+  \item Setiap \textit{resource} daftar event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang diakses
+  \item Data aktual daftar event akan dibungkus dalam elemen data. Setiap butir event akan dibungkus dalam elemen data yang disertai atribut id.
+\item Setiap \textit{resource} daftar event akan disertai properti URL
+\end{enumerate}
+
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
@@ -739,5 +760,66 @@ And the maximum of number of item on the Event List is 15 Event}
 When the client request the resource with Content-Type other than JSON or XML\\
 Then the Web API should return HTTP 406 code\\
 And returned reponse should be contained an client error message}
+
+\chapter{Detail Rancangan Skema Representasi Resource} \label{lampiran:b}
+\section{Rancangan Skema Representasi Resource Detail Event}
+\subsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format JSON:
+
+\begin{lstlisting}[frame=single]
+{
+  "url": value,
+  "data":  {
+    "title": value,
+      "shortDescription": value,
+      "times": [
+        {
+          "milliseconds": value,
+          "fullFormat": value,
+          "year": value,
+          "month": value,
+          "date": value,
+          "day": value
+        }
+      ],
+      "isPassed": value,
+      "rating": value,
+      "lastUpdated": value,
+      "timestamp": value,
+      "_id": "value"
+    }
+}
+\end{lstlisting}
+
+\onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event Details resource representations design in JSON}\footnote{https://gist.github.com/muhammadghazali/5409322\#file-event-details-json}
+
+\subsection{Rancangan Skema Representasi Resource Detail Event dalam format XML}
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format XML:
+
+\begin{lstlisting}[frame=single]
+<response>
+    <url>value</url>
+    <data id="1">
+        <title>value</title>
+        <shortDescription>value</shortDescription>
+        <times>
+            <time>
+                <milliseconds>value</milliseconds>
+                <fullFormat>value</fullFormat>
+                <year>value</year>
+                <month>value</month>
+                <date>value</date>
+                <day>value</day>
+            </time>
+        </times>
+        <isPassed>value</isPassed>
+        <rating>value</rating>
+        <lastUpdated>value</lastUpdated>
+        <timestamp>value</timestamp>
+    </data>
+</response>
+\end{lstlisting}
+
+\onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event Details resource representations design in XML}\footnote{https://gist.github.com/muhammadghazali/5409508\#file-event-details-xml}
 
 \end{document}

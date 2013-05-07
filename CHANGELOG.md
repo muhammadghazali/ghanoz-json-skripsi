@@ -1,4 +1,23 @@
 
+2013.05.07 / 2013-05-07 
+==================
+
+  * Menyertakan daftar acceptance criteria di bagian lampiran dan menyempurkan beberapa bagian yang membahas acceptance criteria #5243372732784
+  * Menambahkan acceptance criteria #5243372732784
+  * Menyertakan Pola Alur Kerja Ketika Mengumpulkan Daftar Kebutuhan #5243372732781
+  * Menambahkan arsip sprint backlog
+  * Menyertakan daftar kebutuhan #5223352755639
+  * Formatting konten
+  * Menambahkan sub bab lingkup pengerjaan #5223613939474
+  * Roadmap Pengerjaan Purwa-rupa Web API #5223352755641
+  * Mengganti istilah asing ke dalam padanan bahas Indonesia
+  * Menambahkan footnote URL MongoDB
+  * Styling istilah asing
+  * Memperbaiki referensi ke gambar
+  * Menyempurnakan document structure setting
+  * Mengganti istilah asing ke padanan bahasa Indonesia
+  * Styling untuk istilah asing
+
 bab.2-2013.04.27 / 2013-04-27 
 =============================
 

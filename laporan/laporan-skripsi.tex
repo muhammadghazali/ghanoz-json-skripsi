@@ -532,9 +532,11 @@ I want <some goal> => What they want to do
 so that <some reason> => Why they want to do it
 \end{lstlisting}
 
+\onehalfspacing Setelah \textit{user story} format panjang dibuat, biasanya penulis meneruskan dengan menentukan \textit{acceptance criteria} untuk masing-masing \textit{user story} tersebut. \textit{Acceptance criteria} tersebut akan digunakan saat melakukan \textit{acceptance testing}.
+
 \subsection{Acceptance Criteria}
 
-Berikut adalah daftar masing-masing \textit{acceptance criteria} untuk setiap masing-masing \textit{user story}:
+\onehalfspacing \textit{Acceptance criteria} merupakan salah \textit{requirements artifact} yang akan berguna saat \textit{acceptance testing} untuk menentukan apakah kebutuhan sudah terpenuhi atau belum \cite{acceptance-testing-wikipedia}. Berikut adalah daftar masing-masing \textit{acceptance criteria} untuk setiap masing-masing \textit{user story}:
 \begin{enumerate}
   \item \textit{Get Event Details Acceptance Criteria}
     \begin{enumerate}
@@ -550,7 +552,7 @@ Berikut adalah daftar masing-masing \textit{acceptance criteria} untuk setiap ma
     \end{enumerate}
 \end{enumerate}
 
-Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran TODO sediakan lampiran.
+Setiap masing-masing skenario dari \textit{acceptance criteria} di atas diekspresikan dalam format \textit{Given When Then} \cite{introducing-bdd}\cite{whats-in-story}. Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran \ref{lampiran:a}.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
@@ -645,6 +647,11 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   \emph{Why JSON will continue to push XML out of the picture}
   http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
   diakses pada 8 April 2013.
+  
+\bibitem{acceptance-testing-wikipedia}
+  \emph{Acceptance Testing}
+  http://en.wikipedia.org/wiki/Acceptance\_testing
+  diakses pada 7 Mei 2013.
 
 \bibitem{agile-manifesto}
   \emph{Manifesto Pengembangan Perangkat Lunak Agile}
@@ -654,7 +661,70 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
 \bibitem{agile-samurai}
   \emph{The Agile Samuari}
   buku teks
+  
+\bibitem{introducing-bdd}
+  \emph{Introducing BDD}
+  http://dannorth.net/introducing-bdd/
+  diakses pada 7 Mei 2013.
+  
+\bibitem{whats-in-story}
+  \emph{What's in a Story?}
+  http://dannorth.net/whats-in-a-story/
+  diakses pada 7 Mei 2013.
  
 \end{thebibliography}
+
+\appendix
+\chapter{Acceptance Criteria} \label{lampiran:a}
+\section{Get Event Details Acceptance Criteria}
+\subsection{Scenario 1: Event Details request should return response in JSON}
+
+\onehalfspacing \textit{Given Event Details resource is accessible\\
+And Event Details resource is accessible\\
+When the client request the Event Details in JSON\\
+Then the Web API should return Event Details in JSON\\
+And returned response is supplied with the Event Details resource URL\\}
+
+\subsection{Scenario 2: Event Details request should return response in XML}
+
+\onehalfspacing \textit{Given Event Details resource is accessible\\
+And Event Details resource is accessible\\
+When the client request the Event Details in XML\\
+Then the Web API should return Event Details in XML\\
+And returned response is supplied with the Event Details resource URL\\}
+
+\subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+
+\onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
+When the client request the resource with Content-Type other than JSON or XML\\
+Then the Web API should return HTTP 406 code\\
+And returned reponse should be contained an client error message}
+
+\section{Get Event List Acceptance Criteria}
+
+\subsection{Scenario 1: Event List request should return response in JSON}
+
+\onehalfspacing \textit{Given Event List resource is accessible\\
+And Event List resource is accessible\\
+When the client request the Event List in JSON\\
+Then the Web API should return Event List in JSON\\
+And returned response is should be accompanied by properties like resource url, page, pages, pageSize, total\\
+And the maximum of number of item on the Event List is 15 Event}
+
+\subsection{Scenario 2: Event List request should return response in XML}
+
+\onehalfspacing \textit{Given Event List resource is accessible\\
+And Event List resource is accessible\\
+When the client request the Event List in XML\\
+Then the Web API should return Event List in XML\\
+And returned response is should be accompanied by properties like resource url, page, pages, pageSize, total\\
+And the maximum of number of item on the Event List is 15 Event}
+
+\subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+
+\onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
+When the client request the resource with Content-Type other than JSON or XML\\
+Then the Web API should return HTTP 406 code\\
+And returned reponse should be contained an client error message}
 
 \end{document}

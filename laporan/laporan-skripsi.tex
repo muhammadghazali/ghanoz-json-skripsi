@@ -8,6 +8,7 @@
 \usepackage{tikz}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{pifont}
 \usepackage[top=3cm, bottom=3cm, left=4cm, right=3cm]{geometry}
 
 \selectlanguage{bahasa}
@@ -28,7 +29,8 @@ Universitas Widyatama
 
 \onehalfspacing
 \tableofcontents
-\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{7}
 
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
@@ -417,8 +419,25 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \end{enumerate}
 
 \chapter{Analisis Sistem}
+\section{Roadmap Pengerjaan Purwa-rupa Web API}
+\onehalfspacing Sebelum penulis memulai \textit{software development life cycle}, penulis terlebih dahulu menentukkan \textit{roadmap} dari pengembangan Web API yang terdiri dari 3 \textit{milestone} yang harus dipenuhi. Berikut daftar \textit{milestone} tersebut:
+\begin{enumerate}
+  \item M 1: \textit{Application Skeleton}. Pada \textit{milestone} ini penulis mempersiapkan struktur aplikasi\footnote{http://en.wikipedia.org/wiki/Skeleton\_(computer\_programming)}
+  \item M 2: \textit{Make it works and right}. Pada \textit{milestone} ini penulis mengimplementasikan Web API sesuai dengan kebutuhan dan rancangan yang sudah ditentukan.
+  \begin{enumerate}
+    \item API untuk merespon permintaan konten event dalam format JSON
+    \item API untuk merespon permintaan konten event dalam format XML
+  \end{enumerate}
+  \item M 3: \textit{Measuring}
+    \begin{enumerate}
+      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten event dalam format XML
+      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten event dalam format JSON
+      \item Membuktikan bahwa data yang dihasilkan dalam format JSON lebih kecil ukurannya dibandingkan data yang dihasilkan dalam format XMl
+    \end{enumerate}
+\end{enumerate}
+
 \section{High-level Architecture CampusLife}
-\onehalfspacing Secara umum CampusLife dibangun dengan menggunakan \textit{three-tier architecture} yang terdiri dari 3 tingkat, yaitu \textit{presentation}, \textit{logic} dan \textit{data}. CampusLife dibangun dengan menggunakan \textit{three-tier architecture} dengan tujuan agar pengembang aplikasi bisa melakukan perubahan dengan relatif mudah. Gambaran visual dari arsitektur CampusLife dapat dilihat pada Gambar \ref{high-level-architecture-cl}:
+\onehalfspacing Secara umum CampusLife dibangun dengan menggunakan \textit{three-tier architecture} yang terdiri dari 3 tingkat, yaitu \textit{presentation}, \textit{logic} dan \textit{data}. CampusLife dibangun dengan menggunakan \textit{three-tier architecture} dengan tujuan agar pengembang aplikasi bisa melakukan perubahan dengan relatif mudah. Gambaran visual dari arsitektur CampusLife dapat dilihat pada gambar \ref{high-level-architecture-cl}:
 
 \begin{figure}[htp]
 \centering
@@ -428,13 +447,13 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \end{figure}
 
 \subsection{Presentation Tier}
-\onehalfspacing \textit{Presentation tier} adalah \textit{tier} paling atas dari aplikasi CampusLife. \textit{Tier} ini menampilkan informasi terkait dengan layanan seperti menampilkan daftar event dan menampilkan daftar pengunjung event kepada pengguna melalui \textit{mobile application}. Layanan informasi seperti ini akan disediakan melalui Web API yang berada di \textit{logic tier} dan dapat diakses melalui \textit{client} seperti \textit{mobile application} dan \textit{browser}. Secara sederhana \textit{presentation tier} adalah tingkat dimana pengguna dapat mengakses aplikasi secara langsung. Dalam konteks pengerjaan penelitian tugas akhir ini, \textit{mobile application} CampusLife akan berada di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
+\onehalfspacing \textit{Presentation tier} adalah \textit{tier} paling atas dari aplikasi CampusLife. \textit{Tier} ini menampilkan informasi terkait dengan layanan seperti menampilkan daftar event dan menampilkan daftar pengunjung event kepada pengguna melalui \textit{mobile application}. Layanan informasi seperti ini akan disediakan melalui Web API yang berada di \textit{logic tier} dan dapat diakses melalui \textit{client} seperti \textit{mobile application} dan \textit{browser}. Secara sederhana \textit{presentation tier} adalah tingkat dimana pengguna dapat mengakses aplikasi secara langsung. Dalam konteks pengerjaan penelitian tugas akhir ini, \textit{mobile application} CampusLife akan berada di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
 
 \subsection{Logic Tier}
-\onehalfspacing \textit{Logic tier} adalah \textit{tier} yang berfungsi untuk mengontrol fungsionalitas aplikasi dengan melakukan pengolahan rinci. Contoh pengolahan rinci yang bisa dilakukan di \textit{tier} ini adalah mengambil daftar event. Dalam konteks pengerjaan penelitian tugas akhir ini, Web API akan berada di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
+\onehalfspacing \textit{Logic tier} adalah \textit{tier} yang berfungsi untuk mengontrol fungsionalitas aplikasi dengan melakukan pengolahan rinci. Contoh pengolahan rinci yang bisa dilakukan di \textit{tier} ini adalah mengambil daftar event. Dalam konteks pengerjaan penelitian tugas akhir ini, Web API akan berada di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
 
 \subsection{Data Tier}
-\onehalfspacing \textit{Data tier} adalah \textit{tier} yang terdiri dari satu atau lebih \textit{server} basis data. Disini setiap informasi disimpan dan diambil. \textit{Tier} ini akan menjaga data tetap netral dan indenpenden dari \textit{application server} atau \textit{business logic}. Selain itu dengan memberikan data di \textit{tier} sendiri akan meningkatkan \textit{scalability} dan \textit{performance}. Dalam konteks pengerjaan penelitian tugas akhir ini, penulis menggunakan MongoDB\footnote{http://www.mongodb.org/} sebagai basis data di \textit{tier} ini\cite{multitier-architecture-wikipedia}.
+\onehalfspacing \textit{Data tier} adalah \textit{tier} yang terdiri dari satu atau lebih \textit{server} basis data. Disini setiap informasi disimpan dan diambil. \textit{Tier} ini akan menjaga data tetap netral dan indenpenden dari \textit{application server} atau \textit{business logic}. Selain itu dengan memberikan data di \textit{tier} sendiri akan meningkatkan \textit{scalability} dan \textit{performance}. Dalam konteks pengerjaan penelitian tugas akhir ini, penulis menggunakan MongoDB\footnote{http://www.mongodb.org/} sebagai basis data di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
 
 \subsection{Keuntungan dari Arsitektur Three-tier}
 \onehalfspacing CampusLife dibangun dengan menggunakan arsitektur \textit{three-tier} untuk mendapatkan beberapa keuntungan berikut:
@@ -443,6 +462,97 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
   \item Lebih mudah untuk memodifikasi atau mengganti \textit{tier} apapun tanpa mempengaruhi \textit{tier} lainnya.
   \item Memisahkan aplikasi dan fungsi \textit{database} berarti \textit{load balancing} yang lebih baik.
 \end{enumerate}
+
+\subsection{Ruang Lingkup Pengerjaan}
+\onehalfspacing Berdasarkan batasan masalah yang sudah penulis jelaskan di Bab 1, berikut adalah ruang lingkup pengerjaan yang penulis perlu dilakukan untuk membangun Web API:
+\begin{enumerate}
+  \item Membangun Web API
+  \item Implementasi rancangan skema basis data di MongoDB
+\end{enumerate}
+
+\subsection{Daftar Kebutuhan yang harus dipenuhi}
+\onehalfspacing Sebelum Web API dibangun, penulis menentukan terlebih dahulu daftar kebutuhan fungsional yang ada di Web API. Berikut daftar kebutuhan fungsional dan non-fungsional yang harus ada di Web API:
+\begin{enumerate}
+    \item Web API harus mampu untuk merespon permintaan daftar event dalam format JSON
+    \item Web API harus mampu untuk merespon permintaan daftar event dalam format XML
+    \item Web API harus mampu untuk merespon permintaan konten detail event dalam format JSON
+    \item Web API harus mampu untuk merespon permintaan konten detail event dalam format XML
+    \item Data yang dihasilkan Web API harus memiliki ukuran yang optimal sehingga aplikasi mobile dapat mengambil data dengan waktu yang relatif singkat
+\end{enumerate}
+
+\onehalfspacing Dari kelima daftar kebutuhan di atas, daftar kebutuhan ke-5 merupakan kebutuhan non-fungsional dan sisanya merupakan daftar kebutuhan fungsional.
+
+Mengingat penulis mempraktekkan \textit{Agile} untuk membangun Web API ini, maka perlu diketahui dalam sehari-harinya setiap daftar kebutuhan fungsional dan non-fungsional tersebut biasa disebut dengan \textit{User Story}\footnote{Lebih detail tentang \textit{user story} silahkan baca di Bab 2 Landasan Teori} dan semua daftar \textit{user story} tersebut ditempatkan ke dalam \textit{Product Backlog}.
+
+\subsection{Pola Alur Kerja Ketika Mengumpulkan Daftar Kebutuhan}
+
+\onehalfspacing Ketika melakukan pengumpulan daftar kebutuhan penulis menemukan pola alur kerja sebagai berikut:
+
+\begin{enumerate}
+  \item Membuat \textit{user story} format singkat
+  \item Membuat \textit{user story} format lengkap
+\end{enumerate}
+
+\newpage
+
+\subsubsection{Membuat User Story format singkat}
+
+\onehalfspacing Pada prakteknya jika penulis sedang dalam keadaan yang terburu-buru, penulis biasanya mencatat fitur-fitur baru yang akan dikembangkan dengan format singkat. Berikut adalah contoh daftar fitur yang dibuat dengan \textit{user story} format singkat:
+
+\begin{enumerate}
+  \item \textit{List upcoming events}
+  \item \textit{Display upcoming competitions}
+  \item \textit{Display event details}
+\end{enumerate}
+
+\onehalfspacing Poin penting yang perlu diingat ketika membuat \textit{user story} format singkat adalah:
+
+\begin{enumerate}
+  \item Mencatat \textbf{apa yang harus dilakukan oleh perangkat lunak}
+  \item Mendeskripsikan fitur dengan \textbf{sesingkat dan sejelas mungkin}
+\end{enumerate}
+
+\onehalfspacing Tidak ada yang tahu hari esok seperti apa, \textbf{jangan tergoda untuk mendeskripsikan sedetail mungkin} ketika membuat \textit{user story} format singkat.
+
+\subsubsection{Membuat User Story format panjang}
+
+\onehalfspacing Pada prakteknya, penulis membuat \textit{user story} format panjang setelah mendefinisikan fitur dalam \textit{user story} format panjang. Berikut adalah format \textit{user story} format panjang:
+
+\begin{lstlisting}[frame=single]
+As a <type of user>
+I want <some goal>
+so that <some reason>
+\end{lstlisting}
+
+Berikut adalah format panjang yang diberi anotasi:
+
+\begin{lstlisting}[frame=single]
+As a <type of user> => Who is this story for
+I want <some goal> => What they want to do
+so that <some reason> => Why they want to do it
+\end{lstlisting}
+
+\onehalfspacing Setelah \textit{user story} format panjang dibuat, biasanya penulis meneruskan dengan menentukan \textit{acceptance criteria} untuk masing-masing \textit{user story} tersebut. \textit{Acceptance criteria} tersebut akan digunakan saat melakukan \textit{acceptance testing}.
+
+\subsection{Acceptance Criteria}
+
+\onehalfspacing \textit{Acceptance criteria} merupakan salah \textit{requirements artifact} yang akan berguna saat \textit{acceptance testing} untuk menentukan apakah kebutuhan sudah terpenuhi atau belum \cite{acceptance-testing-wikipedia}. Berikut adalah daftar masing-masing \textit{acceptance criteria} untuk setiap masing-masing \textit{user story}:
+\begin{enumerate}
+  \item \textit{Get Event Details Acceptance Criteria}
+    \begin{enumerate}
+      \item \textit{Scenario 1: Event Details request should return response in JSON}
+      \item \textit{Scenario 2: Event Details request should return response in XML}
+      \item \textit{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+    \end{enumerate}
+  \item \textit{Get Event List Acceptance Criteria}
+    \begin{enumerate}
+      \item \textit{Scenario 1: Event List request should return response in JSON}
+      \item \textit{Scenario 2: Event List request should return response in XML}
+      \item \textit{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+    \end{enumerate}
+\end{enumerate}
+
+Setiap masing-masing skenario dari \textit{acceptance criteria} di atas diekspresikan dalam format \textit{Given When Then} \cite{introducing-bdd}\cite{whats-in-story}. Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran \ref{lampiran:a}.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
@@ -537,6 +647,11 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   \emph{Why JSON will continue to push XML out of the picture}
   http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
   diakses pada 8 April 2013.
+  
+\bibitem{acceptance-testing-wikipedia}
+  \emph{Acceptance Testing}
+  http://en.wikipedia.org/wiki/Acceptance\_testing
+  diakses pada 7 Mei 2013.
 
 \bibitem{agile-manifesto}
   \emph{Manifesto Pengembangan Perangkat Lunak Agile}
@@ -546,7 +661,70 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
 \bibitem{agile-samurai}
   \emph{The Agile Samuari}
   buku teks
+  
+\bibitem{introducing-bdd}
+  \emph{Introducing BDD}
+  http://dannorth.net/introducing-bdd/
+  diakses pada 7 Mei 2013.
+  
+\bibitem{whats-in-story}
+  \emph{What's in a Story?}
+  http://dannorth.net/whats-in-a-story/
+  diakses pada 7 Mei 2013.
  
 \end{thebibliography}
+
+\appendix
+\chapter{Acceptance Criteria} \label{lampiran:a}
+\section{Get Event Details Acceptance Criteria}
+\subsection{Scenario 1: Event Details request should return response in JSON}
+
+\onehalfspacing \textit{Given Event Details resource is accessible\\
+And Event Details resource is accessible\\
+When the client request the Event Details in JSON\\
+Then the Web API should return Event Details in JSON\\
+And returned response is supplied with the Event Details resource URL\\}
+
+\subsection{Scenario 2: Event Details request should return response in XML}
+
+\onehalfspacing \textit{Given Event Details resource is accessible\\
+And Event Details resource is accessible\\
+When the client request the Event Details in XML\\
+Then the Web API should return Event Details in XML\\
+And returned response is supplied with the Event Details resource URL\\}
+
+\subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+
+\onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
+When the client request the resource with Content-Type other than JSON or XML\\
+Then the Web API should return HTTP 406 code\\
+And returned reponse should be contained an client error message}
+
+\section{Get Event List Acceptance Criteria}
+
+\subsection{Scenario 1: Event List request should return response in JSON}
+
+\onehalfspacing \textit{Given Event List resource is accessible\\
+And Event List resource is accessible\\
+When the client request the Event List in JSON\\
+Then the Web API should return Event List in JSON\\
+And returned response is should be accompanied by properties like resource url, page, pages, pageSize, total\\
+And the maximum of number of item on the Event List is 15 Event}
+
+\subsection{Scenario 2: Event List request should return response in XML}
+
+\onehalfspacing \textit{Given Event List resource is accessible\\
+And Event List resource is accessible\\
+When the client request the Event List in XML\\
+Then the Web API should return Event List in XML\\
+And returned response is should be accompanied by properties like resource url, page, pages, pageSize, total\\
+And the maximum of number of item on the Event List is 15 Event}
+
+\subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+
+\onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
+When the client request the resource with Content-Type other than JSON or XML\\
+Then the Web API should return HTTP 406 code\\
+And returned reponse should be contained an client error message}
 
 \end{document}

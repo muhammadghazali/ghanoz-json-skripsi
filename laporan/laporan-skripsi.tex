@@ -119,7 +119,7 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
   \item[Bab I Pendahuluan] Pada bagian ini berisikan pendahuluan laporan yang berisi latar belakang, rumusan masalah, tujuan dan manfaat penelitian, batasan masalah, metode penelitian dan sistematika penulisan laporan.
   \item[Bab II Landasan Teori] Pada bagian ini akan dibahas landasan teori yang berkaitan dan digunakan selama masa penelitian.
   \item[Bab III Analisis Sistem] Pada bagian ini akan dibahas hasil analisis terhadap masalah.
-  \item[Bab IV Desain Sistem] Pada bagian ini akan dibahas hasil perancangan sistem.
+  \item[Bab IV Perancangan Sistem] Pada bagian ini akan dibahas hasil perancangan sistem.
   \item[Bab V Implementasi dan Pengujian Sistem] Pada bagian ini akan dibahas proses implementasi dan pengujian sistem berdasarkan kriteria pengujian yang sudah ditentukan.
   \item[Bab VI Penutup] Pada bagian ini berisikan kesimpulan dan saran yang didapatkan dari hasil penelitian.
 \end{description}
@@ -642,7 +642,16 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 
 \newpage
 
-\section{URI Structure}
+\section{Struktur URI}
+
+\onehalfspacing Web API diakses melalui \textit{HTTP endpoints}. \textit{HTTP endpoints} tersebut merupakan struktur URI (\textit{Uniform Resource Identifier}) yang digunakan untuk mengakses \textit{resources}. Representasi visual dalam bentuk \textit{Site Diagram} dari struktur URI tersebut bisa dilihat pada gambar \ref{web-api-uri-structure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{images/web-api-structure.png}
+\caption{Struktur URI Web API}
+\label{web-api-uri-structure}
+\end{figure}
 
 \section{Rancangan Skema Representasi Resource}
 

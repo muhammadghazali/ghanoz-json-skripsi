@@ -561,16 +561,26 @@ so that <some reason> => Why they want to do it
 
 \section{Arsitektur Teknis Web API}
 
-Untuk merancang arsitektur teknis dari Web API, penulis menggunakan free-form diagram. Model arsitektur teknis yang dibuat digambarkan pada papan tulis dan model tersebut dapat dilihat pada gambar \ref{arsitektur-teknis-web-api}
+Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free-form diagram}. Model arsitektur teknis yang dibuat digambarkan pada papan tulis dan model tersebut dapat dilihat pada gambar \ref{arsitektur-teknis-web-api}
+
+\newpage
 
 \begin{figure}[htp]
 \centering
-\includegraphics[scale=1.00]{images/freeForm.JPG}
+\includegraphics[scale=0.20]{images/arsitektur-teknis-web-api.jpg}
 \caption{Model Arsitektur Teknis Web API dalam Free-form Diagram}
 \label{arsitektur-teknis-web-api}
 \end{figure}
 
-Dikarenakan penulis menggunakan free-form diagram untuk merancang arsitektur teknis dari Web API, berikut adalah penjelasan detail dari beberapa bagian dari model di atas:
+\onehalfspacing Dikarenakan penulis menggunakan \textit{free-form diagram} untuk merancang arsitektur teknis dari Web API, berikut adalah keterangan dari beberapa bagian dari model di atas:
+
+\begin{enumerate}
+  \item \textit{HTTP Request} masuk dari \textit{client} melalui salah satu \textit{API endpoint}.
+  \item \textit{HTTP Request} yang masuk akan diproses lebih lanjut oleh \textit{Routers}
+  \item \textit{Routers} akan memiliki \textit{Data Access helper} untuk mengakses data mentah di MongoDB
+  \item \textit{Routers} mendapatkan data untuk kemudian diolah sesuai dengan format yang diminta oleh \textit{client}
+  \item \textit{HTTP Response} dikirimkan kepada \textit{client}
+\end{enumerate}
 
 \section{Service Interaction Model}
 

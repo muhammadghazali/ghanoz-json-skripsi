@@ -1,6 +1,31 @@
 
+2013.05.13 / 2013-05-13 
+=======================
+
+  * Memperbaiki kata #5344881939549
+  * Menambahkan lampiran hasil desain resource representation #5344881939549
+  * Memperbaiki gambar struktur URI Web API #5344881939547
+  * Menyertakan struktur URI #5344881939547
+  * Menyertakan arsitektur teknis dalam konteks Web API #5344881939553
+  * Menyertakan penjelasan awal tentang arsitektur teknis dari Web API.
+  * Formatting content #5344881939551
+  * Memperjelas kalimat #5344881939551
+  * Menyempurnakan penjelasan bab permintaan daftar event dalam format JSON dan XML #5344881939551
+  * Memperbaiki judul #5344881939551
+  * Menyempurnakan penjelasan bab permintaan detail event dalam format XML #5344881939551
+  * Menyempurnakan penjelasan bab permintaan detail event dalam format JSON #5344881939551
+  * Membuat paragraf pembuka Bab 4 dan section Service Interaction Model #5344881939551
+  * Memperbaiki typo
+  * Menyertakan Event Details request sequence diagram (XML & JSON) tanpa penjelasan dari masing-masing sequence #5344881939551
+  * Menyempurnakan sequence diagram Event Details request in JSON & XML #5344881939551
+  * Menyertakan Event Details request sequence diagram (XML & JSON) tanpa penjelasan dari masing-masing sequence #5344881939551
+  * Menambahkan penjelasan rancangan skema representasi resource dalam format JSON untuk detail event dan daftar event.
+  * Mendefinisikan struktur bab 4
+  * Formatting content
+  * Menyempurnakan batasan masalah terkait batalnya melakukan demo mengakses Web API melalui aplikasi mobile.
+
 2013.05.07 / 2013-05-07 
-==================
+=======================
 
   * Menyertakan daftar acceptance criteria di bagian lampiran dan menyempurkan beberapa bagian yang membahas acceptance criteria #5243372732784
   * Menambahkan acceptance criteria #5243372732784

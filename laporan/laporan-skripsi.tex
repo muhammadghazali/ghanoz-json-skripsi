@@ -95,7 +95,8 @@ Universitas Widyatama
   \item Pembangunan Web API hanya akan meliputi API untuk mengambil data-data \textit{event}.
   \item JSON hanya mampu merepresentasikan data dalam bentuk teks, oleh karena itu data yang akan digunakan hanya terbatas pada data yang berbasis teks.
   \item Skema data \textit{event} akan disediakan oleh pihak LLM.
-  \item Penulis akan melakukan demo untuk mengakses Web API melalui Android\footnote{http://www.android.com/} \textit{smartphone} yang sudah terpasang aplikasi mobile CampusLife. Aktivitas demo akan difokuskan pada pengambilan  data-data \textit{event} dari purwa-rupa Web API yang dibuat oleh penulis.
+  \item Dikarenakan keterbatasan waktu yang dimiliki oleh penulis, maka demo untuk mengakses Web API tidak jadi dilakukan melalui aplikasi \textit{mobile}.
+  \item Penulis akan melakukan demo untuk mengakses Web API melalui Apache Benchmark\footnote{http://httpd.apache.org/docs/2.4/programs/ab.html} dalam lingkungan lokal yang terisolasi.
   \item Tidak membahas mengenai keamanan perangkat lunak, data dan jaringan.
   \item Pengembangan perangkat lunak menggunakan sebagian praktek dari \textit{Agile} dan tidak akan membahas \textit{Agile} secara komprehensif.
 \end{enumerate}
@@ -118,7 +119,7 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
   \item[Bab I Pendahuluan] Pada bagian ini berisikan pendahuluan laporan yang berisi latar belakang, rumusan masalah, tujuan dan manfaat penelitian, batasan masalah, metode penelitian dan sistematika penulisan laporan.
   \item[Bab II Landasan Teori] Pada bagian ini akan dibahas landasan teori yang berkaitan dan digunakan selama masa penelitian.
   \item[Bab III Analisis Sistem] Pada bagian ini akan dibahas hasil analisis terhadap masalah.
-  \item[Bab IV Desain Sistem] Pada bagian ini akan dibahas hasil perancangan sistem.
+  \item[Bab IV Perancangan Sistem] Pada bagian ini akan dibahas hasil perancangan sistem.
   \item[Bab V Implementasi dan Pengujian Sistem] Pada bagian ini akan dibahas proses implementasi dan pengujian sistem berdasarkan kriteria pengujian yang sudah ditentukan.
   \item[Bab VI Penutup] Pada bagian ini berisikan kesimpulan dan saran yang didapatkan dari hasil penelitian.
 \end{description}
@@ -552,7 +553,132 @@ so that <some reason> => Why they want to do it
     \end{enumerate}
 \end{enumerate}
 
-Setiap masing-masing skenario dari \textit{acceptance criteria} di atas diekspresikan dalam format \textit{Given When Then} \cite{introducing-bdd}\cite{whats-in-story}. Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran \ref{lampiran:a}.
+\onehalfspacing Setiap masing-masing skenario dari \textit{acceptance criteria} di atas diekspresikan dalam format \textit{Given When Then} \cite{introducing-bdd}\cite{whats-in-story}. Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran \ref{lampiran:a}.
+
+\chapter{Perancangan Sistem}
+
+\onehalfspacing Sebelum membaca lebih lanjut bab ini, para pembaca perlu mengetahui bahwa saat melakukan pemodelan, penulis mempraktekkan \textit{Just Barely Good Enough modelling}\cite{jbge-scott}. Jadi, jangan terkejut jika Anda menemukan model yang diperlihatkan di bab ini mungkin tidak "benar" menurut perspektif Anda karena saat itu model yang dibuat dianggap cukup berdasarkan pemahaman dan situasi yang dihadapi oleh penulis pada saat proses pemodelan berlangsung.
+
+\section{Arsitektur Teknis Web API}
+
+Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free-form diagram}. Model arsitektur teknis yang dibuat digambarkan pada papan tulis dan model tersebut dapat dilihat pada gambar \ref{arsitektur-teknis-web-api}
+
+\newpage
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.20]{images/arsitektur-teknis-web-api.jpg}
+\caption{Model Arsitektur Teknis Web API dalam Free-form Diagram}
+\label{arsitektur-teknis-web-api}
+\end{figure}
+
+\onehalfspacing Dikarenakan penulis menggunakan \textit{free-form diagram} untuk merancang arsitektur teknis dari Web API, berikut adalah keterangan dari beberapa bagian dari model di atas:
+
+\begin{enumerate}
+  \item \textit{HTTP Request} masuk dari \textit{client} melalui salah satu \textit{API endpoint}.
+  \item \textit{HTTP Request} yang masuk akan diproses lebih lanjut oleh \textit{Routers}
+  \item \textit{Routers} akan memiliki \textit{Data Access helper} untuk mengakses data mentah di MongoDB
+  \item \textit{Routers} mendapatkan data untuk kemudian diolah sesuai dengan format yang diminta oleh \textit{client}
+  \item \textit{HTTP Response} dikirimkan kepada \textit{client}
+\end{enumerate}
+
+\section{Service Interaction Model}
+
+\onehalfspacing Pada bagian ini akan berisi laporan mengenai hasil pemodelan yang penulis lakukan saat melakukan perancangan sistem. Untuk mendapatkan gambaran dengan jelas mengenai sistem yang akan dibangun, penulis melakukan pemodelan interaksi antara \textit{client} dan Web API \textit{server}. Model tersebut dibuat dalam bentuk \textit{UML Sequence Diagram} dan digambarkan pada papan tulis. Namun, dalam laporan ini penulis memperlihatkan hasil pemodelan yang sudah dirubah ke dalam bentuk digital.
+
+\onehalfspacing Saya asumsikan para pembaca sudah mengetahui penggunaan dasar dari \textit{UML Sequence Diagram}, jika belum mohon untuk memahami terlebih dahulu penggunaan dasar \textit{UML Sequence Diagram}\footnote{http://www.agilemodeling.com/artifacts/sequenceDiagram.htm}.
+
+\newpage
+
+\subsection{Permintaan Detail Event dalam format JSON}
+
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta detail event dalam format JSON dapat dilihat pada gambar \ref{event-details-request-seq-diagram-json}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.60]{images/event-details-request-seq-diagram-json.png}
+\caption{Permintaan Detail Event dalam Format JSON}
+\label{event-details-request-seq-diagram-json}
+\end{figure}
+
+\newpage
+
+\subsection{Permintaan Detail Event dalam format XML}
+
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta detail event dalam format XML dapat dilihat pada gambar \ref{event-details-request-seq-diagram-xml}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.60]{images/event-details-request-seq-diagram-xml.png}
+\caption{Permintaan Detail Event dalam Format XML}
+\label{event-details-request-seq-diagram-xml}
+\end{figure}
+
+\newpage
+
+\subsection{Permintaan Daftar Event dalam format JSON}
+
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta daftar event dalam format JSON dapat dilihat pada gambar \ref{event-list-request-seq-diagram-json}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.60]{images/event-details-request-seq-diagram-json.png}
+\caption{Permintaan Daftar Event dalam Format JSON}
+\label{event-list-request-seq-diagram-json}
+\end{figure}
+
+\newpage
+
+\subsection{Permintaan Daftar Event dalam format XML}
+
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta daftar event dalam format XML dapat dilihat pada gambar \ref{event-list-request-seq-diagram-xml}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.60]{images/event-details-request-seq-diagram-xml.png}
+\caption{Permintaan Daftar Event dalam Format XML}
+\label{event-list-request-seq-diagram-xml}
+\end{figure}
+
+\newpage
+
+\section{Struktur URI}
+
+\onehalfspacing Web API diakses melalui \textit{HTTP endpoints}. \textit{HTTP endpoints} tersebut merupakan struktur URI (\textit{Uniform Resource Identifier}) yang digunakan untuk mengakses \textit{resources}. Representasi visual dalam bentuk \textit{Site Diagram} dari struktur URI tersebut bisa dilihat pada gambar \ref{web-api-uri-structure}
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.75]{images/web-api-structure.png}
+\caption{Struktur URI Web API}
+\label{web-api-uri-structure}
+\end{figure}
+
+\section{Rancangan Skema Representasi Resource}
+
+\subsection{Pertimbangan Rancangan Skema Representasi Resource dalam format JSON}
+
+\subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
+
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail event:
+
+\begin{enumerate}
+  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang diakses
+  \item Data aktual detail event akan dibungkus dalam elemen data
+\end{enumerate}
+
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
+
+\subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format JSON}
+
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar event:
+
+\begin{enumerate}
+  \item Setiap \textit{resource} daftar event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang diakses
+  \item Data aktual daftar event akan dibungkus dalam elemen data. Setiap butir event akan dibungkus dalam elemen data yang disertai atribut id.
+\item Setiap \textit{resource} daftar event akan disertai properti URL
+\end{enumerate}
+
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
@@ -671,6 +797,11 @@ Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for
   \emph{What's in a Story?}
   http://dannorth.net/whats-in-a-story/
   diakses pada 7 Mei 2013.
+
+\bibitem{jbge-scott}
+  \emph{"Just Barely Good Enough" Models and Documents: An Agile Best Practice}
+  http://www.agilemodeling.com/essays/barelyGoodEnough.html
+  diakses pada 10 Mei 2013.
  
 \end{thebibliography}
 
@@ -726,5 +857,167 @@ And the maximum of number of item on the Event List is 15 Event}
 When the client request the resource with Content-Type other than JSON or XML\\
 Then the Web API should return HTTP 406 code\\
 And returned reponse should be contained an client error message}
+
+\chapter{Detail Rancangan Skema Representasi Resource} \label{lampiran:b}
+\section{Rancangan Skema Representasi Resource Detail Event}
+\subsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format JSON:
+
+\begin{lstlisting}[frame=single]
+{
+  "url": value,
+  "data":  {
+    "title": value,
+      "shortDescription": value,
+      "times": [
+        {
+          "milliseconds": value,
+          "fullFormat": value,
+          "year": value,
+          "month": value,
+          "date": value,
+          "day": value
+        }
+      ],
+      "isPassed": value,
+      "rating": value,
+      "lastUpdated": value,
+      "timestamp": value,
+      "_id": "value"
+    }
+}
+\end{lstlisting}
+
+\onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event Details resource representations design in JSON}\footnote{https://gist.github.com/muhammadghazali/5409322\#file-event-details-json}
+
+\subsection{Rancangan Skema Representasi Resource Detail Event dalam format XML}
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format XML:
+
+\begin{lstlisting}[frame=single]
+<response>
+    <url>value</url>
+    <data id="1">
+        <title>value</title>
+        <shortDescription>value</shortDescription>
+        <times>
+            <time>
+                <milliseconds>value</milliseconds>
+                <fullFormat>value</fullFormat>
+                <year>value</year>
+                <month>value</month>
+                <date>value</date>
+                <day>value</day>
+            </time>
+        </times>
+        <isPassed>value</isPassed>
+        <rating>value</rating>
+        <lastUpdated>value</lastUpdated>
+        <timestamp>value</timestamp>
+    </data>
+</response>
+\end{lstlisting}
+
+\onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event Details resource representations design in XML}\footnote{https://gist.github.com/muhammadghazali/5409508\#file-event-details-xml}
+
+\section{Rancangan Skema Representasi Resource Daftar Event}
+
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} daftar event dalam format JSON:
+
+\begin{lstlisting}[frame=single]
+{
+  "url": value,
+  "data": [
+    {
+      "title": value,
+      "shortDescription": value,
+      "times": [
+        {
+          "milliseconds": value,
+          "fullFormat": value,
+          "year": value,
+          "month": value,
+          "date": value,
+          "day": value
+        }
+      ],
+      "isPassed": value,
+      "rating": value,
+      "lastUpdated": value,
+      "timestamp": value,
+      "_id": value
+    },
+    {
+      "title": value,
+      "shortDescription": value,
+      "times": [
+        {
+          "milliseconds": value,
+          "fullFormat": value,
+          "year": value,
+          "month": value,
+          "date": value,
+          "day": value
+        }
+      ],
+      "isPassed": value,
+      "rating": value,
+      "lastUpdated": value,
+      "timestamp": value,
+      "_id": value
+    }
+  ]
+}
+\end{lstlisting}
+
+\onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event List resource representations design in JSON}\footnote{https://gist.github.com/muhammadghazali/5409417\#file-event-list-json}
+
+\subsection{Rancangan Skema Representasi Resource Daftar Event dalam format XML}
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} daftar event dalam format XML:
+
+\begin{lstlisting}[frame=single]
+<response>
+    <url>value</url>
+    <data>
+        <data id="value">
+            <title>value</title>
+            <shortDescription>value</shortDescription>
+            <times>
+                <time>
+                    <milliseconds>value</milliseconds>
+                    <fullFormat>value</fullFormat>
+                    <year>value</year>
+                    <month>value</month>
+                    <date>value</date>
+                    <day>value</day>
+                </time>
+            </times>
+            <isPassed>value</isPassed>
+            <rating>value</rating>
+            <lastUpdated>value</lastUpdated>
+            <timestamp>value</timestamp>
+        </data>
+        <data id="value">
+            <title>value</title>
+            <shortDescription>value</shortDescription>
+            <times>
+                <time>
+                    <milliseconds>value</milliseconds>
+                    <fullFormat>value</fullFormat>
+                    <year>value</year>
+                    <month>value</month>
+                    <date>value</date>
+                    <day>value</day>
+                </time>
+            </times>
+            <isPassed>value</isPassed>
+            <rating>value</rating>
+            <lastUpdated>value</lastUpdated>
+            <timestamp>value</timestamp>
+        </data>
+    </data>
+</response>
+\end{lstlisting}
+
+\onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event List resource representations design in XML}\footnote{https://gist.github.com/muhammadghazali/5409528\#file-event-list-xml}
 
 \end{document}

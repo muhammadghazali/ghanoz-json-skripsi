@@ -653,27 +653,55 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 \label{web-api-uri-structure}
 \end{figure}
 
+% Rancangan Skema Representasi Resource
 \section{Rancangan Skema Representasi Resource}
 
+% Pertimbangan Rancangan Skema Representasi Resource dalam format JSON
 \subsection{Pertimbangan Rancangan Skema Representasi Resource dalam format JSON}
 
+% Rancangan Skema Representasi Resource Detail Event dalam format JSON
 \subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
 
 \onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail event:
 
 \begin{enumerate}
-  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang diakses
-  \item Data aktual detail event akan dibungkus dalam elemen data
+  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
+  \item Data aktual detail event akan dibungkus dalam propertie data yang berupa \textit{object}
 \end{enumerate}
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
 
+% Rancangan Skema Representasi Resource Daftar Event dalam format JSON
 \subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format JSON}
 
 \onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar event:
 
 \begin{enumerate}
-  \item Setiap \textit{resource} daftar event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang diakses
+  \item Setiap daftar event resource akan disertai properti tambahan url untuk memberitahukan dimana lokasi resource yang sedang diakses
+  \item Data aktual Event List akan dibungkus dalam variable data yang berupa array
+\end{enumerate}
+
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
+
+% Rancangan Skema Representasi Resource Detail Event dalam format XML
+\subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format XML}
+
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail event:
+
+\begin{enumerate}
+  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
+  \item Data aktual detail event akan dibungkus dalam elemen data
+\end{enumerate}
+
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
+
+% Rancangan Skema Representasi Resource Daftar Event dalam format XML
+\subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format XML}
+
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar event:
+
+\begin{enumerate}
+  \item Setiap \textit{resource} daftar event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
   \item Data aktual daftar event akan dibungkus dalam elemen data. Setiap butir event akan dibungkus dalam elemen data yang disertai atribut id.
 \item Setiap \textit{resource} daftar event akan disertai properti URL
 \end{enumerate}

@@ -708,6 +708,39 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:b}.
 
+\chapter{Implementasi dan Pengujian Sistem}
+
+\onehalfspacing Pada bagian akan dibahas beberapa praktek yang penulis gunakan untuk mengimplementasikan dan menguji sistem. Beberapa praktek yang digunakan tersebut masuk ke dalam ruang lingkup bahasan \textit{Agile Software Engineering}, tetapi karena cakupannya cukup luas maka penulis akan menyertakan beberapa footnote untuk mengarahkan pembaca ke referensi spesifik yang membahas lebih detail.
+
+\section{Mempraktekkan Test-Driven Development}
+
+\onehalfspacing Untuk mengembangkan purwa-rupa Web API, penulis menggunakan teknik pengembangan perangkat lunak \textit{test-driven development} (TDD). TDD adalah teknik pengembangan perangkat lunak yang menggunakan siklus pengembangan yang sangat singkat untuk merancang perangkat lunak secara bertahap. Ilustrasi dari siklus pengembangan yang dimaksud dapat dilihat pada gambar \ref{tdd-cycle}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.46]{images/tdd-cycle.png}
+\caption{Bagaimana TDD Bekerja \cite{agile-samurai}}
+\label{tdd-cycle}
+\end{figure}
+
+\onehalfspacing Berikut adalah penjelasan detail dari masing-masing tahap dari gambar \ref{tdd-cycle}:
+
+\begin{enumerate}
+  \item \textbf{\textit{Test Fails}}. Sebelum Anda menulis kode baru untuk sistem, pertama Anda menulis \textit{unit test} yang gagal, untuk menunjukkan maksud dari apa yang Anda inginkan\footnote{Arti dari "menunjukkan maksud dari apa yang Anda inginkan" adalah \textbf{merancang}.} dari kode baru yang akan ditulis. Di sini Anda berpikir kritis tentang desain.
+  \item \textbf{\textit{Test Passes}}. Kemudian Anda melakukan apapun yang diperlukan untuk membuat tes lulus. Jika  Anda melihat implementasi penuh, tambahkan kode baru. Jika tidak, lakukan secukupnya untuk mendapatkan tes lulus.
+  \item \textbf{\textit{Refactor}}. Kemudian kembali menyentuh kode Anda, untuk membersihkan kode atau "dosa" yang Anda lakukan ketika mencoba untuk mendapatkan lulus tes. Di sini Anda menghapus duplikasi dan memastikan semuanya ramping, berarti, dan sejelas mungkin.
+\end{enumerate}
+
+\onehalfspacing Dengan begini kita hanya mewujudkan apa yang perlu dalam bentuk tes. Membuat kode dengan cara ini memastikan Anda hanya membuat yang Anda butuhkan. Anda hanya menggunakan tes sebagai pintu masuk untuk mewujudkan niat Anda. Hal ini yang menyebabkan mengapa TDD sering dimaksud sebagai teknik desain, dan sedikit tentang pengujian \cite{agile-samurai}. Jika Anda ingin mengetahui lebih banyak tentang TDD, silahkan untuk membaca referensi berikut:
+
+\begin{enumerate}
+  \item \textit{Test-driven Development} dari Wikipedia\footnote{http://en.wikipedia.org/wiki/Test-driven\_development}
+  \item \textit{Agile Best Practice: Executable Specifications} \footnote{http://www.agilemodeling.com/essays/executableSpecifications.htm}
+  \item \textit{Introduction to Test Driven Development} (TDD) dari Agile Data\footnote{http://www.agiledata.org/essays/tdd.html}
+\end{enumerate}
+
+\onehalfspacing 
+
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
 % tulisan atau karangan atau daftar tt suatu subjek ilmu, daftar pustaka
 % Jumlah maksimal daftar pustaka dan referensi yang bisa dimasukkan adalah 100 item

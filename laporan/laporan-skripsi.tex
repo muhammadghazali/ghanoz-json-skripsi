@@ -767,6 +767,32 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancanga
 
 \section{Pengujian Web API}
 
+Penulis menerapkan satu level pengujian perangkat lunak untuk melakukan pengujian Web API, yaitu dengan melakukan \textit{acceptance testing}. Keseluruhan \textit{test suite} bisa dilihat di repositori ghanoz-json\footnote{https://github.com/muhammadghazali/ghanoz-json/tree/master/test/api-end-point-test}.
+
+\subsection{Skenario Pengujian}
+
+Pengujian secara umum terbagi ke dalam dua skenario besar, yaitu skenario pengujian untuk mengambil detail event dan daftar event. Keluaran log dari hasil pengujian tersebut dapat dilihat pada lampiran \ref{lampiran:hasil-pengujian}.
+
+\subsubsection{Skenario Pengujian untuk Mengambil Detail Event}
+
+Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah daftar skenario yang diterapkan ketika melakukan pengujian:
+
+\begin{enumerate}
+  \item \textit{Scenario 1: Event Details request should return response in JSON}
+  \item \textit{Scenario 2: Event Details request should return response in XML}
+  \item \textit{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+\end{enumerate}
+
+\subsubsection{Skenario Pengujian untuk Mengambil Daftar Event}
+
+Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah daftar skenario yang diterapkan ketika melakukan pengujian:
+
+\begin{enumerate}
+  \item \textit{Scenario 1: Event List request should return response in JSON}
+  \item \textit{Scenario 2: Event List request should return response in XML}
+  \item \textit{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
+\end{enumerate}
+
 \onehalfspacing 
 
 % Daftar buku atau karangan yang merupakan sumber rujukan dari sebuah
@@ -1434,6 +1460,90 @@ Berikut detail \textit{response body} permintaan daftar event yang dibalas oleh 
     </data>
   </data>
 </response>
+\end{lstlisting}
+
+\chapter{Hasil Pengujian Web API} \label{lampiran:hasil-pengujian}
+
+Berikut detail keluaran log hasil pengujian di level \textit{acceptance} yang dijalankan dengan perintah \textit{make test}\footnote{https://github.com/muhammadghazali/ghanoz-json/blob/master/Makefile}:
+
+\begin{lstlisting}[frame=single]
+npm install
+npm install -d
+npm info it worked if it ends with ok
+npm info using npm@1.2.21
+npm info using node@v0.10.7
+npm info shrinkwrap
+  file "/home/ghazali/version-control/
+  git/kuliah/skripsi/ghanoz-json/npm-shrinkwrap.json"
+npm info preinstall ghanoz-json@0.3.5
+npm info shrinkwrap
+  file "/home/ghazali/version-control/
+  git/kuliah/skripsi/ghanoz-json/npm-shrinkwrap.json"
+npm info build
+  /home/ghazali/version-control/
+  git/kuliah/skripsi/ghanoz-json
+npm info linkStuff ghanoz-json@0.3.5
+npm info install ghanoz-json@0.3.5
+npm info postinstall ghanoz-json@0.3.5
+npm info prepublish ghanoz-json@0.3.5
+npm info ok 
+mongo ghanozjson_test --eval "db.dropDatabase()"
+MongoDB shell version: 2.4.3
+connecting to: ghanozjson_test
+[object Object]
+mongoimport --jsonArray
+  --host localhost
+  --db ghanozjson_test
+  --collection events --file test/db/events.json
+connected to: localhost
+Thu May 23 09:17:33.533 check 9 150
+Thu May 23 09:17:33.534 imported 150 objects
+NODE_ENV=testing npm test
+
+> ghanoz-json@0.3.5 test
+  /home/ghazali/version-control/
+  git/kuliah/skripsi/ghanoz-json
+> node_modules/vows/bin/vows
+  test/api-end-point-test/*-spec.js
+
+Express server listening on port 3000
+127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /event/1 HTTP/1.1" 200 356 "-" "-"
+·· 127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /event/1 HTTP/1.1" 200 713 "-" "-"
+127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /event/1 HTTP/1.1" 200 713 "-" "-"
+·· 127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /event/1 HTTP/1.1" 406 49 "-" "-"
+· 127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /events HTTP/1.1" 200 4722 "-" "-"
+·· 127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /events HTTP/1.1" 200 10870 "-" "-"
+127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /events HTTP/1.1" 200 10870 "-" "-"
+·· 127.0.0.1 - - [Thu, 23 May 2013 02:17:34 GMT]
+  "GET /events HTTP/1.1" 406 49 "-" "-"
+·  
+  ✓ OK » 10 honored (0.126s) 
+  mongodump --db ghanozjson_test
+connected to: 127.0.0.1
+Thu May 23 09:17:34.254 DATABASE:
+  ghanozjson_test to dump/ghanozjson_test
+Thu May 23 09:17:34.255
+  ghanozjson_test.system.indexes 
+  to dump/ghanozjson_test/system.indexes.bson
+Thu May 23 09:17:34.256 1 objects
+Thu May 23 09:17:34.256
+  ghanozjson_test.events
+  to dump/ghanozjson_test/events.bson
+Thu May 23 09:17:34.258 150 objects
+Thu May 23 09:17:34.258 
+  Metadata for ghanozjson_test.events
+  to dump/ghanozjson_test/events.metadata.json
+mongo ghanozjson_test --eval "db.dropDatabase()"
+MongoDB shell version: 2.4.3
+connecting to: ghanozjson_test
+[object Object]
 \end{lstlisting}
 
 \end{document}

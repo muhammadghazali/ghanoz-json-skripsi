@@ -135,12 +135,12 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \onehalfspacing Praktek penerbitan Web API telah memungkinkan masyarakat \textit{web} seperti \newline pengembang aplikasi berbasis \textit{web} untuk membuat arsitektur terbuka untuk berbagi konten dan data antara masyarakat dan aplikasi. Dengan cara ini, konten yang dibuat dalam satu tempat dapat dikirimkan secara dinamis dan diperbaharui di beberapa lokasi di \textit{web} \cite{api-wikipedia}.
 
 \subsection{Kenapa Web API}
-Ketika Anda menjalankan aplikasi \textit{web}, pada saat tertentu Anda ingin menyediakan Web API. Berikut adalah berapa alasan yang umum kenapa perlu menyediakan Web API \cite{apis-linux-journal}:
+Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyediakan Web API. Berikut adalah beberapa alasan yang umum kenapa perlu menyediakan Web API \cite{apis-linux-journal}:
 
 \begin{enumerate}
-  \item Untuk memungkinkan pengguna Anda mengakses data mereka melalui aplikasi pihak ketiga. Pertimbangkan berapa banyak pihak ketiga Twitter klien yang ada\footnote{http://en.wikipedia.org/wiki/List\_of\_Twitter\_services\_and\_applications}, semua menggunakan API Twitter\footnote{https://dev.twitter.com/}, daripada mengakses langsung ke situs \textit{web}\footnote{https://twitter.com/}. Hal yang sama berlaku untuk Amazon\footnote{http://www.amazon.com/} dan eBay\footnote{http://www.ebay.com/}, antara lain, yang memungkinkan pengguna untuk mengakses data katalog mereka dan bahkan mengeksekusi penjualan, semua melalui API.
-  \item Untuk memungkinkan pengembang aplikasi mobile untuk mengakses situs Anda dengan mengirim dan mengambil data menggunakan HTTP.
-  \item Untuk memungkinkan aplikasi Anda sendiri untuk mengakses data sendiri melalui panggilan Ajax\footnote{https://developer.mozilla.org/en/docs/AJAX}. Bila Anda membuat panggilan JavaScript di latar belakang menggunakan Ajax, kemungkinan besar Anda akan ingin menggunakan panggilan API, menerima XML atau JSON, bukan HTML yang membutuhkan \textit{parsing} lebih lanjut.
+  \item Untuk memungkinkan pengguna mengakses data mereka melalui aplikasi pihak ketiga. Pertimbangkan berapa banyak pihak ketiga Twitter klien yang ada\footnote{http://en.wikipedia.org/wiki/List\_of\_Twitter\_services\_and\_applications}, semua menggunakan API Twitter\footnote{https://dev.twitter.com/}, daripada mengakses langsung ke situs \textit{web}\footnote{https://twitter.com/}. Hal yang sama berlaku untuk Amazon\footnote{http://www.amazon.com/} dan eBay\footnote{http://www.ebay.com/}, antara lain, yang memungkinkan pengguna untuk mengakses data katalog mereka dan bahkan mengeksekusi penjualan, semua melalui API.
+  \item Untuk memungkinkan pengembang aplikasi mobile untuk mengakses situs dengan mengirim dan mengambil data menggunakan HTTP.
+  \item Untuk memungkinkan aplikasi untuk mengakses data sendiri melalui panggilan Ajax\footnote{https://developer.mozilla.org/en/docs/AJAX}. Bila membuat panggilan JavaScript di latar belakang menggunakan Ajax, kemungkinan besar aplikasi akan menggunakan panggilan API, untuk menerima XML atau JSON, bukan HTML yang membutuhkan \textit{parsing} lebih lanjut.
 \end{enumerate}
 
 \subsection{RESTful Web API}
@@ -433,12 +433,12 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \onehalfspacing Berikut adalah penjelasan detail dari masing-masing tahap dari gambar \ref{tdd-cycle}:
 
 \begin{enumerate}
-  \item \textbf{\textit{Test Fails}}. Sebelum Anda menulis kode baru untuk sistem, pertama Anda menulis \textit{unit test} yang gagal, untuk menunjukkan maksud dari apa yang Anda inginkan\footnote{Arti dari "menunjukkan maksud dari apa yang Anda inginkan" adalah \textbf{merancang}.} dari kode baru yang akan ditulis. Di sini Anda berpikir kritis tentang desain.
-  \item \textbf{\textit{Test Passes}}. Kemudian Anda melakukan apapun yang diperlukan untuk membuat tes lulus. Jika  Anda melihat implementasi penuh, tambahkan kode baru. Jika tidak, lakukan secukupnya untuk mendapatkan tes lulus.
-  \item \textbf{\textit{Refactor}}. Kemudian kembali menyentuh kode Anda, untuk membersihkan kode atau "dosa" yang Anda lakukan ketika mencoba untuk mendapatkan lulus tes. Di sini Anda menghapus duplikasi dan memastikan semuanya ramping, berarti, dan sejelas mungkin.
+  \item \textbf{\textit{Test Fails}}. Sebelum menulis kode baru untuk sistem, hal pertama yang harus dilakukan adalah menulis \textit{unit test} yang gagal, untuk menunjukkan maksud dari apa yang diinginkan\footnote{Arti dari "menunjukkan maksud dari apa yang diinginkan" adalah \textbf{merancang}.} dari kode baru yang akan ditulis. Di sini pengembang aplikasi berpikir kritis tentang desain.
+  \item \textbf{\textit{Test Passes}}. Kemudian pengembang aplikasi melakukan apapun yang diperlukan untuk membuat tes lulus.
+  \item \textbf{\textit{Refactor}}. Kemudian kembali menyentuh kode yang sudah ditulis, untuk membersihkan kode atau "dosa" yang sudah dilakukan ketika mencoba untuk mendapatkan lulus tes. Di sini akan dihapus duplikasi dan memastikan semuanya ramping, berarti, dan sejelas mungkin.
 \end{enumerate}
 
-\onehalfspacing Dengan begini kita hanya mewujudkan apa yang perlu dalam bentuk tes. Membuat kode dengan cara ini memastikan Anda hanya membuat yang Anda butuhkan. Anda hanya menggunakan tes sebagai pintu masuk untuk mewujudkan niat Anda. Hal ini yang menyebabkan mengapa TDD sering dimaksud sebagai teknik desain, dan sedikit tentang pengujian \cite{agile-samurai}. Jika Anda ingin mengetahui lebih banyak tentang TDD, silahkan untuk membaca referensi berikut:
+\onehalfspacing Dengan begini kita hanya mewujudkan apa yang perlu dalam bentuk tes. Membuat kode dengan cara ini memastikan pengembang aplikasi hanya membuat yang dibutuhkan dan fokus. Tes hanya digunakan sebagai pintu masuk untuk mewujudkan niat pengembang aplikasi. Hal ini yang menyebabkan mengapa TDD sering dimaksud sebagai teknik desain, dan sedikit tentang pengujian \cite{agile-samurai}. Jika ingin mengetahui lebih banyak tentang TDD, silahkan untuk membaca referensi berikut:
 
 \begin{enumerate}
   \item \textit{Test-driven Development} dari Wikipedia\footnote{http://en.wikipedia.org/wiki/Test-driven\_development}
@@ -598,7 +598,7 @@ so that <some reason> => Why they want to do it
 
 \chapter{Perancangan Sistem}
 
-\onehalfspacing Sebelum membaca lebih lanjut bab ini, para pembaca perlu mengetahui bahwa saat melakukan pemodelan, penulis mempraktekkan \textit{Just Barely Good Enough modelling}\cite{jbge-scott}. Jadi, jangan terkejut jika Anda menemukan model yang diperlihatkan di bab ini mungkin tidak "benar" menurut perspektif Anda karena saat itu model yang dibuat dianggap cukup berdasarkan pemahaman dan situasi yang dihadapi oleh penulis pada saat proses pemodelan berlangsung.
+\onehalfspacing Sebelum membaca lebih lanjut bab ini, para pembaca perlu mengetahui bahwa saat melakukan pemodelan, penulis mempraktekkan \textit{Just Barely Good Enough modelling}\cite{jbge-scott}. Jadi, jangan terkejut jika menemukan model yang diperlihatkan di bab ini mungkin tidak "benar" menurut perspektif pembaca karena saat itu model yang dibuat dianggap cukup berdasarkan pemahaman dan situasi yang dihadapi oleh penulis pada saat proses pemodelan berlangsung.
 
 \section{Arsitektur Teknis Web API}
 

@@ -419,6 +419,47 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
   \item Melakukan \textit{sprint planning} untuk merencanakan daftar tugas yang perlu dikerjakan selama iterasi berlangsung
 \end{enumerate}
 
+\subsection{Mempraktekkan Test-Driven Development}
+
+\onehalfspacing Untuk mengembangkan purwa-rupa Web API, penulis menggunakan teknik pengembangan perangkat lunak \textit{test-driven development} (TDD). TDD adalah teknik pengembangan perangkat lunak yang menggunakan siklus pengembangan yang sangat singkat untuk merancang perangkat lunak secara bertahap. Ilustrasi dari siklus pengembangan yang dimaksud dapat dilihat pada gambar \ref{tdd-cycle}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.46]{images/tdd-cycle.png}
+\caption{Bagaimana TDD Bekerja \cite{agile-samurai}}
+\label{tdd-cycle}
+\end{figure}
+
+\onehalfspacing Berikut adalah penjelasan detail dari masing-masing tahap dari gambar \ref{tdd-cycle}:
+
+\begin{enumerate}
+  \item \textbf{\textit{Test Fails}}. Sebelum Anda menulis kode baru untuk sistem, pertama Anda menulis \textit{unit test} yang gagal, untuk menunjukkan maksud dari apa yang Anda inginkan\footnote{Arti dari "menunjukkan maksud dari apa yang Anda inginkan" adalah \textbf{merancang}.} dari kode baru yang akan ditulis. Di sini Anda berpikir kritis tentang desain.
+  \item \textbf{\textit{Test Passes}}. Kemudian Anda melakukan apapun yang diperlukan untuk membuat tes lulus. Jika  Anda melihat implementasi penuh, tambahkan kode baru. Jika tidak, lakukan secukupnya untuk mendapatkan tes lulus.
+  \item \textbf{\textit{Refactor}}. Kemudian kembali menyentuh kode Anda, untuk membersihkan kode atau "dosa" yang Anda lakukan ketika mencoba untuk mendapatkan lulus tes. Di sini Anda menghapus duplikasi dan memastikan semuanya ramping, berarti, dan sejelas mungkin.
+\end{enumerate}
+
+\onehalfspacing Dengan begini kita hanya mewujudkan apa yang perlu dalam bentuk tes. Membuat kode dengan cara ini memastikan Anda hanya membuat yang Anda butuhkan. Anda hanya menggunakan tes sebagai pintu masuk untuk mewujudkan niat Anda. Hal ini yang menyebabkan mengapa TDD sering dimaksud sebagai teknik desain, dan sedikit tentang pengujian \cite{agile-samurai}. Jika Anda ingin mengetahui lebih banyak tentang TDD, silahkan untuk membaca referensi berikut:
+
+\begin{enumerate}
+  \item \textit{Test-driven Development} dari Wikipedia\footnote{http://en.wikipedia.org/wiki/Test-driven\_development}
+  \item \textit{Agile Best Practice: Executable Specifications} \footnote{http://www.agilemodeling.com/essays/executableSpecifications.htm}
+  \item \textit{Introduction to Test Driven Development} (TDD) dari Agile Data\footnote{http://www.agiledata.org/essays/tdd.html}
+\end{enumerate}
+
+\subsection{Hasil Akhir Implementasi}
+
+\onehalfspacing Sesuai dengan \textit{milestone} yang sudah ditentukan di awal, hasil akhir dari implementasi Web API yang penulis lakukan adalah:
+
+\begin{enumerate}
+  \item Web API sudah mampu untuk merespon permintaan konten detail event dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id.
+  \item Web API sudah mampu untuk merespon permintaan konten detail event dalam format XML melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id
+  \item Web API sudah mampu untuk merespon permintaan daftar event dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/events.
+  \item Web API sudah mampu untuk merespon permintaan daftar event dalam format XML melalui URL http://ghanozjson.ap01.aws.af.cm/events.
+  \item Data yang dihasilkan dari API daftar event hanya menampilkan maksimal sebanyak 15 item event dalam sekali permintaan.
+\end{enumerate}
+
+\onehalfspacing Masing-masing detail respon API tersebut dapat dilihat pada lampiran \ref{lampiran:detail-respon-web-api}.
+
 \chapter{Analisis Sistem}
 \section{Roadmap Pengerjaan Purwa-rupa Web API}
 \onehalfspacing Sebelum penulis memulai \textit{software development life cycle}, penulis terlebih dahulu menentukkan \textit{roadmap} dari pengembangan Web API yang terdiri dari 3 \textit{milestone} yang harus dipenuhi. Berikut daftar \textit{milestone} tersebut:
@@ -710,50 +751,9 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancanga
 
 \chapter{Implementasi dan Pengujian Sistem}
 
-\onehalfspacing Pada bagian ini akan dibahas beberapa praktek yang penulis gunakan untuk mengimplementasikan dan menguji sistem. Beberapa praktek yang digunakan tersebut masuk ke dalam ruang lingkup bahasan \textit{Agile Software Engineering}, tetapi karena cakupannya cukup luas maka penulis akan menyertakan beberapa catatan kaki untuk mengarahkan pembaca ke referensi spesifik dengan pembahasan yang lebih detail.
+\onehalfspacing Pada bagian ini akan dibahas mengenai apa saja yang sudah diimplementasikan dan teknologi berkaitan yang digunakan untuk membangun purwa-rupa Web API.
 
 \section{Implementasi Web API}
-
-\subsection{Mempraktekkan Test-Driven Development}
-
-\onehalfspacing Untuk mengembangkan purwa-rupa Web API, penulis menggunakan teknik pengembangan perangkat lunak \textit{test-driven development} (TDD). TDD adalah teknik pengembangan perangkat lunak yang menggunakan siklus pengembangan yang sangat singkat untuk merancang perangkat lunak secara bertahap. Ilustrasi dari siklus pengembangan yang dimaksud dapat dilihat pada gambar \ref{tdd-cycle}.
-
-\begin{figure}[htp]
-\centering
-\includegraphics[scale=0.46]{images/tdd-cycle.png}
-\caption{Bagaimana TDD Bekerja \cite{agile-samurai}}
-\label{tdd-cycle}
-\end{figure}
-
-\onehalfspacing Berikut adalah penjelasan detail dari masing-masing tahap dari gambar \ref{tdd-cycle}:
-
-\begin{enumerate}
-  \item \textbf{\textit{Test Fails}}. Sebelum Anda menulis kode baru untuk sistem, pertama Anda menulis \textit{unit test} yang gagal, untuk menunjukkan maksud dari apa yang Anda inginkan\footnote{Arti dari "menunjukkan maksud dari apa yang Anda inginkan" adalah \textbf{merancang}.} dari kode baru yang akan ditulis. Di sini Anda berpikir kritis tentang desain.
-  \item \textbf{\textit{Test Passes}}. Kemudian Anda melakukan apapun yang diperlukan untuk membuat tes lulus. Jika  Anda melihat implementasi penuh, tambahkan kode baru. Jika tidak, lakukan secukupnya untuk mendapatkan tes lulus.
-  \item \textbf{\textit{Refactor}}. Kemudian kembali menyentuh kode Anda, untuk membersihkan kode atau "dosa" yang Anda lakukan ketika mencoba untuk mendapatkan lulus tes. Di sini Anda menghapus duplikasi dan memastikan semuanya ramping, berarti, dan sejelas mungkin.
-\end{enumerate}
-
-\onehalfspacing Dengan begini kita hanya mewujudkan apa yang perlu dalam bentuk tes. Membuat kode dengan cara ini memastikan Anda hanya membuat yang Anda butuhkan. Anda hanya menggunakan tes sebagai pintu masuk untuk mewujudkan niat Anda. Hal ini yang menyebabkan mengapa TDD sering dimaksud sebagai teknik desain, dan sedikit tentang pengujian \cite{agile-samurai}. Jika Anda ingin mengetahui lebih banyak tentang TDD, silahkan untuk membaca referensi berikut:
-
-\begin{enumerate}
-  \item \textit{Test-driven Development} dari Wikipedia\footnote{http://en.wikipedia.org/wiki/Test-driven\_development}
-  \item \textit{Agile Best Practice: Executable Specifications} \footnote{http://www.agilemodeling.com/essays/executableSpecifications.htm}
-  \item \textit{Introduction to Test Driven Development} (TDD) dari Agile Data\footnote{http://www.agiledata.org/essays/tdd.html}
-\end{enumerate}
-
-\subsection{Hasil Akhir Implementasi}
-
-\onehalfspacing Sesuai dengan \textit{milestone} yang sudah ditentukan di awal, hasil akhir dari implementasi Web API yang penulis lakukan adalah:
-
-\begin{enumerate}
-  \item Web API sudah mampu untuk merespon permintaan konten detail event dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id.
-  \item Web API sudah mampu untuk merespon permintaan konten detail event dalam format XML melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id
-  \item Web API sudah mampu untuk merespon permintaan daftar event dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/events.
-  \item Web API sudah mampu untuk merespon permintaan daftar event dalam format XML melalui URL http://ghanozjson.ap01.aws.af.cm/events.
-  \item Data yang dihasilkan dari API daftar event hanya menampilkan maksimal sebanyak 15 item event dalam sekali permintaan.
-\end{enumerate}
-
-\onehalfspacing Masing-masing detail respon API tersebut dapat dilihat pada lampiran \ref{lampiran:detail-respon-web-api}.
 
 \subsection{Teknologi yang Dipakai untuk Membangun Web API}
 

@@ -23,21 +23,40 @@ Universitas Widyatama
 }
 \date{\today}
 
+\setstretch{1.5}
+
 \begin{document}
 
 \maketitle
 
-% most research papers have an abstract, then there is a predefined commands
-% for telling LaTeX which part of the content makes up the abstract. This
-% should appear in its logical order, therefore, after the top matter, but
-% before the main sections of the body.
+\chapter*{Surat Pernyataan}
+\addcontentsline{toc}{chapter}{Surat Pernyataan}
+
+\onehalfspacing Saya yang bertandatangan di bawah ini:
+
+\begin{tabular}{lll}
+Nama & : & Muhammad Ghazali\\
+Tempat dan tanggal lahir & : & Bandung, 19 September 1988\\
+Alamat orang tua & : & Jalan Rorojonggrang VI No. 66, Cimahi Selatan\\
+\end{tabular}
+
+\onehalfspacing Menyatakan bahwa laporan kerja praktek ini adalah benar dan hasil karya saya sendiri. Bila terbukti tidak demikian, saya bersedia menerima segala akibatnya, termasuk pencabutan kembali nilai laporan kerja praktek yang telah saya peroleh.
+
+\begin{flushright}
+Bandung, \_\_\_\_\_\_\_\_\_\_\_
+
+Muhammad Ghazali
+
+\end{flushright}
+
 \chapter*{Abstraksi}
 \addcontentsline{toc}{chapter}{Abstraksi}
-\onehalfspacing LayangLayang Mobile (LLM) merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan aplikasi \textit{mobile} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
 
-\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+\onehalfspacing JSON untuk digunakan merepresentasikan data berbasis teks dalam format yang dapat dikonsumsi dengan mudah oleh aplikasi lain. Penulis memilih format serialisasi data JSON karena JSON lebih mudah ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}. 
 
-\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
+\onehalfspacing Di tugas akhir ini penulis membuktikan bahwa data yang diserialisasikan dalam format JSON memiliki ukuran yang lebih kecil dibandingkan XML. Disini penulis hanya membandingkan ukuran data yang dihasilkan setelah dilakukan serialisasi.
+
+\onehalfspacing Penulis juga membangun purwa-rupa Web API untuk menerapkan JSON pada \textit{web resource} yang akan dikonsumsi oleh aplikasi lain. Dengan membangun purwa-rupa Web API ini dibuktikan juga bahwa API yang menserialisasikan data dalam format JSON mampu melayani permintaan \textit{web resource} lebih banyak dibandingkan dengan API yang menserialisasikan data dalam format XML.
 
 \begin{flushleft}
 \onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data
@@ -46,16 +65,35 @@ Universitas Widyatama
 \chapter*{Kata Pengantar}
 \addcontentsline{toc}{chapter}{Kata Pengantar}
 
+\onehalfspacing Assalamualaikum Wr. Wb. Alhamdulillah, penulis mengucapkan syukur atas rahmat dan karunia yang telah diberikan-Nya kepada kita, terlebih lagi kepada penulis selaku umat-Nya yang masih banyak kekurangan. Penulis sungguh merasa senang sekali, karena telah diberi kesempatan dan kemampuan untuk menyelesaikan tugas kerja praktek ini. Mudah-mudahan hasil dari kerja praktek penulis dapat bermanfaat bagi kita semua terutama mahasiswa dan mahasiswi teknik informatika di Universitas Widyatama.
+
+\onehalfspacing Maksud dan tujuan dari tugas akhir ini adalah untuk memenuhi persyaratan kelulusan jenjang S1 Teknik Informatika di Universitas Widyatama.
+
+\onehalfspacing Penulis menyampaikan mohon maaf yang sebesar-besarnya atas segala kekurangan dan kesalahan dalam penulisan laporan tugas akhir ini. Penulis mengharapkan saran dan kritik yang membangun dari semua pihak dengan cara mengirimkan email ke \texttt{muhammadghazali2480@gmail.com}.
+
+\onehalfspacing Penulis juga ingin menyampaikan terima kasih yang sebesar-besarnya kepada semua pihak yang telah membantu dan mendukung penulis selama
+penyusunan laporan tugas akhir ini. Pihak-pihak yang telah ikut membantu penulis selama penyusunan laporan ini diantaranya:
+
+\begin{enumerate}
+  \item Ibunda Annita Komariati Prihandayani, Ayahanda Hardi Nusantara, adik-adik saya Niken Hardiane dan Inne Prinusantari selaku keluarga yang selalu mendukung penulis secara moril dan materil.
+  \item Ibu Sriyani Violina, S.T., M.T. selaku dosen pembimbing, yang telah banyak membantu penulis dalam penyusunan laporan kerja praktek ini.
+  \item Seluruh dosen teknik informatika di Universitas Widyatama yang telah banyak menyampaikan ilmu yang bermanfaat.
+  \item Seluruh teman-teman saya di LayangLayang Mobile, yang telah memberikan masalah untuk dijadikan sebagai tugas akhir dan diselesaikan menjadi sebuah solusi yang bermanfaat.
+  \item Seluruh teman-teman saya di dalam kampus ataupun di luar kampus yang
+tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan mentalitas kepada penulis.
+  \item Ratu Ayu Fridya Natalita Yusticia, yang telah memberikan dorongan semangat tanpa lelah.
+\end{enumerate}
+
+\onehalfspacing Semoga Allah SWT senantiasa melimpahkan karunia-Nya dan membalas segala amal budi serta kebaikan pihak-pihak yang telah membantu penulis dalam penyusunan laporan ini dan semoga laporan ini dapat memberikan manfaat bagi pihak-pihak yang membutuhkan.
+
 \onehalfspacing
+\addcontentsline{toc}{chapter}{Daftar Isi}
 \tableofcontents
 \setcounter{secnumdepth}{5}
 \setcounter{tocdepth}{7}
 
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
-
-\addcontentsline{toc}{chapter}{\listtablename}
-\listoftables
 
 % isi latar belakang dan masalah dibuat dengan mengikuti panduan:
 % http://romisatriawahono.net/2012/06/18/kiat-menyusun-alur-latar-belakang-masalah-penelitian/

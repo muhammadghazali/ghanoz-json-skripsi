@@ -51,11 +51,12 @@ Muhammad Ghazali
 
 \chapter*{Abstraksi}
 \addcontentsline{toc}{chapter}{Abstraksi}
-\onehalfspacing LayangLayang Mobile (LLM) merupakan salah perusahaan yang bergerak di bidang \textit{mobile application development}. Saat ini LayangLayang Mobile sedang mengembangkan sebuah produk bernama CampusLife. Produk yang dikembangkan tersebut merupakan aplikasi \textit{mobile} yang bertujuan untuk membantu civitas kampus mengakses informasi relevan tentang kampus mereka.
 
-\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API tersebut. Berdasarkan kondisi tersebut, penulis bekerjasama dengan LLM untuk membangun Web API CampusLife. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengelohan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+\onehalfspacing JSON untuk digunakan merepresentasikan data berbasis teks dalam format yang dapat dikonsumsi dengan mudah oleh aplikasi lain. Penulis memilih format serialisasi data JSON karena JSON lebih mudah ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}. 
 
-\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
+\onehalfspacing Di tugas akhir ini penulis membuktikan bahwa data yang diserialisasikan dalam format JSON memiliki ukuran yang lebih kecil dibandingkan XML. Disini penulis hanya membandingkan ukuran data yang dihasilkan setelah dilakukan serialisasi.
+
+\onehalfspacing Penulis juga membangun purwa-rupa Web API untuk menerapkan JSON pada \textit{web resource} yang akan dikonsumsi oleh aplikasi lain. Dengan membangun purwa-rupa Web API ini dibuktikan juga bahwa API yang menserialisasikan data dalam format JSON mampu melayani permintaan \textit{web resource} lebih banyak dibandingkan dengan API yang menserialisasikan data dalam format XML.
 
 \begin{flushleft}
 \onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data

@@ -809,11 +809,9 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancanga
 
 Penulis menerapkan satu level pengujian perangkat lunak untuk melakukan pengujian Web API, yaitu dengan melakukan \textit{acceptance testing}. Keseluruhan \textit{test suite} bisa dilihat di repositori ghanoz-json\footnote{https://github.com/muhammadghazali/ghanoz-json/tree/master/test/api-end-point-test}.
 
-\subsection{Skenario Pengujian}
-
 Pengujian secara umum terbagi ke dalam dua skenario besar, yaitu skenario pengujian untuk mengambil detail event dan daftar event. Keluaran log dari hasil pengujian tersebut dapat dilihat pada lampiran \ref{lampiran:hasil-pengujian}.
 
-\subsubsection{Skenario Pengujian untuk Mengambil Detail Event}
+\subsection{Skenario Pengujian untuk Mengambil Detail Event}
 
 Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah daftar skenario yang diterapkan ketika melakukan pengujian:
 
@@ -823,7 +821,7 @@ Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah dafta
   \item \textit{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
 \end{enumerate}
 
-\subsubsection{Skenario Pengujian untuk Mengambil Daftar Event}
+\subsection{Skenario Pengujian untuk Mengambil Daftar Event}
 
 Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah daftar skenario yang diterapkan ketika melakukan pengujian:
 
@@ -833,11 +831,11 @@ Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah dafta
   \item \textit{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
 \end{enumerate}
 
-\section{Hasil Pembandingan Ukuran Data JSON dan XML}
+\section{Hasil Pembandingan Antara JSON dan XML}
 
-Penulis juga melakukan pembandingan antara JSON dan XML dalam hal ukuran data yang dihasilkan dan jumlah respon permintaan yang berhasil dikembalikan. Pembandingan akan dilakukan dengan menggunakan data yang sama dan jumlah detik yang digunakan saat melakukan pembandingan.
+Penulis melakukan pembandingan antara JSON dan XML dalam hal ukuran data yang dihasilkan dan jumlah respon permintaan yang berhasil dikembalikan ketika Web API diakses oleh \textit{client}. Pembandingan akan dilakukan dengan menggunakan data yang sama dan jumlah detik yang digunakan saat melakukan pembandingan.
 
-Untuk melakukan hal ini penulis menggunakan Apache Benchmark\footnote{http://httpd.apache.org/docs/2.4/programs/ab.html}. Kakas tersebut akan bertugas mengirimkan permintaan Web API \textit{end point} daftar event. Berikut adalah skenario yang penulis lakukan:
+Untuk melakukan hal ini penulis menggunakan Apache Benchmark\footnote{http://httpd.apache.org/docs/2.4/programs/ab.html}. Kakas tersebut akan bertugas mengirimkan permintaan Web API \textit{end point} daftar event. Berikut adalah skenario pembandingan yang penulis lakukan:
 
 \begin{enumerate}
   \item \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi \textit{resource} kosong dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong
@@ -845,7 +843,44 @@ Untuk melakukan hal ini penulis menggunakan Apache Benchmark\footnote{http://htt
   \item \textit{Just Once}. Melakukan pembandingan ukuran data terhadap hasil respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal"
 \end{enumerate}
 
-Detail masing-masing hasil pembandingan tersebut ada di lampiran \ref{lampiran:hasil-pembandingan-ukuran-data}
+Hasil detail pembandingan dari masing-masing skenario tersebut dapat dilihat di bagian selanjutnya.
+
+\subsection{Hasil Pembandingan Skenario Empty Resource}
+
+\onehalfspacing \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi "\textit{resource} kosong" dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong. Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-empty-resource}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{images/benchmark-empty-resource.png}
+\caption{Perbandingan Jumlah Permintaan yang berhasil direspon untuk skenario Empty Resource}
+\label{benchmark-empty-resource}
+\end{figure}
+
+Bisa dilihat melalui grafik di atas, bahwa dalam 73,853 detik, Web API mampu mengembalikan respon dari 50000 permintaan dalam format JSON. Sedangkan dalam 90 detik, Web API hanya mampu mengembalikan respon dari 36973 permintaan dalam format XML.
+
+\subsection{Hasil Pembandingan Skenario Normal Resource}
+
+\onehalfspacing \textit{Normal Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-normal-resource}.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{images/benchmark-normal-resource.png}
+\caption{Perbandingan Jumlah Permintaan yang berhasil direspon untuk skenario Normal Resource}
+\label{benchmark-normal-resource}
+\end{figure}
+
+Bisa dilihat melalui grafik di atas, bahwa dalam 87.414 detik, Web API mampu mengembalikan respon dari 50000 permintaan dalam format JSON. Sedangkan dalam 90 detik, Web API hanya mampu mengembalikan respon dari 27966 permintaan dalam format XML.
+
+\subsection{Hasil Pembandingan Skenario Just Once}
+
+\onehalfspacing \textit{Just Once}. Melakukan pembandingan ukuran data terhadap hasil respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Berikut detail hasil pembandingannya:
+
+\begin{enumerate}
+  \item Ukuran data \textit{resource} dalam format JSON dengan besar 4377 \textit{bytes} berhasil direspon oleh Web API dalam waktu 0,0004 detik
+  \item Ukuran data \textit{resource} dalam format XML dengan besar 6635 \textit{bytes} berhasil direspon oleh Web API dalam waktu 0,0005 detik
+\end{enumerate}
+
+Detail log khusus untuk hasil pembandingan skenario \textit{just once} dapat dilihat pada lampiran \ref{lampiran:detail-log-hasil-pembandingan-skenario-just-once}.
 
 \chapter{Penutup}
 
@@ -855,7 +890,7 @@ Selama menjalani masa pengerjaan tugas akhir penulis mendapatkan beberapa kesimp
 
 \begin{enumerate}
   \item Berdasarkan hasil pengujian yang sudah dilakukan, terbukti bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil\footnote{Lihat Lampiran \ref{lampiran:hasil-pembandingan-ukuran-data} di bagian "\textit{Just Once}"} jika dibandingkan dengan data yang diserialisasi dalam format XML.
-  \item Implikasi dari penerapan JSON pada \textit{resource} adalah jumlah permintaan yang berhasil dikembalikan jauh lebih banyak\footnote{Lihat Lampiran \ref{lampiran:hasil-pembandingan-ukuran-data} di bagian "\textit{Empty Resource}" dan "\textit{Normal Resource}"} dibandingkan ketika Web API mengembalikan \textit{resource} dalam format XML.
+  \item Implikasi dari penerapan JSON pada \textit{resource} adalah jumlah permintaan yang berhasil dikembalikan jauh lebih banyak dibandingkan ketika Web API mengembalikan \textit{resource} dalam format XML.
 \end{enumerate}
 
 \section{Saran}
@@ -1622,41 +1657,6 @@ connecting to: ghanozjson_test
 [object Object]
 \end{lstlisting}
 
-\chapter{Hasil Pembandingan Ukuran Data} \label{lampiran:hasil-pembandingan-ukuran-data}
-
-\section{Empty Resource}
-
-\onehalfspacing \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi "\textit{resource} kosong" dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong. Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-empty-resource}.
-
-\begin{figure}[htp]
-\centering
-\includegraphics[scale=0.65]{images/benchmark-empty-resource.png}
-\caption{Perbandingan Jumlah Permintaan yang berhasil direspon untuk skenario Empty Resource}
-\label{benchmark-empty-resource}
-\end{figure}
-
-Bisa dilihat melalui grafik di atas, bahwa dalam 73,853 detik, Web API mampu mengembalikan respon dari 50000 permintaan dalam format JSON. Sedangkan dalam 90 detik, Web API hanya mampu mengembalikan respon dari 36973 permintaan dalam format XML.
-
-\section{Normal Resource}
-
-\onehalfspacing \textit{Normal Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-normal-resource}.
-
-\begin{figure}[htp]
-\centering
-\includegraphics[scale=0.65]{images/benchmark-normal-resource.png}
-\caption{Perbandingan Jumlah Permintaan yang berhasil direspon untuk skenario Normal Resource}
-\label{benchmark-normal-resource}
-\end{figure}
-
-Bisa dilihat melalui grafik di atas, bahwa dalam 87.414 detik, Web API mampu mengembalikan respon dari 50000 permintaan dalam format JSON. Sedangkan dalam 90 detik, Web API hanya mampu mengembalikan respon dari 27966 permintaan dalam format XML.
-
-\section{Just Once}
-
-\onehalfspacing \textit{Just Once}. Melakukan pembandingan ukuran data terhadap hasil respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Berikut detail hasil pembandingannya:
-
-\begin{enumerate}
-  \item Ukuran data \textit{resource} dalam format JSON dengan besar 4377 \textit{bytes} berhasil direspon oleh Web API dalam waktu 0,0004 detik
-  \item Ukuran data \textit{resource} dalam format XML dengan besar 6635 \textit{bytes} berhasil direspon oleh Web API dalam waktu 0,0005 detik
-\end{enumerate}
+\chapter{Detail Log Hasil Pembandingan Skenario Just Once} \label{lampiran:detail-log-hasil-pembandingan-skenario-just-once}
 
 \end{document}

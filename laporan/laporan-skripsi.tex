@@ -1662,4 +1662,41 @@ connecting to: ghanozjson_test
 
 \chapter{Detail Log Hasil Pembandingan Skenario Just Once} \label{lampiran:detail-log-hasil-pembandingan-skenario-just-once}
 
+Berikut adalah detail log hasil pembandingan skenario \textit{just once}:
+
+\begin{lstlisting}[frame=single]
+make benchmark-one 
+ab -c 1 -n 1
+  -H "Accept: application/json" 
+  http://localhost:3000/events
+
+Benchmarking localhost (be patient).....done
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            3000
+
+Document Path:          /events
+Document Length:        4733 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.004 seconds
+Complete requests:      1
+
+ab -c 1 -n 1
+  -H "Accept: application/xml"
+  http://localhost:3000/events
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            3000
+
+Document Path:          /events
+Document Length:        6635 bytes
+
+Concurrency Level:      1
+Time taken for tests:   0.005 seconds
+Complete requests:      1
+\end{lstlisting}
+
 \end{document}

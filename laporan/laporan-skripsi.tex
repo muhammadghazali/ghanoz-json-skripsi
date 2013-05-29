@@ -100,7 +100,7 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 \chapter{Pendahuluan}
 \section{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus. 
+\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus.
 
 \onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
@@ -750,7 +750,7 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
   \item Data aktual detail event akan dibungkus dalam propertie data yang berupa \textit{object}
 \end{enumerate}
 
-Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancangan-skema-representasi-res}.
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
 
 % Rancangan Skema Representasi Resource Daftar Event dalam format JSON
 \subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format JSON}
@@ -762,7 +762,7 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancanga
   \item Data aktual Event List akan dibungkus dalam variable data yang berupa array
 \end{enumerate}
 
-Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancangan-skema-representasi-res}.
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
 
 % Rancangan Skema Representasi Resource Detail Event dalam format XML
 \subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format XML}
@@ -774,7 +774,7 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancanga
   \item Data aktual detail event akan dibungkus dalam elemen data
 \end{enumerate}
 
-Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancangan-skema-representasi-res}.
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
 
 % Rancangan Skema Representasi Resource Daftar Event dalam format XML
 \subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format XML}
@@ -787,7 +787,7 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancanga
 \item Setiap \textit{resource} daftar event akan disertai properti URL
 \end{enumerate}
 
-Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran-detail-rancangan-skema-representasi-res}.
+Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
 
 \chapter{Implementasi dan Pengujian Sistem}
 
@@ -1087,7 +1087,7 @@ When the client request the resource with Content-Type other than JSON or XML\\
 Then the Web API should return HTTP 406 code\\
 And returned reponse should be contained an client error message}
 
-\chapter{Detail Rancangan Skema Representasi Resource} \label{lampiran-detail-rancangan-skema-representasi-res}
+\chapter{Detail Rancangan Skema Representasi Resource} \label{lampiran:detail-rancangan-skema-representasi-res}
 \section{Rancangan Skema Representasi Resource Detail Event}
 \subsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
 \onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format JSON:
@@ -1698,5 +1698,7 @@ Concurrency Level:      1
 Time taken for tests:   0.005 seconds
 Complete requests:      1
 \end{lstlisting}
+
+\chapter{Daftar Istilah} \label{lampiran:daftar-istilah}
 
 \end{document}

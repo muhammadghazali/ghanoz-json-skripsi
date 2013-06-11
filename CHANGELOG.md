@@ -1,4 +1,45 @@
 
+2013.11.06 / 2013-06-11 
+========================
+
+  * Menyelesaikan slide presentasi
+  * Menambahkan beberapa bagian tentang rumusan masalah, batasan masalah, pengantar
+  * Menambahkan beberapa slide untuk pengantar
+  * Memperbaiki typo url event id
+  * Membuat table menjadi borderless
+  * Membuat lembar pengesahan
+  * Menghilangkan kata penelitian
+  * Menambahkan halaman kosong daftar istilah di bab lampiran dan refactor beberapa label
+  * Menghilangkan  kata kerja praktek dari laporan
+  * Menambahkan lampiran detail log hasil pembandingan skenario just once
+  * Buat daftar topik penelitian selanjuntya di sub bab saran #5593791708498
+  * Konversi lampiran E menjadi isi dari bab 5. #5593791708488 #5593791708490
+  * Build document
+  * Memperbaiki beberapa item skenario
+  * Menyempurnakan penjelasan penggunaan MongoDB
+  * Sempurnakan abstrak laporan #5584396957254
+  * Menghilangkan halaman daftar tabel
+  * Menyempurnakan alamat email styling
+  * Membuat halaman surat pernyataan #5584396957267
+  * Membuat kata pengantar #5584396957258
+  * Mengganti sintaks untuk bab abstraksi
+  * Menyempurnakan kesimpulan dan struktur bab
+  * Memperbaiki footnote #5584396957243 #5584396957245
+  * Menyelesaikan bab 6 #5584396957243 #5584396957245
+  * Menyempurnakan penjelasan hasil pembandingan skenario empty dan normal #5442316331366
+  * Menyelesaikan Bab 5 #5442316331366 Merge branch 'working-on-bab-5' into development
+  * Menyertakan hasil benchmark antara JSON dan XML #5550508253148
+  * Menyertakan test scnearios dan log hasil pengujian #5442316331390 #5442316331392
+  * Mengganti kata Anda dengan kata-kata yang pasif #5546818131291
+  * Memindahkan teori tentang TDD ke bab landasan teori #5546818131288
+  * Merapihkan struktur bab #5442316331366
+  * Menjelaskan penggunaan teknologi Node.js dan MongoDB #5442316331368 #5442316331370
+  * Menyertakan URL dari masing-masing API end point #5442316331356
+  * Menjelaskan overview hasil akhir implementasi #5442316331356
+  * Memperjelas maksud
+  * Menjelaskan ilustrasi dev workflow menggunakan TDD #5442316331396 #5442316331388
+  * Menambahkan penjelasan tentang pertimbangan peracangan skema representasi resource untuk daftar event dalam format XML. Memperjelas beberapa kalimat. #5344881939549
+
 2013.05.13 / 2013-05-13 
 =======================
 

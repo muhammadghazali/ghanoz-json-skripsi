@@ -185,7 +185,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \subsection{RESTful Web API}
 
-\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Berikut adalah diagram yang mengilustrasikan proses saat klien mengirimkan \textit{request} dan RESTful Web API mengirimkan \textit{response} kepada klien:
+\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan melalui HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Berikut adalah diagram yang mengilustrasikan proses saat klien mengirimkan \textit{request} dan RESTful Web API mengirimkan \textit{response} kepada klien:
 
 \onehalfspacing
 \begin{figure}[htp]
@@ -238,7 +238,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \subsection{Pengantar}
 \onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan berbasis teks yang bersifat \textit{language-independent}\footnote{Dengan sifat seperti ini JSON bisa digunakan di banyak bahasa pemrograman, selama ada dukungan \textit{library} untuk bahasa pemrograman yang akan digunakan}. Relatif sangat mudah bagi manusia untuk membaca dan menulis JSON. Relatif sangat mudah pula bagi mesin (komputer) untuk mengurai dan menghasilkan JSON.
 
-\onehalfspacing JSON dibuat dengan berbasiskan JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
+\onehalfspacing JSON dibuat dengan berbasiskan JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal \cite{introducing-json}.
 
 \subsection{Struktur}
 \onehalfspacing JSON dibangun di atas dua struktur:
@@ -257,7 +257,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/object-json.png}
-\caption{Diagram Sintaks untuk Tipe Object \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{Object} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Object}
 \end{figure}
 
@@ -266,18 +266,18 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/array-json.png}
-\caption{Diagram Sintaks untuk Tipe Array \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{Array} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Array}
 \end{figure}
 
-\onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat diulang.
+\onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat berulang.
 
 \onehalfspacing \textit{String} adalah rangkaian yang terdiri dari nol atau lebih karakter \textit{Unicode}\footnote{http://www.unicode.org/versions/Unicode6.2.0/}.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/string-json.png}
-\caption{Diagram Sintaks untuk Tipe String \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{String} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe String}
 \end{figure}
 
@@ -286,7 +286,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/number-json.png}
-\caption{Diagram Sintaks untuk Tipe Number \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{Number} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Number}
 \end{figure}
 
@@ -343,7 +343,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing \textit{Extensible Markup Language} (XML) adalah bahasa \textit{markup} yang mendefinisikan seperangkat aturan untuk \textit{document encoding} dalam format yang dapat terbaca oleh manusia dan mesin. Ini didefinisikan dalam spesifikasi XML 1.0\footnote{http://www.w3.org/TR/REC-xml/} yang dihasilkan oleh W3C.
 
-\onehalfspacing Tujuan desain XML menekankan kesederhanaan, keumuman, dan kegunaan melalui Internet. XML adalah format data tekstual dengan dukungan kuat melalui Unicode. Meskipun desain XML berfokus pada dokumen, namun secara luas digunakan untuk menrepresentasikan struktur data yang berubah-ubah, misalnya dalam layanan web \cite{xml-wikipedia}.
+\onehalfspacing Tujuan desain XML menekankan kesederhanaan, keumuman, dan kegunaan melalui \textit{Internet}. XML adalah format data tekstual dengan dukungan kuat melalui Unicode. Meskipun desain XML berfokus pada dokumen, namun secara luas digunakan untuk menrepresentasikan struktur data yang berubah-ubah, misalnya dalam layanan web \cite{xml-wikipedia}.
 
 \onehalfspacing Dikarenakan topik penelitian ini tidak membandingkan antara JSON versus XML dan tidak fokus ke XML, maka penulis hanya menjelaskan XML secara singkat.
 
@@ -411,7 +411,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \onehalfspacing Demikian, walaupun mereka menghargai hal di sisi kanan, mereka lebih menghargai hal di sisi kiri. Arti dari item manifesto di sebelah kiri dalam konteks pembangunan perangkat lunak \textit{Agile} dijelaskan di bawah ini:
 
 \begin{enumerate}
-  \item Individu dan interaksi. Dalam pengembangan perangkat lunak \textit{Agile}, mengorganisir diri dan motivasi merupakan hal yang penting, seperti interaksi seperti \textit{co-location}\footnote{http://en.wikipedia.org/wiki/Colocation\_(business)} dan \textit{pair programming}\footnote{http://en.wikipedia.org/wiki/Pair\_programming}.
+  \item Individu dan interaksi. Dalam pengembangan perangkat lunak \textit{Agile}, \\mengorganisir diri dan motivasi merupakan hal yang penting, seperti interaksi seperti \textit{co-location}\footnote{http://en.wikipedia.org/wiki/Colocation\_(business)} dan \textit{pair programming}\footnote{http://en.wikipedia.org/wiki/Pair\_programming}.
   \item Perangkat lunak yang bekerja (berfungsi dengan baik). Perangkat lunak yang bekerja akan lebih bermanfaat dan diterima daripada sekedar menyajikan dokumen untuk klien dalam pertemuan.
   \item Kolaborasi dengan klien. Daftar kebutuhan perangkat lunak tidak dapat \newline dikumpulkan secara menyeluruh pada awal siklus pengembangan perangkat lunak, sehingga keterlibatan terus menerus pelanggan atau pemangku kepentingan sangat penting.
   \item Tanggap terhadap perubahan. Pengembangan perangkat lunak \textit{Agile} difokuskan pada respon cepat terhadap perubahan dan pembangunan berkelanjutan.
@@ -542,7 +542,7 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 
 \begin{enumerate}
   \item Lebih mudah untuk memodifikasi atau mengganti \textit{tier} apapun tanpa mempengaruhi \textit{tier} lainnya.
-  \item Memisahkan aplikasi dan fungsi \textit{database} berarti \textit{load balancing} yang lebih baik.
+  \item Memisahkan aplikasi dan fungsi basis data berarti \textit{load balancing} yang lebih baik.
 \end{enumerate}
 
 \subsection{Ruang Lingkup Pengerjaan}

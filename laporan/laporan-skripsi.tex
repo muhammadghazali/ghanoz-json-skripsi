@@ -95,6 +95,9 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
 % isi latar belakang dan masalah dibuat dengan mengikuti panduan:
 % http://romisatriawahono.net/2012/06/18/kiat-menyusun-alur-latar-belakang-masalah-penelitian/
 \chapter{Pendahuluan}
@@ -378,19 +381,34 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing Walaupun XML bisa digunakan untuk \textit{data interchange}, namun, XML tidak cocok untuk \textit{data interchange}. Ini membawa banyak bagasi (baca: pengeluaran tambahan), dan tidak cocok dengan model data dari kebanyakan bahasa pemrograman. Ketika kebanyakan \textit{programmer} melihat XML untuk pertama kalinya, mereka terkejut melihat betapa jelek dan tidak efisiennya XML \cite{json-fat-free}.
 
+\newpage
 \section{Menggunakan JSON daripada XML}
 
-\onehalfspacing Pada dasarnya setiap hal selalu memiliki kelebihannya dan kekurangannya serta \textit{use case} masing-masing. Seperti yang sudah dijelaskan sebelumnya tentang kritik terhadap XML, pada bagian ini dijelaskan beberapa poin kenapa lebih memilih untuk menggunakan JSON daripada XML. Berikut adalah beberapa alasan tersebut:
+\onehalfspacing Pada dasarnya setiap hal selalu memiliki kelebihannya dan kekurangannya serta \textit{use case} masing-masing. Seperti yang sudah dijelaskan sebelumnya tentang kritik terhadap XML, pada bagian ini dijelaskan kenapa lebih memilih untuk menggunakan JSON daripada XML. Berikut adalah beberapa alasan tersebut:
 
-\begin{enumerate}
-  \item JSON lebih sederhana
-  \begin{enumerate}
-    \item JSON lebih sederhana dibandingkan XML. JSON memiliki tata bahasa yang jauh lebih kecil dan lebih mudah dipetakan langsung ke struktur data yang digunakan dalam bahasa pemrograman modern.
-    \item JSON jauh lebih mudah bagi manusia untuk dibaca daripada XML. JSON juga lebih mudah untuk ditulis dan dibaca oleh mesin.
-  \end{enumerate}
-  \item JSON dapat dipetakan dengan lebih mudah untuk sistem berorientasi objek.
-  \item JSON sudah diadopsi secara luas oleh banyak pihak di industri perangkat lunak \cite{json-continue-to-winning}\cite{json-continue-to-push}.
-\end{enumerate}
+\begin{table}[h]
+\caption {Tabel Perbandingan XML dan JSON} \label{tabel-perbandingan-xml-json}
+\begin{tabular}{|l|l|}
+ \hline
+\multicolumn{1}{|c|}{JSON} & \multicolumn{1}{|c|}{XML} \\ \hline
+Berbasis teks & Berbasis teks \\ \hline
+Berbasis terbuka & Berbasis terbuka \\ \hline
+Struktur yang sederhana & Struktur yang lebih sederhana \\ \hline
+Penggunaan sumber daya lebih banyak & Penggunaan sumber daya lebih sedikit  \\ \hline
+Lebih mudah dibaca & Relatif mudah dibaca \\ \hline
+\end{tabular}
+\end{table}
+
+Berikut adalah perbandingan contoh data yang sudah diformat dalam XML dan JSON bisa dilihat pada gambar \ref{figure:xml-json-source}\footnote{Data sudah diformat ulang untuk keperluan visualisasi}:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{images/perbandingan-xml-json.png}
+\caption{Perbandingan Data dalam JSON dan XML}
+\label{figure:xml-json-source}
+\end{figure}
+
+Dari gambar bisa di atas kita bisa melihat JSON lebih mudah dibaca dibandingkan XML.
 
 \section{Agile Software Development}
 \subsection{Pengantar}

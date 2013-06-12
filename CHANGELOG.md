@@ -1,5 +1,16 @@
 
-2013.11.06 / 2013-06-11 
+2013.06.13 / 2013-06-13 
+==================
+
+  * Tabel perbandingan XML dan JSON #5753163074096
+  * Menyempurnakan sedikit penjelasan tentang kenapa Agile Berbeda #5753163074094
+  * Menerapkan italic styling pada beberapa istilah asing
+  * Mengganti beberapa istilah asing ke dalam bahasa Indonesia
+  * Memperbaiki styling pada beberapa istilah asing
+  * Rekonstruksi judul skripsi #5753163074098
+  * Memperbaiki typo
+
+2013.06.11 / 2013-06-11 
 ========================
 
   * Menyelesaikan slide presentasi

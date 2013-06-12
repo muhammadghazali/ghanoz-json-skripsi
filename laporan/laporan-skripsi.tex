@@ -13,7 +13,7 @@
 
 \selectlanguage{bahasa}
 %Gummi|063|=)
-\title{\textbf{Membangun Web API dengan menggunakan JSON sebagai format serialisasi data}}
+\title{\textbf{Analisa Unjuk Kerja Format Serialisasi Data JSON dan XML}}
 \author{
 Muhammad Ghazali\\
 Program Studi Teknik Informatika\\
@@ -44,15 +44,14 @@ Alamat orang tua & : & Jalan Rorojonggrang VI No. 66, Cimahi Selatan\\
 
 \begin{flushright}
 Bandung, \_\_\_\_\_\_\_\_\_\_\_
-
-Muhammad Ghazali
+\\[1in] Muhammad Ghazali
 
 \end{flushright}
 
 \chapter*{Abstraksi}
 \addcontentsline{toc}{chapter}{Abstraksi}
 
-\onehalfspacing JSON untuk digunakan merepresentasikan data berbasis teks dalam format yang dapat dikonsumsi dengan mudah oleh aplikasi lain. Penulis memilih format serialisasi data JSON karena JSON lebih mudah ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}. 
+\onehalfspacing JSON digunakan untuk merepresentasikan data berbasis teks dalam format yang dapat dikonsumsi dengan mudah oleh aplikasi lain. Penulis memilih format serialisasi data JSON karena JSON lebih mudah ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}. 
 
 \onehalfspacing Di tugas akhir ini penulis membuktikan bahwa data yang diserialisasikan dalam format JSON memiliki ukuran yang lebih kecil dibandingkan XML. Disini penulis hanya membandingkan ukuran data yang dihasilkan setelah dilakukan serialisasi.
 
@@ -95,6 +94,9 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
 % isi latar belakang dan masalah dibuat dengan mengikuti panduan:
 % http://romisatriawahono.net/2012/06/18/kiat-menyusun-alur-latar-belakang-masalah-penelitian/
 \chapter{Pendahuluan}
@@ -104,10 +106,10 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 
 \onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
-\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}.
+\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML \cite{json-fat-free}\cite{json-vs-xml-debate}.
 
 % menjelaskan rangkuman penelitian
-\onehalfspacing \textit{Smartphone} sebagai perangkat tempat aplikasi \textit{mobile} CampusLife berjalan, merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas.\cite{challenging-issues-and-limitations-of-mobile-computing}. Dengan kedua keterbatasan tersebut, dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+\onehalfspacing \textit{Smartphone} sebagai perangkat tempat aplikasi \textit{mobile} CampusLife berjalan, merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas \cite{challenging-issues-and-limitations-of-mobile-computing}. Dengan kedua keterbatasan tersebut, dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section{Rumusan Masalah}
@@ -132,7 +134,7 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 \onehalfspacing
 \begin{enumerate}
   \item Pembangunan Web API hanya akan sampai pada tahap purwa-rupa.
-  \item Pembangunan Web API hanya akan meliputi API untuk mengambil data-data \textit{event}.
+  \item Pembangunan Web API hanya akan meliputi API untuk mengambil detail \textit{event} dan daftar \textit{event}.
   \item JSON hanya mampu merepresentasikan data dalam bentuk teks, oleh karena itu data yang akan digunakan hanya terbatas pada data yang berbasis teks.
   \item Skema data \textit{event} akan disediakan oleh pihak LLM.
   \item Dikarenakan keterbatasan waktu yang dimiliki oleh penulis, maka demo untuk mengakses Web API tidak jadi dilakukan melalui aplikasi \textit{mobile}.
@@ -185,7 +187,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \subsection{RESTful Web API}
 
-\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan menggunakan HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Berikut adalah diagram yang mengilustrasikan proses saat klien mengirimkan \textit{request} dan RESTful Web API mengirimkan \textit{response} kepada klien:
+\onehalfspacing RESTful Web API adalah Web API yang diimplementasikan dengan melalui HTTP dan prinsip-prinsip REST\footnote{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}. \textit{Representational State Transfer} (REST) mendefinisikan seperangkat prinsip arsitektur dimana penulis dapat merancang layanan Web yang berfokus pada sistem \textit{resource}, termasuk bagaimana keadaan \textit{resource} dipanggil dan ditransfer melalui HTTP oleh berbagai macam klien yang ditulis dalam bahasa (pemrograman) yang berbeda. Berikut adalah diagram yang mengilustrasikan proses saat klien mengirimkan \textit{request} dan RESTful Web API mengirimkan \textit{response} kepada klien:
 
 \onehalfspacing
 \begin{figure}[htp]
@@ -238,7 +240,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \subsection{Pengantar}
 \onehalfspacing \textit{JavaScript Object Notation} (JSON) adalah format \textit{data interchange} ringan berbasis teks yang bersifat \textit{language-independent}\footnote{Dengan sifat seperti ini JSON bisa digunakan di banyak bahasa pemrograman, selama ada dukungan \textit{library} untuk bahasa pemrograman yang akan digunakan}. Relatif sangat mudah bagi manusia untuk membaca dan menulis JSON. Relatif sangat mudah pula bagi mesin (komputer) untuk mengurai dan menghasilkan JSON.
 
-\onehalfspacing JSON dibuat dengan berbasiskan JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal\cite{introducing-json}.
+\onehalfspacing JSON dibuat dengan berbasiskan JavaScript, standar ECMA-262 Edisi 3 - Desember 1999\footnote{http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm}. JSON merupakan format teks yang benar - benar bahasa independen tetapi menggunakan konvensi yang akrab bagi \textit{programmer} dari keluarga bahasa C, termasuk C, C + +, C\#, Java, JavaScript, Perl, Python, dan banyak lainnya. Properti ini membuat JSON sebagai bahasa \textit{data interchange} yang ideal \cite{introducing-json}.
 
 \subsection{Struktur}
 \onehalfspacing JSON dibangun di atas dua struktur:
@@ -257,7 +259,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/object-json.png}
-\caption{Diagram Sintaks untuk Tipe Object \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{Object} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Object}
 \end{figure}
 
@@ -266,18 +268,18 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/array-json.png}
-\caption{Diagram Sintaks untuk Tipe Array \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{Array} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Array}
 \end{figure}
 
-\onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat diulang.
+\onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat berulang.
 
 \onehalfspacing \textit{String} adalah rangkaian yang terdiri dari nol atau lebih karakter \textit{Unicode}\footnote{http://www.unicode.org/versions/Unicode6.2.0/}.
 
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/string-json.png}
-\caption{Diagram Sintaks untuk Tipe String \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{String} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe String}
 \end{figure}
 
@@ -286,7 +288,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \begin{figure}[htp]
 \centering
 \includegraphics[scale=0.55]{images/number-json.png}
-\caption{Diagram Sintaks untuk Tipe Number \cite{json-fat-free}}
+\caption{Diagram Sintaks untuk Tipe \textit{Number} \cite{json-fat-free}}
 \label{Diagram Sintaks untuk Tipe Number}
 \end{figure}
 
@@ -343,7 +345,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing \textit{Extensible Markup Language} (XML) adalah bahasa \textit{markup} yang mendefinisikan seperangkat aturan untuk \textit{document encoding} dalam format yang dapat terbaca oleh manusia dan mesin. Ini didefinisikan dalam spesifikasi XML 1.0\footnote{http://www.w3.org/TR/REC-xml/} yang dihasilkan oleh W3C.
 
-\onehalfspacing Tujuan desain XML menekankan kesederhanaan, keumuman, dan kegunaan melalui Internet. XML adalah format data tekstual dengan dukungan kuat melalui Unicode. Meskipun desain XML berfokus pada dokumen, namun secara luas digunakan untuk menrepresentasikan struktur data yang berubah-ubah, misalnya dalam layanan web \cite{xml-wikipedia}.
+\onehalfspacing Tujuan desain XML menekankan kesederhanaan, keumuman, dan kegunaan melalui \textit{Internet}. XML adalah format data tekstual dengan dukungan kuat melalui Unicode. Meskipun desain XML berfokus pada dokumen, namun secara luas digunakan untuk menrepresentasikan struktur data yang berubah-ubah, misalnya dalam layanan web \cite{xml-wikipedia}.
 
 \onehalfspacing Dikarenakan topik penelitian ini tidak membandingkan antara JSON versus XML dan tidak fokus ke XML, maka penulis hanya menjelaskan XML secara singkat.
 
@@ -378,19 +380,34 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing Walaupun XML bisa digunakan untuk \textit{data interchange}, namun, XML tidak cocok untuk \textit{data interchange}. Ini membawa banyak bagasi (baca: pengeluaran tambahan), dan tidak cocok dengan model data dari kebanyakan bahasa pemrograman. Ketika kebanyakan \textit{programmer} melihat XML untuk pertama kalinya, mereka terkejut melihat betapa jelek dan tidak efisiennya XML \cite{json-fat-free}.
 
+\newpage
 \section{Menggunakan JSON daripada XML}
 
-\onehalfspacing Pada dasarnya setiap hal selalu memiliki kelebihannya dan kekurangannya serta \textit{use case} masing-masing. Seperti yang sudah dijelaskan sebelumnya tentang kritik terhadap XML, pada bagian ini dijelaskan beberapa poin kenapa lebih memilih untuk menggunakan JSON daripada XML. Berikut adalah beberapa alasan tersebut:
+\onehalfspacing Pada dasarnya setiap hal selalu memiliki kelebihannya dan kekurangannya serta \textit{use case} masing-masing. Seperti yang sudah dijelaskan sebelumnya tentang kritik terhadap XML, pada bagian ini dijelaskan kenapa lebih memilih untuk menggunakan JSON daripada XML. Berikut adalah beberapa alasan tersebut:
 
-\begin{enumerate}
-  \item JSON lebih sederhana
-  \begin{enumerate}
-    \item JSON lebih sederhana dibandingkan XML. JSON memiliki tata bahasa yang jauh lebih kecil dan lebih mudah dipetakan langsung ke struktur data yang digunakan dalam bahasa pemrograman modern.
-    \item JSON jauh lebih mudah bagi manusia untuk dibaca daripada XML. JSON juga lebih mudah untuk ditulis dan dibaca oleh mesin.
-  \end{enumerate}
-  \item JSON dapat dipetakan dengan lebih mudah untuk sistem berorientasi objek.
-  \item JSON sudah diadopsi secara luas oleh banyak pihak di industri perangkat lunak \cite{json-continue-to-winning}\cite{json-continue-to-push}.
-\end{enumerate}
+\begin{table}[h]
+\caption {Tabel Perbandingan XML dan JSON} \label{tabel-perbandingan-xml-json}
+\begin{tabular}{|l|l|}
+ \hline
+\multicolumn{1}{|c|}{JSON} & \multicolumn{1}{|c|}{XML} \\ \hline
+Berbasis teks & Berbasis teks \\ \hline
+Berbasis terbuka & Berbasis terbuka \\ \hline
+Struktur yang sederhana & Struktur yang lebih sederhana \\ \hline
+Penggunaan sumber daya lebih banyak & Penggunaan sumber daya lebih sedikit  \\ \hline
+Lebih mudah dibaca & Relatif mudah dibaca \\ \hline
+\end{tabular}
+\end{table}
+
+Berikut adalah perbandingan contoh data yang sudah diformat dalam XML dan JSON bisa dilihat pada gambar \ref{figure:xml-json-source}\footnote{Data sudah diformat ulang untuk keperluan visualisasi}:
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.65]{images/perbandingan-xml-json.png}
+\caption{Perbandingan Data dalam JSON dan XML}
+\label{figure:xml-json-source}
+\end{figure}
+
+Dari gambar bisa di atas kita bisa melihat JSON lebih mudah dibaca dibandingkan XML.
 
 \section{Agile Software Development}
 \subsection{Pengantar}
@@ -411,7 +428,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 \onehalfspacing Demikian, walaupun mereka menghargai hal di sisi kanan, mereka lebih menghargai hal di sisi kiri. Arti dari item manifesto di sebelah kiri dalam konteks pembangunan perangkat lunak \textit{Agile} dijelaskan di bawah ini:
 
 \begin{enumerate}
-  \item Individu dan interaksi. Dalam pengembangan perangkat lunak \textit{Agile}, mengorganisir diri dan motivasi merupakan hal yang penting, seperti interaksi seperti \textit{co-location}\footnote{http://en.wikipedia.org/wiki/Colocation\_(business)} dan \textit{pair programming}\footnote{http://en.wikipedia.org/wiki/Pair\_programming}.
+  \item Individu dan interaksi. Dalam pengembangan perangkat lunak \textit{Agile}, \\mengorganisir diri dan motivasi merupakan hal yang penting, seperti interaksi seperti \textit{co-location}\footnote{http://en.wikipedia.org/wiki/Colocation\_(business)} dan \textit{pair programming}\footnote{http://en.wikipedia.org/wiki/Pair\_programming}.
   \item Perangkat lunak yang bekerja (berfungsi dengan baik). Perangkat lunak yang bekerja akan lebih bermanfaat dan diterima daripada sekedar menyajikan dokumen untuk klien dalam pertemuan.
   \item Kolaborasi dengan klien. Daftar kebutuhan perangkat lunak tidak dapat \newline dikumpulkan secara menyeluruh pada awal siklus pengembangan perangkat lunak, sehingga keterlibatan terus menerus pelanggan atau pemangku kepentingan sangat penting.
   \item Tanggap terhadap perubahan. Pengembangan perangkat lunak \textit{Agile} difokuskan pada respon cepat terhadap perubahan dan pembangunan berkelanjutan.
@@ -439,8 +456,11 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 
 \onehalfspacing Pertama, peran-peran yang diterapkan di proyek-proyek \textit{Agile} lebih fleksibel. Ketika diterapkan dengan tepat, bergabung dengan tim \textit{Agile} seperti di dalam sebuah \textit{mini-startup} (alias \textit{startup company}). Orang-orang di dalam tim bekerja dengan penuh semangat dan mengerjakan apa yang bisa dilakukan untuk membuat proyek menjadi sukses tanpa memperhatikan jabatan atau peran yang diemban.
 
+\onehalfspacing Kedua, yang membuat \textit{Agile} berbeda dengan yang lain adalah proses analisis, desain, \textit{coding}, dan pengujian merupakan aktivitas yang kontinu\footnote{berkelanjutan}. Itu berarti kegiatan ini tidak bisa berlangsung dalam sifat yang terisolasi lagi.
+
 \newpage
-\onehalfspacing Kedua, yang membuat \textit{Agile} berbeda dengan yang lain adalah proses analisis, desain, \textit{coding}, dan pengujian merupakan aktivitas yang kontinu. Itu berarti kegiatan ini tidak bisa berlangsung dalam sifat yang terisolasi lagi. Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada Gambar \ref{agile-process}.
+
+Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada Gambar \ref{agile-process}. Dari gambar tersebut bisa dilihat ilustrasi di bagian kiri gambar jika kita menggunakan metodologi tradisional seperti Waterfall misalnya, akan menghasilkan aktivitas yang satu per satu. Sedangkan, ilustrasi di bagian kanan merupakan ilustrasi aktivitas yang kontinu jika menerapkan metodologi \textit{Agile}
 
 \begin{figure}[htp]
 \centering
@@ -491,11 +511,11 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \onehalfspacing Sesuai dengan \textit{milestone} yang sudah ditentukan di awal, hasil akhir dari implementasi Web API yang penulis lakukan adalah:
 
 \begin{enumerate}
-  \item Web API sudah mampu untuk merespon permintaan konten detail event dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id.
+  \item Web API sudah mampu untuk merespon permintaan konten detail \textit{event} dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id.
   \item Web API sudah mampu untuk merespon permintaan konten detail event dalam format XML melalui URL http://ghanozjson.ap01.aws.af.cm/event/:id
   \item Web API sudah mampu untuk merespon permintaan daftar event dalam format JSON melalui URL http://ghanozjson.ap01.aws.af.cm/events.
   \item Web API sudah mampu untuk merespon permintaan daftar event dalam format XML melalui URL http://ghanozjson.ap01.aws.af.cm/events.
-  \item Data yang dihasilkan dari API daftar event hanya menampilkan maksimal sebanyak 15 item event dalam sekali permintaan.
+  \item Data yang dihasilkan dari API daftar \textit{event} hanya menampilkan maksimal sebanyak 15 item \textit{event} dalam sekali permintaan.
 \end{enumerate}
 
 \onehalfspacing Masing-masing detail respon API tersebut dapat dilihat pada lampiran \ref{lampiran:detail-respon-web-api}.
@@ -507,13 +527,13 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
   \item M 1: \textit{Application Skeleton}. Pada \textit{milestone} ini penulis mempersiapkan struktur aplikasi\footnote{http://en.wikipedia.org/wiki/Skeleton\_(computer\_programming)}
   \item M 2: \textit{Make it works and right}. Pada \textit{milestone} ini penulis mengimplementasikan Web API sesuai dengan kebutuhan dan rancangan yang sudah ditentukan.
   \begin{enumerate}
-    \item API untuk merespon permintaan konten event dalam format JSON
-    \item API untuk merespon permintaan konten event dalam format XML
+    \item API untuk merespon permintaan konten \textit{event} dalam format JSON
+    \item API untuk merespon permintaan konten \textit{event} dalam format XML
   \end{enumerate}
   \item M 3: \textit{Measuring}
     \begin{enumerate}
-      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten event dalam format XML
-      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten event dalam format JSON
+      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten \textit{event} dalam format XML
+      \item Mengukur jumlah permintaan yang berhasil dilakukan dalam 90 detik ketika meminta konten \textit{event} dalam format JSON
       \item Membuktikan bahwa data yang dihasilkan dalam format JSON lebih kecil ukurannya dibandingkan data yang dihasilkan dalam format XMl
     \end{enumerate}
 \end{enumerate}
@@ -529,10 +549,10 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \end{figure}
 
 \subsection{Presentation Tier}
-\onehalfspacing \textit{Presentation tier} adalah \textit{tier} paling atas dari aplikasi CampusLife. \textit{Tier} ini menampilkan informasi terkait dengan layanan seperti menampilkan daftar event dan menampilkan daftar pengunjung event kepada pengguna melalui \textit{mobile application}. Layanan informasi seperti ini akan disediakan melalui Web API yang berada di \textit{logic tier} dan dapat diakses melalui \textit{client} seperti \textit{mobile application} dan \textit{browser}. Secara sederhana \textit{presentation tier} adalah tingkat dimana pengguna dapat mengakses aplikasi secara langsung. Dalam konteks pengerjaan penelitian tugas akhir ini, \textit{mobile application} CampusLife akan berada di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
+\onehalfspacing \textit{Presentation tier} adalah \textit{tier} paling atas dari aplikasi CampusLife. \textit{Tier} ini menampilkan informasi terkait dengan layanan seperti menampilkan daftar \textit{event} dan menampilkan daftar pengunjung \textit{event} kepada pengguna melalui \textit{mobile application}. Layanan informasi seperti ini akan disediakan melalui Web API yang berada di \textit{logic tier} dan dapat diakses melalui \textit{client} seperti \textit{mobile application} dan \textit{browser}. Secara sederhana \textit{presentation tier} adalah tingkat dimana pengguna dapat mengakses aplikasi secara langsung. Dalam konteks pengerjaan penelitian tugas akhir ini, \textit{mobile application} CampusLife akan berada di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
 
 \subsection{Logic Tier}
-\onehalfspacing \textit{Logic tier} adalah \textit{tier} yang berfungsi untuk mengontrol fungsionalitas aplikasi dengan melakukan pengolahan rinci. Contoh pengolahan rinci yang bisa dilakukan di \textit{tier} ini adalah mengambil daftar event. Dalam konteks pengerjaan penelitian tugas akhir ini, Web API akan berada di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
+\onehalfspacing \textit{Logic tier} adalah \textit{tier} yang berfungsi untuk mengontrol fungsionalitas aplikasi dengan melakukan pengolahan rinci. Contoh pengolahan rinci yang bisa dilakukan di \textit{tier} ini adalah mengambil daftar \textit{event}. Dalam konteks pengerjaan penelitian tugas akhir ini, Web API akan berada di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
 
 \subsection{Data Tier}
 \onehalfspacing \textit{Data tier} adalah \textit{tier} yang terdiri dari satu atau lebih \textit{server} basis data. Disini setiap informasi disimpan dan diambil. \textit{Tier} ini akan menjaga data tetap netral dan indenpenden dari \textit{application server} atau \textit{business logic}. Selain itu dengan memberikan data di \textit{tier} sendiri akan meningkatkan \textit{scalability} dan \textit{performance}. Dalam konteks pengerjaan penelitian tugas akhir ini, penulis menggunakan MongoDB\footnote{http://www.mongodb.org/} sebagai basis data di \textit{tier} ini \cite{multitier-architecture-wikipedia}.
@@ -542,7 +562,7 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 
 \begin{enumerate}
   \item Lebih mudah untuk memodifikasi atau mengganti \textit{tier} apapun tanpa mempengaruhi \textit{tier} lainnya.
-  \item Memisahkan aplikasi dan fungsi \textit{database} berarti \textit{load balancing} yang lebih baik.
+  \item Memisahkan aplikasi dan fungsi basis data berarti \textit{load balancing} yang lebih baik.
 \end{enumerate}
 
 \subsection{Ruang Lingkup Pengerjaan}
@@ -555,10 +575,10 @@ Manifesto pengembangan perangkat lunak \textit{Agile} didasarkan pada dua belas 
 \subsection{Daftar Kebutuhan yang harus dipenuhi}
 \onehalfspacing Sebelum Web API dibangun, penulis menentukan terlebih dahulu daftar kebutuhan fungsional yang ada di Web API. Berikut daftar kebutuhan fungsional dan non-fungsional yang harus ada di Web API:
 \begin{enumerate}
-    \item Web API harus mampu untuk merespon permintaan daftar event dalam format JSON
-    \item Web API harus mampu untuk merespon permintaan daftar event dalam format XML
-    \item Web API harus mampu untuk merespon permintaan konten detail event dalam format JSON
-    \item Web API harus mampu untuk merespon permintaan konten detail event dalam format XML
+    \item Web API harus mampu untuk merespon permintaan daftar \textit{event} dalam format JSON
+    \item Web API harus mampu untuk merespon permintaan daftar \textit{event} dalam format XML
+    \item Web API harus mampu untuk merespon permintaan konten detail \textit{event} dalam format JSON
+    \item Web API harus mampu untuk merespon permintaan konten detail \textit{event} dalam format XML
     \item Data yang dihasilkan Web API harus memiliki ukuran yang optimal sehingga aplikasi mobile dapat mengambil data dengan waktu yang relatif singkat
 \end{enumerate}
 
@@ -584,7 +604,7 @@ Mengingat penulis mempraktekkan \textit{Agile} untuk membangun Web API ini, maka
 \begin{enumerate}
   \item \textit{List upcoming events}
   \item \textit{Display upcoming competitions}
-  \item \textit{Display event details}
+  \item \textit{Display \textit{event} details}
 \end{enumerate}
 
 \onehalfspacing Poin penting yang perlu diingat ketika membuat \textit{user story} format singkat adalah:
@@ -673,7 +693,7 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 
 \subsection{Permintaan Detail Event dalam format JSON}
 
-\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta detail event dalam format JSON dapat dilihat pada gambar \ref{event-details-request-seq-diagram-json}.
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta detail \textit{event} dalam format JSON dapat dilihat pada gambar \ref{event-details-request-seq-diagram-json}.
 
 \begin{figure}[htp]
 \centering
@@ -686,7 +706,7 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 
 \subsection{Permintaan Detail Event dalam format XML}
 
-\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta detail event dalam format XML dapat dilihat pada gambar \ref{event-details-request-seq-diagram-xml}.
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta detail \textit{event} dalam format XML dapat dilihat pada gambar \ref{event-details-request-seq-diagram-xml}.
 
 \begin{figure}[htp]
 \centering
@@ -699,7 +719,7 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 
 \subsection{Permintaan Daftar Event dalam format JSON}
 
-\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta daftar event dalam format JSON dapat dilihat pada gambar \ref{event-list-request-seq-diagram-json}.
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta daftar \textit{event} dalam format JSON dapat dilihat pada gambar \ref{event-list-request-seq-diagram-json}.
 
 \begin{figure}[htp]
 \centering
@@ -712,7 +732,7 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 
 \subsection{Permintaan Daftar Event dalam format XML}
 
-\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta daftar event dalam format XML dapat dilihat pada gambar \ref{event-list-request-seq-diagram-xml}.
+\onehalfspacing Pemodelan interaksi antara \textit{client} dan Web API \textit{server} saat \textit{client} meminta daftar \textit{event} dalam format XML dapat dilihat pada gambar \ref{event-list-request-seq-diagram-xml}.
 
 \begin{figure}[htp]
 \centering
@@ -743,11 +763,11 @@ Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free
 % Rancangan Skema Representasi Resource Detail Event dalam format JSON
 \subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
 
-\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail event:
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail \textit{event}:
 
 \begin{enumerate}
-  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
-  \item Data aktual detail event akan dibungkus dalam propertie data yang berupa \textit{object}
+  \item Setiap \textit{resource} detail \textit{event} akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
+  \item Data aktual detail \textit{event} akan dibungkus dalam propertie data yang berupa \textit{object}
 \end{enumerate}
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
@@ -755,11 +775,11 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 % Rancangan Skema Representasi Resource Daftar Event dalam format JSON
 \subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format JSON}
 
-\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar event:
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar \textit{event}:
 
 \begin{enumerate}
-  \item Setiap daftar event resource akan disertai properti tambahan url untuk memberitahukan dimana lokasi resource yang sedang diakses
-  \item Data aktual Event List akan dibungkus dalam variable data yang berupa array
+  \item Setiap daftar \textit{event} resource akan disertai properti tambahan url untuk memberitahukan dimana lokasi resource yang sedang diakses
+  \item Data aktual \textit{Event List} akan dibungkus dalam variabel data yang berupa \textit{array}
 \end{enumerate}
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
@@ -767,11 +787,11 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 % Rancangan Skema Representasi Resource Detail Event dalam format XML
 \subsubsection{Rancangan Skema Representasi Resource Detail Event dalam format XML}
 
-\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail event:
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} detail \textit{event}:
 
 \begin{enumerate}
-  \item Setiap \textit{resource} detail event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
-  \item Data aktual detail event akan dibungkus dalam elemen data
+  \item Setiap \textit{resource} detail \textit{event} akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
+  \item Data aktual detail \textit{event} akan dibungkus dalam elemen data
 \end{enumerate}
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
@@ -779,12 +799,12 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 % Rancangan Skema Representasi Resource Daftar Event dalam format XML
 \subsubsection{Rancangan Skema Representasi Resource Daftar Event dalam format XML}
 
-\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar event:
+\onehalfspacing Berikut adalah beberapa pertimbangan desain untuk rancangan skema representasi \textit{resource} daftar \textit{event}:
 
 \begin{enumerate}
-  \item Setiap \textit{resource} daftar event akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
-  \item Data aktual daftar event akan dibungkus dalam elemen data. Setiap butir event akan dibungkus dalam elemen data yang disertai atribut id.
-\item Setiap \textit{resource} daftar event akan disertai properti URL
+  \item Setiap \textit{resource} daftar \textit{event} akan memiliki URL dalam konteks Web API untuk memberitahukan dimana lokasi \textit{resource} yang sedang diakses
+  \item Data aktual daftar \textit{event} akan dibungkus dalam elemen data. Setiap butir \textit{event} akan dibungkus dalam elemen data yang disertai atribut id.
+\item Setiap \textit{resource} daftar \textit{event} akan disertai properti URL
 \end{enumerate}
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
@@ -802,14 +822,14 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 \begin{enumerate}
   \item Node.js\footnote{http://nodejs.org/}. Node.js adalah \textit{platform} yang dibangun di atas Chrome JavaScript \textit{runtime}\footnote{https://code.google.com/p/v8/} untuk dengan mudah membangun aplikasi jaringan yang cepat dan \textit{scalable}. Penulis menggunakan Node.JS sebagai \textit{platform} dari Web API.
   \item Express\footnote{http://expressjs.com/}. Express adalah \textit{framework} aplikasi web minimal dan fleksibel, menyediakan satu set fitur yang kuat untuk membangun aplikasi web tunggal dan multi-halaman, dan \textit{hybrid}.
-  \item MongoDB\footnote{http://www.mongodb.org/}. Basis-data berorientasi dokumen \textit{open-source}\footnote{http://docs.mongodb.org/manual/core/data-modeling/}, dan merupkan basis data NoSQL\footnote{https://en.wikipedia.org/wiki/NoSQL} terkemuka yang penulis gunakan untuk menyimpan data-data event yang sifatnya \textit{dummy}.
+  \item MongoDB\footnote{http://www.mongodb.org/}. Basis-data berorientasi dokumen \textit{open-source}\footnote{http://docs.mongodb.org/manual/core/data-modeling/}, dan merupkan basis data NoSQL\footnote{https://en.wikipedia.org/wiki/NoSQL} terkemuka yang penulis gunakan untuk menyimpan data-data \textit{event} yang sifatnya \textit{dummy}.
 \end{enumerate}
 
 \section{Pengujian Web API}
 
 Penulis menerapkan satu level pengujian perangkat lunak untuk melakukan pengujian Web API, yaitu dengan melakukan \textit{acceptance testing}. Keseluruhan \textit{test suite} bisa dilihat di repositori ghanoz-json\footnote{https://github.com/muhammadghazali/ghanoz-json/tree/master/test/api-end-point-test}.
 
-Pengujian secara umum terbagi ke dalam dua skenario besar, yaitu skenario pengujian untuk mengambil detail event dan daftar event. Keluaran log dari hasil pengujian tersebut dapat dilihat pada lampiran \ref{lampiran:hasil-pengujian}.
+Pengujian secara umum terbagi ke dalam dua skenario besar, yaitu skenario pengujian untuk mengambil detail \textit{event} dan daftar \textit{event}. Keluaran log dari hasil pengujian tersebut dapat dilihat pada lampiran \ref{lampiran:hasil-pengujian}.
 
 \subsection{Skenario Pengujian untuk Mengambil Detail Event}
 
@@ -835,7 +855,7 @@ Untuk menguji perangkat lunak di level \textit{acceptance}, berikut adalah dafta
 
 Penulis melakukan pembandingan antara JSON dan XML dalam hal ukuran data yang dihasilkan dan jumlah respon permintaan yang berhasil dikembalikan ketika Web API diakses oleh \textit{client}. Pembandingan akan dilakukan dengan menggunakan data yang sama dan jumlah detik yang digunakan saat melakukan pembandingan.
 
-Untuk melakukan hal ini penulis menggunakan Apache Benchmark\footnote{http://httpd.apache.org/docs/2.4/programs/ab.html}. Kakas tersebut akan bertugas mengirimkan permintaan Web API \textit{end point} daftar event. Berikut adalah skenario pembandingan yang penulis lakukan:
+Untuk melakukan hal ini penulis menggunakan Apache Benchmark\footnote{http://httpd.apache.org/docs/2.4/programs/ab.html}. Kakas tersebut akan bertugas mengirimkan permintaan Web API \textit{end point} daftar \textit{event}. Berikut adalah skenario pembandingan yang penulis lakukan:
 
 \begin{enumerate}
   \item \textit{Empty Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi \textit{resource} kosong dengan setiap \textit{field} dari \textit{resource} diberi \textit{string} kosong
@@ -1090,7 +1110,7 @@ And returned reponse should be contained an client error message}
 \chapter{Detail Rancangan Skema Representasi Resource} \label{lampiran:detail-rancangan-skema-representasi-res}
 \section{Rancangan Skema Representasi Resource Detail Event}
 \subsection{Rancangan Skema Representasi Resource Detail Event dalam format JSON}
-\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format JSON:
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail \textit{event} dalam format JSON:
 
 \begin{lstlisting}[frame=single]
 {
@@ -1120,7 +1140,7 @@ And returned reponse should be contained an client error message}
 \onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event Details resource representations design in JSON}\footnote{https://gist.github.com/muhammadghazali/5409322\#file-event-details-json}
 
 \subsection{Rancangan Skema Representasi Resource Detail Event dalam format XML}
-\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail event dalam format XML:
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} detail \textit{event} dalam format XML:
 
 \begin{lstlisting}[frame=single]
 <response>
@@ -1150,7 +1170,7 @@ And returned reponse should be contained an client error message}
 
 \section{Rancangan Skema Representasi Resource Daftar Event}
 
-\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} daftar event dalam format JSON:
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} daftar \textit{event} dalam format JSON:
 
 \begin{lstlisting}[frame=single]
 {
@@ -1201,7 +1221,7 @@ And returned reponse should be contained an client error message}
 \onehalfspacing Untuk melihat detail dari setiap contoh nilai setiap \textit{field} dari rancangan skema di atas, silahkan untuk melihatnya di halaman web \textit{ghanoz-json: Event List resource representations design in JSON}\footnote{https://gist.github.com/muhammadghazali/5409417\#file-event-list-json}
 
 \subsection{Rancangan Skema Representasi Resource Daftar Event dalam format XML}
-\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} daftar event dalam format XML:
+\onehalfspacing Tanpa menghiraukan nilai dari masing-masing \textit{field}, berikut adalah rancangan skema representasi \textit{resource} daftar \textit{event} dalam format XML:
 
 \begin{lstlisting}[frame=single]
 <response>
@@ -1257,7 +1277,7 @@ And returned reponse should be contained an client error message}
 
 \subsection{Hasil Respon Permintaan Detail Event dalam Format JSON}
 
-\onehalfspacing Berikut detail \textit{request header} ketika melakukan permintaan detail event dalam format JSON:
+\onehalfspacing Berikut detail \textit{request header} ketika melakukan permintaan detail \textit{event} dalam format JSON:
 
 \begin{lstlisting}[frame=single]
 Accept: application/json
@@ -1269,7 +1289,7 @@ Accept-Language: en-US,en;q=0.8
 Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
 \end{lstlisting}
 
-Berikut detail \textit{response header} permintaan detail event yang dibalas oleh Web API:
+Berikut detail \textit{response header} permintaan detail \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 Accept-Ranges: bytes 
@@ -1285,7 +1305,7 @@ Content-Length: 339
 Connection: keep-alive
 \end{lstlisting}
 
-Berikut detail \textit{response body} permintaan detail event yang dibalas oleh Web API:
+Berikut detail \textit{response body} permintaan detail \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 {
@@ -1313,9 +1333,9 @@ Berikut detail \textit{response body} permintaan detail event yang dibalas oleh 
 }
 \end{lstlisting}
 
-\subsection{Hasil Respon Permintaan Detail Event dalam Format XML}
+\subsection{Hasil Respon Permintaan Detail \textit{event} dalam Format XML}
 
-Berikut detail \textit{request header} ketika melakukan permintaan detail event dalam format XML:
+Berikut detail \textit{request header} ketika melakukan permintaan detail \textit{event} dalam format XML:
 
 \begin{lstlisting}[frame=single]
 Accept: application/xml
@@ -1327,7 +1347,7 @@ Accept-Language: en-US,en;q=0.8
 Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
 \end{lstlisting}
 
-Berikut detail \textit{response header} permintaan detail event yang dibalas oleh Web API:
+Berikut detail \textit{response header} permintaan detail \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 Accept-Ranges: bytes 
@@ -1343,7 +1363,7 @@ Content-Length: 339
 Connection: keep-alive
 \end{lstlisting}
 
-Berikut detail \textit{response body} permintaan detail event yang dibalas oleh Web API:
+Berikut detail \textit{response body} permintaan detail \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 <response>
@@ -1375,7 +1395,7 @@ Berikut detail \textit{response body} permintaan detail event yang dibalas oleh 
 
 \subsection{Hasil Respon Permintaan Daftar Event dalam Format JSON}
 
-Berikut detail \textit{request header} ketika melakukan permintaan daftar event dalam format JSON:
+Berikut detail \textit{request header} ketika melakukan permintaan daftar \textit{event} dalam format JSON:
 
 \begin{lstlisting}[frame=single]
 Accept: application/json
@@ -1387,7 +1407,7 @@ Accept-Language: en-US,en;q=0.8
 Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
 \end{lstlisting}
 
-Berikut detail \textit{response header} permintaan daftar event yang dibalas oleh Web API:
+Berikut detail \textit{response header} permintaan daftar \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 Accept-Ranges: bytes 
@@ -1403,7 +1423,7 @@ Content-Length: 339
 Connection: keep-alive
 \end{lstlisting}
 
-Berikut detail \textit{response body} permintaan daftar event yang dibalas oleh Web API:
+Berikut detail \textit{response body} permintaan daftar \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 {
@@ -1478,7 +1498,7 @@ Berikut detail \textit{response body} permintaan daftar event yang dibalas oleh 
 
 \subsection{Hasil Respon Permintaan Daftar Event dalam Format XML}
 
-Berikut detail \textit{request header} ketika melakukan permintaan daftar event dalam format JSON:
+Berikut detail \textit{request header} ketika melakukan permintaan daftar \textit{event} dalam format JSON:
 
 \begin{lstlisting}[frame=single]
 Accept: application/json
@@ -1506,7 +1526,7 @@ Content-Length: 339
 Connection: keep-alive
 \end{lstlisting}
 
-Berikut detail \textit{response body} permintaan daftar event yang dibalas oleh Web API:
+Berikut detail \textit{response body} permintaan daftar \textit{event} yang dibalas oleh Web API:
 
 \begin{lstlisting}[frame=single]
 <response>

@@ -102,32 +102,32 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 \chapter{Pendahuluan}
 \section{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing CampusLife adalah \textit{mobile information directory application} yang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Salah satu fitur utama yang akan dirilis dalam waktu dekat adalah menyediakan informasi \textit{event}-\textit{event} terbaru kepada civitas kampus.
+\onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON\footnote{Lihat bagian Landasan teori: JSON} dan XML\footnote{Lihat bagian Landasan teori: XML}. Hal menarik yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
 
-\onehalfspacing Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API\footnote{http://en.wikipedia.org/wiki/Web\_API} CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut. Web API yang akan dibangun bertujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
+\onehalfspacing CampusLife adalah aplikasi yang sedang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut.
 
-\onehalfspacing Dalam penelitian ini penulis akan memilih format serialisasi data JSON untuk digunakan merepresentasikan setiap data-data \textit{event} dalam format yang dapat dikonsumsi oleh aplikasi \textit{mobile} CampusLife. Penulis memilih format serialisasi data JSON karena JSON lebih mudah dibaca ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML \cite{json-fat-free}\cite{json-vs-xml-debate}.
+Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan untuk membuka akses secara tidak langsung ke \textit{data store}\footnote{http://en.wikipedia.org/wiki/Data\_store} yang tersimpan di salah satu layanan \textit{Database as a Service}\footnote{http://en.wikipedia.org/wiki/Cloud\_database} yang digunakan oleh LLM di AppFog\footnote{http://www.appfog.com/}. Seluruh data-data \textit{event} yang tersimpan di \textit{data store} akan diolah oleh Web API menjadi data dengan format yang dapat dikonsumsi dengan mudah oleh aplikasi \textit{mobile} CampusLife. Proses pengolahan tersebut dinamakan serialisasi data\footnote{Lihat bagian Landasan teori: Serialiasi Data}.
 
-% menjelaskan rangkuman penelitian
-\onehalfspacing \textit{Smartphone} sebagai perangkat tempat aplikasi \textit{mobile} CampusLife berjalan, merupakan salah satu \textit{mobile computing devices} yang memiliki masa hidup baterai dan ketersediaan \textit{bandwidth} yang terbatas \cite{challenging-issues-and-limitations-of-mobile-computing}. Dengan kedua keterbatasan tersebut, dalam penelitian ini penulis akan mengkaji penerapan format serialisasi data JSON yang efektif untuk menghasilkan ukuran data yang optimal saat pengiriman data berlangsung dari Web API ke aplikasi \textit{mobile} CampusLife. Hasil akhir yang diharapkan adalah format serialisasi data JSON mampu menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+\newpage
+\onehalfspacing Namun, hal yang menjadi fokus di penelitian ini bukanlah tentang implementasi Web API tersebut, melainkan tentang analisa unjuk kerja dari penerapan format serialisasi data ketika data dikirimkan dari Web API ke \textit{client}. Web API hanya akan dibangun sebagai pendukung untuk membantu penulis dalam menganalisa ukuran data yang diformat JSON dan XML ketika dikirimkan ke \textit{client}. Mulai dari bab ini dengan selanjutnya data-data yang yang dikirimkan dari Web API ke \textit{client} akan sering disebut \textit{resource}. 
 
 % Pada bagian ini jelaskan rumusan masalah yang akan diteliti
 \section{Rumusan Masalah}
 \onehalfspacing Berdasarkan latar belakang masalah yang telah dipaparkan, maka masalah yang akan diteliti dalam penelitian ini dapat dirumuskan sebagai berikut:
 \begin{enumerate}
-  \item Bagaimana membangun Web API dengan efektif agar data yang dikirimkan dapat memiliki ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife?
-  \item Bagaimana JSON dapat diterapkan secara efektif agar data yang dihasilkan dapat memiliki ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife?
+  \item Seberapa kecil ukuran \textit{resource} yang diformat dalam JSON jika dibandingkan dengan ukuran \textit{resource} yang diformat dalam XML? 
+  \item Bagaimana implikasi terhadap jumlah permintaan  \textit{resource} yang berhasil dikembalikan oleh Web API jika \textit{resource} diformat dalam JSON dan XML?
 \end{enumerate}
 
 % Tujuan dan manfaat penelitian
 \section{Tujuan dan Manfaat Penelitian}
 \onehalfspacing Tujuan dari pelaksanaan penelitian tugas akhir yang dilakukan penulis adalah:
 \begin{enumerate}
-  \item Membangun purwa-rupa Web API yang mampu mengirimkan data dengan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife.
-  \item Menerapkan JSON dengan efektif untuk menghasilkan data dengan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile} CampusLife.
+  \item Membangun purwa-rupa Web API untuk membuktikan bahwa \textit{resource} yang diserialisasi dalam format JSON memiliki ukuran \textit{resource} yang lebih kecil dibandingkan \textit{resource} yang diserialisasi dalam format XML.
+  \item Membangun purwa-rupa Web API untuk mencari tahu implikasi terhadap jumlah permintaan \textit{resource} yang berhasil dikembalikan oleh Web API jika \textit{resource} diformat dalam JSON dan XML.
 \end{enumerate}
 
-\onehalfspacing Penulis mengharapkan hasil penelitian ini akan membawa manfaat positif bagi kepentingan dunia akademik dan praktis dalam hal penerapan format serialisasi data JSON untuk menghasilkan ukuran data yang optimal untuk dikonsumsi oleh aplikasi \textit{mobile}.
+\onehalfspacing Penulis berharap hasil penelitian ini akan membawa manfaat positif bagi kepentingan dunia akademik dan praktis dalam memilih format serialisasi data JSON dan XML.
 
 \section{Batasan Masalah}
 \onehalfspacing Untuk memperjelas ruang lingkup pelaksanaan penelitian, penulis memiliki batasan masalah meliputi:

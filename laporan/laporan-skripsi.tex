@@ -99,7 +99,7 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 
 % isi latar belakang dan masalah dibuat dengan mengikuti panduan:
 % http://romisatriawahono.net/2012/06/18/kiat-menyusun-alur-latar-belakang-masalah-penelitian/
-\chapter{Pendahuluan}
+\chapter{Pendahuluan} \label{bab:1}
 \section{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
 \onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON\footnote{Lihat bagian Landasan teori: JSON} dan XML\footnote{Lihat bagian Landasan teori: XML}. Hal menarik yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
@@ -143,14 +143,24 @@ Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan un
   \item Pengembangan perangkat lunak menggunakan sebagian praktek dari \textit{Agile} dan tidak akan membahas \textit{Agile} secara komprehensif.
 \end{enumerate}
 
-\section{Metodologi Penelitian}
-\onehalfspacing Adapun tahapan penelitian yang akan dilakukan oleh penulis tahap-tahap berikut:
+\section{Metodologi}
+\onehalfspacing Adapun tahapan penelitian yang akan dilakukan oleh penulis adalah sebagai berikut:
 \begin{enumerate}
-  \item Identifikasi masalah. Pada tahap ini penulis merumuskan masalah yang akan diteliti.
-  \item Perumusan hipotesis. Pada tahap ini penulis merumuskan jawaban sementara dari permasalahan yang diteliti.
-  \item Pengujian hipotesis. Pada tahap ini penulis menguji penerapan JSON terhadap Web API yang sudah dibangun dan pembangunan perangkat lunak akan dilakukan dengan menggunakan metodologi pengembangkan perangkat lunak \textit{Agile}. 
-  \item Kesimpulan. Pada tahap ini penulis menganalisa hasil pengujian hipotesis.
+  \item \textbf{Identifikasi masalah dan perumusan hipotesis}. Pada tahap ini penulis merumuskan masalah yang diteliti. Hasil identifikasi dan perumusan meliputi pembahasan di bab \ref{bab:1}.
+  \item \textbf{Pengujian format serialiasi JSON dan XML}. Pada tahap ini penulis melakukan pengujian serialisasi dengan membangun purwa-rupa Web API untuk mendukung proses pengujian serialiasi data dalam format JSON dan XML. Detail proses pengujian serialiasi meliputi pembahasan di bab \ref{bab:3}, \ref{bab:4}, dan \ref{bab:5}.
+  \item \textbf{Analisis unjuk kerja serialisasi}. Pada tahap ini penulis menganalisis unjuk kerja dari format serialisasi JSON dan XML dengan melakukan beberapa skenario pengujian. Detail lengkap hasil analisis ini dapat dilihat pada \ref{bab:5} di bagian Pengujian Web API dan Hasil Pembandingan Antara JSON dan XML.
+  \item \textbf{Merumuskan kesimpulan}. Pada tahap ini penulis membuat kesimpulan hasil analisis dari unjuk kerja format JSON dan XML. Detail kesimpulan meliputi pembahasan di bab \ref{bab:6}
 \end{enumerate}
+
+Visualisasi dari tahapan yang dijelaskan di bagian sebelumnya dapat dilihat pada gambar \ref{visualisasi-metodologi}.
+
+\onehalfspacing
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.45]{images/visualisasi-metodologi.png}
+\caption{Visualisasi Metodologi}
+\label{visualisasi-metodologi}
+\end{figure}
 
 \onehalfspacing Adapun cara untuk menunjang penelitian dilakukan dengan melakukan studi kepustakaan, yaitu pengumpulan data dari artikel-artikel, jurnal dan buku-buku yang berhubungan dengan topik pembahasan di penelitian.
 
@@ -166,7 +176,7 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
   \item[Bab VI Penutup] Pada bagian ini berisikan kesimpulan dan saran yang didapatkan dari hasil penelitian.
 \end{description}
 
-\chapter{Landasan Teori}
+\chapter{Landasan Teori} \label{bab:2}
 
 \section{Web API}
 \onehalfspacing
@@ -520,7 +530,7 @@ Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada Gambar \ref{agile-pr
 
 \onehalfspacing Masing-masing detail respon API tersebut dapat dilihat pada lampiran \ref{lampiran:detail-respon-web-api}.
 
-\chapter{Analisis Sistem}
+\chapter{Analisis Sistem} \label{bab:3}
 \section{Roadmap Pengerjaan Purwa-rupa Web API}
 \onehalfspacing Sebelum penulis memulai \textit{software development life cycle}, penulis terlebih dahulu menentukkan \textit{roadmap} dari pengembangan Web API yang terdiri dari 3 \textit{milestone} yang harus dipenuhi. Berikut daftar \textit{milestone} tersebut:
 \begin{enumerate}
@@ -656,7 +666,7 @@ so that <some reason> => Why they want to do it
 
 \onehalfspacing Setiap masing-masing skenario dari \textit{acceptance criteria} di atas diekspresikan dalam format \textit{Given When Then} \cite{introducing-bdd}\cite{whats-in-story}. Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran \ref{lampiran-acceptance-criteria}.
 
-\chapter{Perancangan Sistem}
+\chapter{Perancangan Sistem} \label{bab:4}
 
 \onehalfspacing Sebelum membaca lebih lanjut bab ini, para pembaca perlu mengetahui bahwa saat melakukan pemodelan, penulis mempraktekkan \textit{Just Barely Good Enough modelling}\cite{jbge-scott}. Jadi, jangan terkejut jika menemukan model yang diperlihatkan di bab ini mungkin tidak "benar" menurut perspektif pembaca karena saat itu model yang dibuat dianggap cukup berdasarkan pemahaman dan situasi yang dihadapi oleh penulis pada saat proses pemodelan berlangsung.
 
@@ -809,7 +819,7 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
 
-\chapter{Implementasi dan Pengujian Sistem}
+\chapter{Implementasi dan Pengujian Sistem} \label{bab:5}
 
 \onehalfspacing Pada bagian ini akan dibahas mengenai apa saja yang sudah diimplementasikan dan teknologi berkaitan yang digunakan untuk membangun purwa-rupa Web API.
 
@@ -902,7 +912,7 @@ Bisa dilihat melalui grafik di atas, bahwa dalam 87.414 detik, Web API mampu men
 
 Detail log khusus untuk hasil pembandingan skenario \textit{just once} dapat dilihat pada lampiran \ref{lampiran:detail-log-hasil-pembandingan-skenario-just-once}.
 
-\chapter{Penutup}
+\chapter{Penutup} \label{bab:6}
 
 \section{Kesimpulan}
 

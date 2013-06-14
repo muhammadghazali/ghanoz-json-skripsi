@@ -129,6 +129,7 @@ Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan un
 
 \onehalfspacing Penulis berharap hasil penelitian ini akan membawa manfaat positif bagi kepentingan dunia akademik dan praktis dalam memilih format serialisasi data JSON dan XML.
 
+\newpage
 \section{Batasan Masalah}
 \onehalfspacing Untuk memperjelas ruang lingkup pelaksanaan penelitian, penulis memiliki batasan masalah meliputi:
 \onehalfspacing
@@ -164,7 +165,7 @@ Visualisasi dari tahapan yang dijelaskan di bagian sebelumnya dapat dilihat pada
 
 \onehalfspacing Adapun cara untuk menunjang penelitian dilakukan dengan melakukan studi kepustakaan, yaitu pengumpulan data dari artikel-artikel, jurnal dan buku-buku yang berhubungan dengan topik pembahasan di penelitian.
 
-% sistematika penulisan
+\newpage
 \section{Sistematika Penulisan}
 Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \begin{description}
@@ -284,6 +285,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat berulang.
 
+\newpage
 \onehalfspacing \textit{String} adalah rangkaian yang terdiri dari nol atau lebih karakter \textit{Unicode}\footnote{http://www.unicode.org/versions/Unicode6.2.0/}.
 
 \begin{figure}[htp]
@@ -359,6 +361,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing Dikarenakan topik penelitian ini tidak membandingkan antara JSON versus XML dan tidak fokus ke XML, maka penulis hanya menjelaskan XML secara singkat.
 
+\newpage
 \subsection{Contoh Dokumen XML}
 \onehalfspacing Berikut adalah contoh dokumen XML dari tutorial W3Schools\footnote{http://www.w3schools.com/xml/cd\_catalog.xml}:
 
@@ -489,6 +492,7 @@ Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada Gambar \ref{agile-pr
   \item Melakukan \textit{sprint planning} untuk merencanakan daftar tugas yang perlu dikerjakan selama iterasi berlangsung
 \end{enumerate}
 
+\newpage
 \subsection{Mempraktekkan Test-Driven Development}
 
 \onehalfspacing Untuk mengembangkan purwa-rupa Web API, penulis menggunakan teknik pengembangan perangkat lunak \textit{test-driven development} (TDD). TDD adalah teknik pengembangan perangkat lunak yang menggunakan siklus pengembangan yang sangat singkat untuk merancang perangkat lunak secara bertahap. Ilustrasi dari siklus pengembangan yang dimaksud dapat dilihat pada gambar \ref{tdd-cycle}.
@@ -836,6 +840,7 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 
 Jika tertarik melihat bagaimana penulis berinteraksi dengan Web API menggunakan \textit{client} khusus untuk berinteraksi dengan Web API, silahkan untuk melihat video bernama "berinteraksi-dengan-web-api.mp4" yang disertakan bersama dengan laporan ini. Untuk memperlihatkan interaksi tersebut, penulis menggunakan aplikasi REST Console\footnote{https://chrome.google.com/webstore/detail/rest-console/cokgbflfommojglbmbpenpphppikmonn} yang merupakan \textit{Google Chrome extensions}.
 
+\newpage
 \subsection{Teknologi yang Dipakai untuk Membangun Web API}
 \onehalfspacing Untuk membangun purwa-rupa Web API ini penulis menggunakan beberapa teknologi utama berikut:
 
@@ -900,7 +905,7 @@ Bisa dilihat melalui grafik di atas, bahwa dalam 73,853 detik, Web API mampu men
 
 \subsection{Hasil Pembandingan Skenario Normal Resource}
 
-\onehalfspacing \textit{Normal Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-normal-resource}.
+\onehalfspacing \textit{Normal Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Representasi dalam bentuk grafik dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-normal-resource}.
 
 \begin{figure}[htp]
 \centering
@@ -966,104 +971,66 @@ Audie Sumaray dan S. Kami Makki. \emph{A comparison of data serialization format
 
 \bibitem{json-vs-xml-debate}
 Marinescu, Floyd dan Tilkov, Stefan. "Debate: JSON vs. XML as a data interchange format." \emph{Infoq}. Web. 20 Januari 2013. http://www.infoq.com/news/2006/12/json-vs-xml-debate
-  
-\bibitem{json-fat-free}
-  \emph{JSON: The Fat-Free Alternative to XML}
-  http://www.json.org/xml.html
-  diakses pada 20 Januari 2012.
-  
-  \bibitem{three-tier-architecture}
-  \emph{Three-Tier Architecture}
-  http://www.linuxjournal.com/article/3508
-  diakses pada 18 Maret 2013.
-  
-  \bibitem{apis-linux-journal}
-  \emph{APIs}
-  http://www.linuxjournal.com/content/apis
-  diakses pada 20 Januari 2013.
-  
-  \bibitem{ws-restful}
-  \emph{RESTful Web services: The basics}
-  \\http://www.ibm.com/developerworks/webservices/library/ws-restful/
-  diakses pada 14 September 2012.
-  
-\bibitem{rfc-4627}
-  \emph{The application/json Media Type for JavaScript Object Notation (JSON)} http://tools.ietf.org/html/rfc4627
-  diakses pada 5 April 2013.
-  
-\bibitem{json-continue-to-winning}
-  \emph{JSON Continues its Winning Streak Over XML}
-  http://blog.programmableweb.com/2010/12/03/json-continues-its-winning-streak-over-xml/
-  diakses pada 8 April 2013.
-  
-\bibitem{json-continue-to-push}
-  \emph{Why JSON will continue to push XML out of the picture}
-  http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
-  diakses pada 8 April 2013.
-  
-\bibitem{introducing-json}
-  \emph{Introducing JSON} http://www.json.org/
-  diakses pada 20 Januari 2013.
-    
+
 \bibitem{rest-soap}
-  \emph{How REST replaced SOAP on the Web: What it means to you}
-  http://www.infoq.com/articles/rest-soap
-  diakses pada 14 September 2012.
+Marinescu, Floyd dan Tilkov, Stefan. "How REST replaced SOAP on the Web: What it means to you." \emph{Infoq}. Web. 11 Januari 2013. http://www.infoq.com/articles/rest-soap
+
+\bibitem{ws-restful}
+Rodriguez, Alex. "RESTful Web services: The basics." \emph{IBM}. Web. 11 Januari 2013. http://www.ibm.com/developerworks/webservices/library/ws-restful/
+
+\bibitem{json-fat-free}
+"JSON: The Fat-Free Alternative to XML." \emph{JSON Official Website}. Web. 20 Januari 2013. http://www.json.org/xml.html
+
+\bibitem{introducing-json}
+"Introducing JSON" \emph{JSON Official Website}. Web. 20 Januari 2013. http://www.json.org/
+  
+\bibitem{three-tier-architecture}
+Ramirez, Ariel Ortiz. "Three-Tier Architecture." \emph{Linux Journal}. Web. 18 Maret 2013. http://www.linuxjournal.com/article/3508
+
+\bibitem{apis-linux-journal}
+Reuven, Lerner. "APIs." \emph{Linux Journal}. Web. 18 Maret 2013. http://www.linuxjournal.com/content/apis
+
+\bibitem{json-continue-to-winning}
+Irani, Romin. "JSON Continues its Winning Streak Over XML." \emph{ProgrammableWeb Blog}. Web. 8 April 2013. http://blog.programmableweb.com/2010/12/03/json-continues-its-winning-streak-over-xml/
+
+\bibitem{json-continue-to-push}
+Perkins, Luc. "Why JSON will continue to push XML out of the picture." \emph{ProgrammableWeb Blog}. Web. 8 April 2013. http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
+
+\bibitem{rfc-4627}
+Crockford, Douglas. "The application/json Media Type for JavaScript Object Notation (JSON)." \emph{RFC Index}. Web. 5 April 2013. http://tools.ietf.org/html/rfc4627
   
 \bibitem{agile-manifesto}
-  \emph{Manifesto Pengembangan Perangkat Lunak Agile}
-  http://agilemanifesto.org/iso/id/
-  diakses pada 8 April 2013.
+  "Manifesto Pengembangan Perangkat Lunak Agile" \emph{Agile Manifesto}. Web. 8 April 2013. http://agilemanifesto.org/iso/id/
   
 \bibitem{introducing-bdd}
-  \emph{Introducing BDD}
-  http://dannorth.net/introducing-bdd/
-  diakses pada 7 Mei 2013.
+  "Introducing BDD" \emph{Dan North \& Associates}. Web. 7 Mei 2013. http://dannorth.net/introducing-bdd/
   
 \bibitem{whats-in-story}
-  \emph{What's in a Story?}
-  http://dannorth.net/whats-in-a-story/
-  diakses pada 7 Mei 2013.
+  "What's in a Story?" \emph{Dan North \& Associates}. Web. 7 Mei 2013. http://dannorth.net/whats-in-a-story/
   
 \bibitem{jbge-scott}
-  \emph{"Just Barely Good Enough" Models and Documents: An Agile Best Practice}
-  http://www.agilemodeling.com/essays/barelyGoodEnough.html
-  diakses pada 10 Mei 2013.
+  "Just Barely Good Enough Models and Documents: An Agile Best Practice." \emph{Agile Modelling}. Web. 10 Mei 2013. http://www.agilemodeling.com/essays/barelyGoodEnough.html
   
 \bibitem{multitier-architecture-wikipedia}
-  \emph{Wikipedia: Multitier architecture}
-  http://en.wikipedia.org/wiki/Multitier\_architecture
-  diakses pada 15 Maret 2013.
+  "Multitier architecture." \emph{Wikipedia}. Web. 15 Maret 2013. http://en.wikipedia.org/wiki/Multitier\_architecture
   
 \bibitem{api-wikipedia}
-  \emph{Application Programming Interface}
-  http://en.wikipedia.org/wiki/Application\_programming\_interface
-  diakses pada 22 Maret 2013.
-  
+  "Application Programming Interface." \emph{Wikipedia}. Web. 22 Maret 2013. http://en.wikipedia.org/wiki/Application\_programming\_interface
+    
 \bibitem{web-api}
-  \emph{Web API}
-  http://en.wikipedia.org/wiki/Web\_API
-  diakses pada 20 Januari 2013.
+  "Web API." \emph{Wikipedia}. Web. 20 Januari 2013. http://en.wikipedia.org/wiki/Web\_API
   
 \bibitem{xml-wikipedia}
-  \emph{XML}
-  http://en.wikipedia.org/wiki/XML
-  diakses pada 7 April 2013.
+  "XML." \emph{Wikipedia}. Web. 7 April 2013. http://en.wikipedia.org/wiki/XML
   
 \bibitem{acceptance-testing-wikipedia}
-  \emph{Acceptance Testing}
-  http://en.wikipedia.org/wiki/Acceptance\_testing
-  diakses pada 7 Mei 2013.
-  
+  "Acceptance Testing." \emph{Wikipedia}. Web. 7 Mei 2013. http://en.wikipedia.org/wiki/Acceptance\_testing
+
 \bibitem{serialization-wikipedia}
-  \emph{Serialization}
-  http://en.wikipedia.org/wiki/Serialization
-  diakses pada 24 Januari 2012.
-  
+  "Serialization." \emph{Wikipedia}. Web. 24 Januari 2012. http://en.wikipedia.org/wiki/Serialization
+
 \bibitem{agile-wikipedia}
-  \emph{Agile software development}
-  http://en.wikipedia.org/wiki/Agile\_software\_development
-  diakses pada 24 Januari 2012.
+  "Agile software development." \emph{Wikipedia}. Web. 24 Januari 2013. http://en.wikipedia.org/wiki/Agile\_software\_development
  
 \end{thebibliography}
 
@@ -1086,6 +1053,7 @@ When the client request the Event Details in XML\\
 Then the Web API should return Event Details in XML\\
 And returned response is supplied with the Event Details resource URL\\}
 
+\newpage
 \subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
 
 \onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
@@ -1113,6 +1081,7 @@ Then the Web API should return Event List in XML\\
 And returned response is should be accompanied by properties like resource url, page, pages, pageSize, total\\
 And the maximum of number of item on the Event List is 15 Event}
 
+\newpage
 \subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
 
 \onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
@@ -1346,6 +1315,7 @@ Berikut detail \textit{response body} permintaan detail \textit{event} yang diba
 }
 \end{lstlisting}
 
+\newpage
 \subsection{Hasil Respon Permintaan Detail \textit{event} dalam Format XML}
 
 Berikut detail \textit{request header} ketika melakukan permintaan detail \textit{event} dalam format XML:

@@ -99,10 +99,10 @@ tidak bisa saya sebutkan satu persatu, yang telah banyak memberikan dukungan men
 
 % isi latar belakang dan masalah dibuat dengan mengikuti panduan:
 % http://romisatriawahono.net/2012/06/18/kiat-menyusun-alur-latar-belakang-masalah-penelitian/
-\chapter{Pendahuluan}
+\chapter{Pendahuluan} \label{bab:1}
 \section{Latar Belakang dan Masalah}
 % menjelaskan obyek penelitian
-\onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON\footnote{Lihat bagian Landasan teori: JSON} dan XML\footnote{Lihat bagian Landasan teori: XML}. Hal menarik yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
+\onehalfspacing Dalam penelitian ini penulis membahas mengenai topik menarik tentang analisa unjuk kerja format serialisasi data JSON\footnote{Lihat bagian Landasan teori: JSON} dan XML\footnote{Lihat bagian Landasan teori: XML}. Hal yang dipelajari adalah untuk membuktikan bahwa data yang diserialisasi dalam format JSON memiliki ukuran data yang lebih kecil jika dibandingkan dengan data yang diserialisasi dalam format XML. Untuk membuktikan hal tersebut penulis mengambil studi kasus implementasi Web API untuk CampusLife \textit{mobile information directory application}.
 
 \onehalfspacing CampusLife adalah aplikasi yang sedang dikembangkan oleh LayangLayang Mobile (LLM) untuk menyediakan informasi yang relevan kepada civitas kampus. Setiap informasi yang ditampilkan melalui aplikasi \textit{mobile} CampusLife merupakan data yang sudah diolah dan diambil dari Web API CampusLife. Saat ini LLM belum memiliki Web API dan penulis berniat untuk membangun Web API tersebut.
 
@@ -129,6 +129,7 @@ Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan un
 
 \onehalfspacing Penulis berharap hasil penelitian ini akan membawa manfaat positif bagi kepentingan dunia akademik dan praktis dalam memilih format serialisasi data JSON dan XML.
 
+\newpage
 \section{Batasan Masalah}
 \onehalfspacing Untuk memperjelas ruang lingkup pelaksanaan penelitian, penulis memiliki batasan masalah meliputi:
 \onehalfspacing
@@ -143,18 +144,28 @@ Web API\footnote{Lihat bagian Landasan teori: Web API} dibangun dengan tujuan un
   \item Pengembangan perangkat lunak menggunakan sebagian praktek dari \textit{Agile} dan tidak akan membahas \textit{Agile} secara komprehensif.
 \end{enumerate}
 
-\section{Metodologi Penelitian}
-\onehalfspacing Adapun tahapan penelitian yang akan dilakukan oleh penulis tahap-tahap berikut:
+\section{Metodologi}
+\onehalfspacing Adapun tahapan penelitian yang akan dilakukan oleh penulis adalah sebagai berikut:
 \begin{enumerate}
-  \item Identifikasi masalah. Pada tahap ini penulis merumuskan masalah yang akan diteliti.
-  \item Perumusan hipotesis. Pada tahap ini penulis merumuskan jawaban sementara dari permasalahan yang diteliti.
-  \item Pengujian hipotesis. Pada tahap ini penulis menguji penerapan JSON terhadap Web API yang sudah dibangun dan pembangunan perangkat lunak akan dilakukan dengan menggunakan metodologi pengembangkan perangkat lunak \textit{Agile}. 
-  \item Kesimpulan. Pada tahap ini penulis menganalisa hasil pengujian hipotesis.
+  \item \textbf{Identifikasi masalah dan perumusan hipotesis}. Pada tahap ini penulis merumuskan masalah yang diteliti. Hasil identifikasi dan perumusan meliputi pembahasan di bab \ref{bab:1}.
+  \item \textbf{Pengujian format serialiasi JSON dan XML}. Pada tahap ini penulis melakukan pengujian serialisasi dengan membangun purwa-rupa Web API untuk mendukung proses pengujian serialiasi data dalam format JSON dan XML. Detail proses pengujian serialiasi meliputi pembahasan di bab \ref{bab:3}, \ref{bab:4}, dan \ref{bab:5}.
+  \item \textbf{Analisis unjuk kerja serialisasi}. Pada tahap ini penulis menganalisis unjuk kerja dari format serialisasi JSON dan XML dengan melakukan beberapa skenario pengujian. Detail lengkap hasil analisis ini dapat dilihat pada \ref{bab:5} di bagian Pengujian Web API dan Hasil Pembandingan Antara JSON dan XML.
+  \item \textbf{Merumuskan kesimpulan}. Pada tahap ini penulis membuat kesimpulan hasil analisis dari unjuk kerja format JSON dan XML. Detail kesimpulan meliputi pembahasan di bab \ref{bab:6}
 \end{enumerate}
+
+Visualisasi dari tahapan yang dijelaskan di bagian sebelumnya dapat dilihat pada gambar \ref{visualisasi-metodologi}.
+
+\onehalfspacing
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.45]{images/visualisasi-metodologi.png}
+\caption{Visualisasi Metodologi}
+\label{visualisasi-metodologi}
+\end{figure}
 
 \onehalfspacing Adapun cara untuk menunjang penelitian dilakukan dengan melakukan studi kepustakaan, yaitu pengumpulan data dari artikel-artikel, jurnal dan buku-buku yang berhubungan dengan topik pembahasan di penelitian.
 
-% sistematika penulisan
+\newpage
 \section{Sistematika Penulisan}
 Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
 \begin{description}
@@ -166,7 +177,7 @@ Sistematika pembahasan laporan ini terdiri dari enam bab, yaitu:
   \item[Bab VI Penutup] Pada bagian ini berisikan kesimpulan dan saran yang didapatkan dari hasil penelitian.
 \end{description}
 
-\chapter{Landasan Teori}
+\chapter{Landasan Teori} \label{bab:2}
 
 \section{Web API}
 \onehalfspacing
@@ -274,6 +285,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing \textit{Value} dapat berupa \textit{string} dalam tanda kutip ganda, \textit{number}, \textit{boolean}, \textit{object} atau \textit{array}. Struktur ini dapat berulang.
 
+\newpage
 \onehalfspacing \textit{String} adalah rangkaian yang terdiri dari nol atau lebih karakter \textit{Unicode}\footnote{http://www.unicode.org/versions/Unicode6.2.0/}.
 
 \begin{figure}[htp]
@@ -349,6 +361,7 @@ Ketika menjalankan aplikasi \textit{web}, pada saat tertentu kita ingin menyedia
 
 \onehalfspacing Dikarenakan topik penelitian ini tidak membandingkan antara JSON versus XML dan tidak fokus ke XML, maka penulis hanya menjelaskan XML secara singkat.
 
+\newpage
 \subsection{Contoh Dokumen XML}
 \onehalfspacing Berikut adalah contoh dokumen XML dari tutorial W3Schools\footnote{http://www.w3schools.com/xml/cd\_catalog.xml}:
 
@@ -479,6 +492,7 @@ Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada Gambar \ref{agile-pr
   \item Melakukan \textit{sprint planning} untuk merencanakan daftar tugas yang perlu dikerjakan selama iterasi berlangsung
 \end{enumerate}
 
+\newpage
 \subsection{Mempraktekkan Test-Driven Development}
 
 \onehalfspacing Untuk mengembangkan purwa-rupa Web API, penulis menggunakan teknik pengembangan perangkat lunak \textit{test-driven development} (TDD). TDD adalah teknik pengembangan perangkat lunak yang menggunakan siklus pengembangan yang sangat singkat untuk merancang perangkat lunak secara bertahap. Ilustrasi dari siklus pengembangan yang dimaksud dapat dilihat pada gambar \ref{tdd-cycle}.
@@ -520,7 +534,7 @@ Ilustrasi aktivitas yang kontinu tersebut bisa dilihat pada Gambar \ref{agile-pr
 
 \onehalfspacing Masing-masing detail respon API tersebut dapat dilihat pada lampiran \ref{lampiran:detail-respon-web-api}.
 
-\chapter{Analisis Sistem}
+\chapter{Analisis Sistem} \label{bab:3}
 \section{Roadmap Pengerjaan Purwa-rupa Web API}
 \onehalfspacing Sebelum penulis memulai \textit{software development life cycle}, penulis terlebih dahulu menentukkan \textit{roadmap} dari pengembangan Web API yang terdiri dari 3 \textit{milestone} yang harus dipenuhi. Berikut daftar \textit{milestone} tersebut:
 \begin{enumerate}
@@ -656,7 +670,7 @@ so that <some reason> => Why they want to do it
 
 \onehalfspacing Setiap masing-masing skenario dari \textit{acceptance criteria} di atas diekspresikan dalam format \textit{Given When Then} \cite{introducing-bdd}\cite{whats-in-story}. Detail masing-masing dari setiap \textit{acceptance criteria} diatas bisa dilihat pada lampiran \ref{lampiran-acceptance-criteria}.
 
-\chapter{Perancangan Sistem}
+\chapter{Perancangan Sistem} \label{bab:4}
 
 \onehalfspacing Sebelum membaca lebih lanjut bab ini, para pembaca perlu mengetahui bahwa saat melakukan pemodelan, penulis mempraktekkan \textit{Just Barely Good Enough modelling}\cite{jbge-scott}. Jadi, jangan terkejut jika menemukan model yang diperlihatkan di bab ini mungkin tidak "benar" menurut perspektif pembaca karena saat itu model yang dibuat dianggap cukup berdasarkan pemahaman dan situasi yang dihadapi oleh penulis pada saat proses pemodelan berlangsung.
 
@@ -809,14 +823,25 @@ Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancanga
 
 Detail rancangan skema dapat dilihat pada lampiran \ref{lampiran:detail-rancangan-skema-representasi-res}.
 
-\chapter{Implementasi dan Pengujian Sistem}
+\chapter{Implementasi dan Pengujian Sistem} \label{bab:5}
 
 \onehalfspacing Pada bagian ini akan dibahas mengenai apa saja yang sudah diimplementasikan dan teknologi berkaitan yang digunakan untuk membangun purwa-rupa Web API.
 
 \section{Implementasi Web API}
 
-\subsection{Teknologi yang Dipakai untuk Membangun Web API}
+\subsection{Hasil Akhir Implementasi}
 
+\onehalfspacing Hasil akhir dari implementasi Web API adalah dua buah API, yaitu:
+
+\begin{enumerate}
+  \item \textit{Event Details API}. API ini digunakan untuk mengambil detail \textit{event} berdasarkan \textit{identifier}.
+  \item \textit{Event List API}. API ini digunakan untuk mengambil daftar \textit{event}.
+\end{enumerate}
+
+Jika tertarik melihat bagaimana penulis berinteraksi dengan Web API menggunakan \textit{client} khusus untuk berinteraksi dengan Web API, silahkan untuk melihat video bernama "berinteraksi-dengan-web-api.mp4" yang disertakan bersama dengan laporan ini. Untuk memperlihatkan interaksi tersebut, penulis menggunakan aplikasi REST Console\footnote{https://chrome.google.com/webstore/detail/rest-console/cokgbflfommojglbmbpenpphppikmonn} yang merupakan \textit{Google Chrome extensions}.
+
+\newpage
+\subsection{Teknologi yang Dipakai untuk Membangun Web API}
 \onehalfspacing Untuk membangun purwa-rupa Web API ini penulis menggunakan beberapa teknologi utama berikut:
 
 \begin{enumerate}
@@ -880,7 +905,7 @@ Bisa dilihat melalui grafik di atas, bahwa dalam 73,853 detik, Web API mampu men
 
 \subsection{Hasil Pembandingan Skenario Normal Resource}
 
-\onehalfspacing \textit{Normal Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Representasi dalam bentuk grafik\footnote{Grafik dibuat dengan menggunakan kakas gnuplot http://www.gnuplot.info/} dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-normal-resource}.
+\onehalfspacing \textit{Normal Resource}. Melakukan pembandingan jumlah permintaan yang berhasil direspon dengan respon yang dikembalikan berisi \textit{resource} dengan setiap \textit{field} dari \textit{resource} diberi data yang "normal". Representasi dalam bentuk grafik dari hasil pembandingan tersebut dapat dilihat pada gambar \ref{benchmark-normal-resource}.
 
 \begin{figure}[htp]
 \centering
@@ -902,7 +927,7 @@ Bisa dilihat melalui grafik di atas, bahwa dalam 87.414 detik, Web API mampu men
 
 Detail log khusus untuk hasil pembandingan skenario \textit{just once} dapat dilihat pada lampiran \ref{lampiran:detail-log-hasil-pembandingan-skenario-just-once}.
 
-\chapter{Penutup}
+\chapter{Penutup} \label{bab:6}
 
 \section{Kesimpulan}
 
@@ -935,122 +960,77 @@ Demikian saran-saran yang dapat penulis sampaikan, penulis berharap laporan hasi
 \begin{thebibliography}{99}
 \singlespacing 
 
-% use the surname of the first author, followed by the last two digits of
-% the year (hence lamport94)
+\bibitem{agile-samurai}
+Rasmusson, Jonathan. \emph{The Agile Samurai}. The Pragmatic Bookshelf, 2010. Buku elektronik.
 
 \bibitem{challenging-issues-and-limitations-of-mobile-computing}
-Deepak, G., and Dr. Pradeep B S. "Challenging Issues and Limitations of Mobile Computing."
-  \emph{International Journal of Computer Technology and Applications} 3.1 (2012): Academic Journals Database. Web. 8 Jan. 2013.
+Deepak, G., and Dr. Pradeep B S. \emph{Challenging Issues and Limitations of Mobile Computing}. International Journal of Computer Technology and Applications 3.1 (2012): Academic Journals Database. Web. 8 Jan. 2013.
   
   \bibitem {comparison-of-data-serialization-formats}
-Audie Sumaray dan S. Kami Makki. "A comparison of data serialization formats for optimal efficiency on a mobile platform". \emph{6th International Conference on Ubiquitous Information Management and Communication} (2012): Artikel No. 48. ACM Digital Library. Web. 24 Jan 2013.
-  
+Audie Sumaray dan S. Kami Makki. \emph{A comparison of data serialization formats for optimal efficiency on a mobile platform}. 6th International Conference on Ubiquitous Information Management and Communication (2012): Artikel No. 48. ACM Digital Library. Web. 24 Jan 2013
+
 \bibitem{json-vs-xml-debate}
-  \emph{Debate: JSON vs. XML as a data interchange format}
-  http://www.infoq.com/news/2006/12/json-vs-xml-debate
-  diakses pada 20 Januari 2012.
-  
-\bibitem{serialization-wikipedia}
-  \emph{Serialization}
-  http://en.wikipedia.org/wiki/Serialization
-  diakses pada 24 Januari 2012.
-  
-\bibitem{agile-wikipedia}
-  \emph{Agile software development}
-  http://en.wikipedia.org/wiki/Agile\_software\_development
-  diakses pada 24 Januari 2012.
-  
-\bibitem{json-fat-free}
-  \emph{JSON: The Fat-Free Alternative to XML}
-  http://www.json.org/xml.html
-  diakses pada 20 Januari 2012.
-  
-\bibitem{multitier-architecture-wikipedia}
-  \emph{Wikipedia: Multitier architecture}
-  http://en.wikipedia.org/wiki/Multitier\_architecture
-  diakses pada 15 Maret 2013.
-  
-\bibitem{three-tier-architecture}
-  \emph{Three-Tier Architecture}
-  http://www.linuxjournal.com/article/3508
-  diakses pada 18 Maret 2013.
-  
-\bibitem{api-wikipedia}
-  \emph{Application Programming Interface}
-  http://en.wikipedia.org/wiki/Application\_programming\_interface
-  diakses pada 22 Maret 2013.
-  
-\bibitem{web-api}
-  \emph{Web API}
-  http://en.wikipedia.org/wiki/Web\_API
-  diakses pada 20 Januari 2013.
-  
-\bibitem{apis-linux-journal}
-  \emph{APIs}
-  http://www.linuxjournal.com/content/apis
-  diakses pada 20 Januari 2013.
+Marinescu, Floyd dan Tilkov, Stefan. "Debate: JSON vs. XML as a data interchange format." \emph{Infoq}. Web. 20 Januari 2013. http://www.infoq.com/news/2006/12/json-vs-xml-debate
+
+\bibitem{rest-soap}
+Marinescu, Floyd dan Tilkov, Stefan. "How REST replaced SOAP on the Web: What it means to you." \emph{Infoq}. Web. 11 Januari 2013. http://www.infoq.com/articles/rest-soap
 
 \bibitem{ws-restful}
-  \emph{RESTful Web services: The basics}
-  \\http://www.ibm.com/developerworks/webservices/library/ws-restful/
-  diakses pada 14 September 2012.
+Rodriguez, Alex. "RESTful Web services: The basics." \emph{IBM}. Web. 11 Januari 2013. http://www.ibm.com/developerworks/webservices/library/ws-restful/
+
+\bibitem{json-fat-free}
+"JSON: The Fat-Free Alternative to XML." \emph{JSON Official Website}. Web. 20 Januari 2013. http://www.json.org/xml.html
 
 \bibitem{introducing-json}
-  \emph{Introducing JSON} http://www.json.org/
-  diakses pada 20 Januari 2013.
+"Introducing JSON" \emph{JSON Official Website}. Web. 20 Januari 2013. http://www.json.org/
   
-\bibitem{rfc-4627}
-  \emph{The application/json Media Type for JavaScript Object Notation (JSON)} http://tools.ietf.org/html/rfc4627
-  diakses pada 5 April 2013.
-    
-\bibitem{rest-soap}
-  \emph{How REST replaced SOAP on the Web: What it means to you}
-  http://www.infoq.com/articles/rest-soap
-  diakses pada 14 September 2012.
-  
-\bibitem{xml-wikipedia}
-  \emph{XML}
-  http://en.wikipedia.org/wiki/XML
-  diakses pada 7 April 2013.
-  
-\bibitem{json-continue-to-winning}
-  \emph{JSON Continues its Winning Streak Over XML}
-  http://blog.programmableweb.com/2010/12/03/json-continues-its-winning-streak-over-xml/
-  diakses pada 8 April 2013.
-  
-\bibitem{json-continue-to-push}
-  \emph{Why JSON will continue to push XML out of the picture}
-  http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
-  diakses pada 8 April 2013.
-  
-\bibitem{acceptance-testing-wikipedia}
-  \emph{Acceptance Testing}
-  http://en.wikipedia.org/wiki/Acceptance\_testing
-  diakses pada 7 Mei 2013.
+\bibitem{three-tier-architecture}
+Ramirez, Ariel Ortiz. "Three-Tier Architecture." \emph{Linux Journal}. Web. 18 Maret 2013. http://www.linuxjournal.com/article/3508
 
-\bibitem{agile-manifesto}
-  \emph{Manifesto Pengembangan Perangkat Lunak Agile}
-  http://agilemanifesto.org/iso/id/
-  diakses pada 8 April 2013.
+\bibitem{apis-linux-journal}
+Reuven, Lerner. "APIs." \emph{Linux Journal}. Web. 18 Maret 2013. http://www.linuxjournal.com/content/apis
+
+\bibitem{json-continue-to-winning}
+Irani, Romin. "JSON Continues its Winning Streak Over XML." \emph{ProgrammableWeb Blog}. Web. 8 April 2013. http://blog.programmableweb.com/2010/12/03/json-continues-its-winning-streak-over-xml/
+
+\bibitem{json-continue-to-push}
+Perkins, Luc. "Why JSON will continue to push XML out of the picture." \emph{ProgrammableWeb Blog}. Web. 8 April 2013. http://blog.appfog.com/why-json-will-continue-to-push-xml-out-of-the-picture/
+
+\bibitem{rfc-4627}
+Crockford, Douglas. "The application/json Media Type for JavaScript Object Notation (JSON)." \emph{RFC Index}. Web. 5 April 2013. http://tools.ietf.org/html/rfc4627
   
-\bibitem{agile-samurai}
-  \emph{The Agile Samuari}
-  buku teks
+\bibitem{agile-manifesto}
+  "Manifesto Pengembangan Perangkat Lunak Agile" \emph{Agile Manifesto}. Web. 8 April 2013. http://agilemanifesto.org/iso/id/
   
 \bibitem{introducing-bdd}
-  \emph{Introducing BDD}
-  http://dannorth.net/introducing-bdd/
-  diakses pada 7 Mei 2013.
+  "Introducing BDD" \emph{Dan North \& Associates}. Web. 7 Mei 2013. http://dannorth.net/introducing-bdd/
   
 \bibitem{whats-in-story}
-  \emph{What's in a Story?}
-  http://dannorth.net/whats-in-a-story/
-  diakses pada 7 Mei 2013.
-
+  "What's in a Story?" \emph{Dan North \& Associates}. Web. 7 Mei 2013. http://dannorth.net/whats-in-a-story/
+  
 \bibitem{jbge-scott}
-  \emph{"Just Barely Good Enough" Models and Documents: An Agile Best Practice}
-  http://www.agilemodeling.com/essays/barelyGoodEnough.html
-  diakses pada 10 Mei 2013.
+  "Just Barely Good Enough Models and Documents: An Agile Best Practice." \emph{Agile Modelling}. Web. 10 Mei 2013. http://www.agilemodeling.com/essays/barelyGoodEnough.html
+  
+\bibitem{multitier-architecture-wikipedia}
+  "Multitier architecture." \emph{Wikipedia}. Web. 15 Maret 2013. http://en.wikipedia.org/wiki/Multitier\_architecture
+  
+\bibitem{api-wikipedia}
+  "Application Programming Interface." \emph{Wikipedia}. Web. 22 Maret 2013. http://en.wikipedia.org/wiki/Application\_programming\_interface
+    
+\bibitem{web-api}
+  "Web API." \emph{Wikipedia}. Web. 20 Januari 2013. http://en.wikipedia.org/wiki/Web\_API
+  
+\bibitem{xml-wikipedia}
+  "XML." \emph{Wikipedia}. Web. 7 April 2013. http://en.wikipedia.org/wiki/XML
+  
+\bibitem{acceptance-testing-wikipedia}
+  "Acceptance Testing." \emph{Wikipedia}. Web. 7 Mei 2013. http://en.wikipedia.org/wiki/Acceptance\_testing
+
+\bibitem{serialization-wikipedia}
+  "Serialization." \emph{Wikipedia}. Web. 24 Januari 2012. http://en.wikipedia.org/wiki/Serialization
+
+\bibitem{agile-wikipedia}
+  "Agile software development." \emph{Wikipedia}. Web. 24 Januari 2013. http://en.wikipedia.org/wiki/Agile\_software\_development
  
 \end{thebibliography}
 
@@ -1073,6 +1053,7 @@ When the client request the Event Details in XML\\
 Then the Web API should return Event Details in XML\\
 And returned response is supplied with the Event Details resource URL\\}
 
+\newpage
 \subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
 
 \onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
@@ -1100,6 +1081,7 @@ Then the Web API should return Event List in XML\\
 And returned response is should be accompanied by properties like resource url, page, pages, pageSize, total\\
 And the maximum of number of item on the Event List is 15 Event}
 
+\newpage
 \subsection{Scenario 3: Unsupported Content-Type should return HTTP 406 code}
 
 \onehalfspacing \textit{Given the Web API only support JSON and XML for the response\\
@@ -1333,6 +1315,7 @@ Berikut detail \textit{response body} permintaan detail \textit{event} yang diba
 }
 \end{lstlisting}
 
+\newpage
 \subsection{Hasil Respon Permintaan Detail \textit{event} dalam Format XML}
 
 Berikut detail \textit{request header} ketika melakukan permintaan detail \textit{event} dalam format XML:

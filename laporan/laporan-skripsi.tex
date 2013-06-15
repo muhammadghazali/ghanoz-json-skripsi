@@ -43,7 +43,7 @@ Alamat orang tua & : & Jalan Rorojonggrang VI No. 66, Cimahi Selatan\\
 \onehalfspacing Menyatakan bahwa laporan tugas akhir ini adalah benar dan hasil karya saya sendiri. Bila terbukti tidak demikian, saya bersedia menerima segala akibatnya, termasuk pencabutan kembali nilai laporan tugas akhir yang telah saya peroleh.
 
 \begin{flushright}
-Bandung, \_\_\_\_\_\_\_\_\_\_\_
+Bandung, \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 \\[1in] Muhammad Ghazali
 
 \end{flushright}
@@ -53,9 +53,7 @@ Bandung, \_\_\_\_\_\_\_\_\_\_\_
 
 \onehalfspacing JSON digunakan untuk merepresentasikan data berbasis teks dalam format yang dapat dikonsumsi dengan mudah oleh aplikasi lain. Penulis memilih format serialisasi data JSON karena JSON lebih mudah ditulis dan dibaca oleh mesin (komputer) dan manusia. Selain itu JSON lebih mudah untuk diproses karena memiliki struktur yang lebih sederhana dibandingkan XML\cite{json-fat-free}\cite{json-vs-xml-debate}. 
 
-\onehalfspacing Di tugas akhir ini penulis membuktikan bahwa data yang diserialisasikan dalam format JSON memiliki ukuran yang lebih kecil dibandingkan XML. Disini penulis hanya membandingkan ukuran data yang dihasilkan setelah dilakukan serialisasi.
-
-\onehalfspacing Penulis juga membangun purwa-rupa Web API untuk menerapkan JSON pada \textit{web resource} yang akan dikonsumsi oleh aplikasi lain. Dengan membangun purwa-rupa Web API ini dibuktikan juga bahwa API yang menserialisasikan data dalam format JSON mampu melayani permintaan \textit{web resource} lebih banyak dibandingkan dengan API yang menserialisasikan data dalam format XML.
+\onehalfspacing Di tugas akhir ini penulis membuktikan bahwa data yang diserialisasikan dalam format JSON memiliki ukuran yang lebih kecil dibandingkan XML. Disini penulis hanya membandingkan ukuran data yang dihasilkan setelah dilakukan serialisasi. Hal tersebut dibuktikan dengan membangun purwa-rupa Web API untuk menerapkan JSON pada \textit{resource} yang akan dikonsumsi oleh aplikasi lain. Dengan membangun purwa-rupa Web API ini dibuktikan juga bahwa API yang menserialisasikan data dalam format JSON mampu melayani permintaan \textit{web resource} lebih banyak dibandingkan dengan API yang menserialisasikan data dalam format XML.
 
 \begin{flushleft}
 \onehalfspacing Kata kunci: Web API, JSON, Format Serialisasi Data
@@ -76,6 +74,7 @@ penyusunan laporan tugas akhir ini. Pihak-pihak yang telah ikut membantu penulis
 \begin{enumerate}
   \item Ibunda Annita Komariati Prihandayani, Ayahanda Hardi Nusantara, adik-adik saya Niken Hardiane dan Inne Prinusantari selaku keluarga yang selalu mendukung penulis secara moril dan materil.
   \item Ibu Sriyani Violina, S.T., M.T. selaku dosen pembimbing, yang telah banyak membantu penulis dalam penyusunan laporan tugas akhir ini.
+  \item Pak Abdulah Fajar, S.T. dan Djaja Achmad Sardjana, S.T., M.M. yang sudah memberikan masukan yang berharga pada saat sidang
   \item Seluruh dosen teknik informatika di Universitas Widyatama yang telah banyak menyampaikan ilmu yang bermanfaat.
   \item Seluruh teman-teman saya di LayangLayang Mobile, yang telah memberikan masalah untuk dijadikan sebagai tugas akhir dan diselesaikan menjadi sebuah solusi yang bermanfaat.
   \item Seluruh teman-teman saya di dalam kampus ataupun di luar kampus yang
@@ -676,7 +675,7 @@ so that <some reason> => Why they want to do it
 
 \section{Arsitektur Teknis Web API}
 
-Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free-form diagram}. Model arsitektur teknis yang dibuat digambarkan pada papan tulis dan model tersebut dapat dilihat pada gambar \ref{arsitektur-teknis-web-api}
+Untuk merancang arsitektur teknis dari Web API, penulis menggunakan \textit{free-form diagram}. Model arsitektur teknis yang dibuat digambarkan pada papan tulis dan model tersebut dapat dilihat pada gambar \ref{arsitektur-teknis-web-api} yang ada di halaman selanjutnya.
 
 \newpage
 
@@ -1701,7 +1700,5 @@ Concurrency Level:      1
 Time taken for tests:   0.005 seconds
 Complete requests:      1
 \end{lstlisting}
-
-\chapter{Daftar Istilah} \label{lampiran:daftar-istilah}
 
 \end{document}
